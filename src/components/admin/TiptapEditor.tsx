@@ -76,7 +76,8 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       Image.configure({ allowBase64: false }),
       LinkExtension.configure({ openOnClick: false }),
     ],
-    content,
+    content: content || "<p></p>",
+    immediatelyRender: false,
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
