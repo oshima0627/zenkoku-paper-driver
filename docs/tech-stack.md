@@ -1,4 +1,4 @@
-# 技術スタック提案書
+# 技術スタック（確定版）
 
 ## 全国ペーパードライバー協会 クローンサイト + AIチャットボット
 
@@ -16,13 +16,13 @@
 
 ---
 
-## 2. 推奨技術スタック
+## 2. 技術スタック
 
 ### フロントエンド
 
 | 技術 | 選定理由 |
 |------|----------|
-| **Next.js (App Router)** | SSR/SSGによるSEO最適化、Reactベースで拡張性が高い |
+| **Next.js (App Router)** | SSR/SSGによるSEO最適化、管理画面も一体化できる |
 | **TypeScript** | 型安全性による開発効率・保守性の向上 |
 | **Tailwind CSS** | ユーティリティファーストで元サイトのデザインを効率的に再現 |
 | **Framer Motion** | 元サイトのフェードイン・スライドアニメーションを再現 |
@@ -31,24 +31,33 @@
 
 | 技術 | 選定理由 |
 |------|----------|
-| **Next.js API Routes** | フロントと統合されたAPI。問い合わせフォーム処理等に使用 |
-| **Prisma** | 型安全なORM。ブログ記事やお問い合わせデータの管理 |
-| **PostgreSQL** | 信頼性の高いRDB。Vercel Postgres等でホスティング可能 |
+| **Next.js API Routes** | フロントと統合されたAPI。問い合わせ・記事管理・チャットに使用 |
+| **Prisma** | 型安全なORM。ブログ記事・お問い合わせ・ベクトルデータの管理 |
+| **PostgreSQL (Railway)** | 既存のRailway PostgreSQLを共有利用。コスト削減 |
+| **pgvector** | PostgreSQL拡張。RAG用のベクトル検索をDB内で完結 |
+
+### 管理画面（自前CMS）
+
+| 技術 | 用途 |
+|------|------|
+| **NextAuth.js** | 管理者ログイン認証 |
+| **Tiptap** | リッチテキストエディタ（記事の作成・編集） |
+| **Next.js (App Router)** | `/admin` 配下に管理画面を構築 |
 
 ### AIチャットボット
 
 | 技術 | 選定理由 |
 |------|----------|
-| **Claude API (Anthropic)** | 高品質な日本語応答、長文理解力に優れる |
+| **Claude Haiku 4.5** | 低コスト・高速。FAQ応答に十分な品質 |
 | **Vercel AI SDK** | Next.jsとのシームレスな統合、ストリーミング対応 |
-| **RAG (検索拡張生成)** | サイトコンテンツをベクトル化し、正確な回答を生成 |
+| **RAG + pgvector** | サイトコンテンツをベクトル化し、PostgreSQL内で検索。外部サービス不要 |
 
 ### インフラ・デプロイ
 
 | 技術 | 選定理由 |
 |------|----------|
-| **Vercel** | Next.jsのデプロイに最適。CDN・エッジ機能を活用 |
-| **Vercel Blob / Cloudflare R2** | 画像・メディアファイルのストレージ |
+| **Railway** | 既存プロジェクトにサービス追加。n8nと同居 |
+| **Railway PostgreSQL（既存）** | n8nと共有。Prismaでテーブルを分離管理 |
 
 ### 開発ツール
 
@@ -60,39 +69,76 @@
 
 ---
 
-## 3. プロジェクト構成（案）
+## 3. インフラ構成図
 
 ```
-zenkoku-paper-driver/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── layout.tsx          # 共通レイアウト
-│   │   ├── page.tsx            # トップページ
-│   │   ├── about/              # 協会について
-│   │   ├── services/           # サービス紹介
-│   │   ├── price/              # 料金
-│   │   ├── faq/                # よくある質問
-│   │   ├── blog/               # ブログ記事
-│   │   ├── contact/            # お問い合わせ
-│   │   └── api/                # API Routes
-│   │       ├── chat/           # チャットボットAPI
-│   │       └── contact/        # お問い合わせAPI
-│   ├── components/
-│   │   ├── layout/             # Header, Footer, Navigation
-│   │   ├── ui/                 # ボタン、モーダル、タブ等
-│   │   ├── sections/           # ページセクション
-│   │   └── chatbot/            # AIチャットボットUI
-│   ├── lib/                    # ユーティリティ、API クライアント
-│   └── styles/                 # グローバルスタイル
-├── prisma/                     # DBスキーマ
-├── public/                     # 静的ファイル（画像等）
-├── docs/                       # ドキュメント
-└── tests/                      # テスト
+┌─ Railway プロジェクト ──────────────────────────────────┐
+│                                                          │
+│  ┌────────────────────┐                                  │
+│  │  PostgreSQL（既存） │                                  │
+│  │  + pgvector拡張     │                                  │
+│  └────┬──────────┬────┘                                  │
+│       │          │                                       │
+│  ┌────┴─────┐ ┌──┴──────────────────┐                    │
+│  │ n8n-server│ │ zenkoku-paper-driver│                    │
+│  │ （既存）   │ │ (Next.js)  【新規】 │                    │
+│  └──────────┘ └─────────┬───────────┘                    │
+│                         │                                │
+└─────────────────────────┼────────────────────────────────┘
+                          │
+                   ┌──────┴──────┐
+                   │  Claude API  │
+                   │ (Haiku 4.5)  │
+                   └─────────────┘
 ```
 
 ---
 
-## 4. AIチャットボット設計方針
+## 4. プロジェクト構成
+
+```
+zenkoku-paper-driver/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx              # 共通レイアウト
+│   │   ├── page.tsx                # トップページ
+│   │   ├── about/                  # 協会について
+│   │   ├── services/               # サービス紹介
+│   │   ├── price/                  # 料金
+│   │   ├── faq/                    # よくある質問
+│   │   ├── blog/                   # ブログ記事一覧・詳細
+│   │   ├── contact/                # お問い合わせ
+│   │   ├── admin/                  # 管理画面
+│   │   │   ├── login/              # ログイン
+│   │   │   ├── posts/              # 記事管理（一覧・作成・編集）
+│   │   │   └── dashboard/          # ダッシュボード
+│   │   └── api/
+│   │       ├── chat/               # チャットボットAPI
+│   │       ├── contact/            # お問い合わせAPI
+│   │       ├── posts/              # 記事CRUD API
+│   │       └── auth/               # 認証API
+│   ├── components/
+│   │   ├── layout/                 # Header, Footer, Navigation
+│   │   ├── ui/                     # ボタン、モーダル、タブ等
+│   │   ├── sections/               # ページセクション
+│   │   ├── chatbot/                # AIチャットボットUI
+│   │   └── admin/                  # 管理画面コンポーネント
+│   ├── lib/
+│   │   ├── db.ts                   # Prismaクライアント
+│   │   ├── auth.ts                 # 認証設定
+│   │   ├── rag.ts                  # RAGパイプライン
+│   │   └── embedding.ts            # ベクトル生成
+│   └── styles/                     # グローバルスタイル
+├── prisma/
+│   └── schema.prisma               # DBスキーマ（記事、ベクトル等）
+├── public/                         # 静的ファイル（画像等）
+├── docs/                           # ドキュメント
+└── tests/                          # テスト
+```
+
+---
+
+## 5. AIチャットボット設計方針
 
 ### 機能
 - サイト右下にフローティングボタンで配置
@@ -100,20 +146,56 @@ zenkoku-paper-driver/
 - 料金・エリア・予約方法などのFAQに対応
 - 必要に応じて問い合わせフォームへ誘導
 
-### 技術実装
-1. **RAG パイプライン**: サイトコンテンツをベクトルDB（Pinecone or pgvector）に格納
-2. **Claude API**: コンテキストを付与してストリーミング応答
-3. **Vercel AI SDK**: `useChat` フックによるリアルタイムUI
+### RAGパイプライン
+
+```
+[管理画面で記事投稿]
+       │
+       ▼
+[Embeddingモデルでベクトル化] → [pgvectorに保存]
+       
+[ユーザーの質問]
+       │
+       ▼
+[質問をベクトル化] → [pgvectorで類似検索] → [関連コンテンツ取得]
+       │
+       ▼
+[関連コンテンツ + 質問をClaude Haiku 4.5に送信]
+       │
+       ▼
+[ストリーミング応答をユーザーに表示]
+```
+
+### Embedding（ベクトル生成）
+- **OpenAI text-embedding-3-small** または **Cohere embed-multilingual-v3.0**
+- 日本語対応で低コストなモデルを使用
 
 ---
 
-## 5. 開発フェーズ（案）
+## 6. コスト見積もり
+
+### 月額費用（小〜中規模：1〜10万PV想定）
+
+| 項目 | 費用 |
+|------|------|
+| Railway Hobby プラン基本料 | $5/月 |
+| Next.jsサービス（従量） | $3〜15/月 |
+| PostgreSQL（既存共有のため追加なし） | $0 |
+| Claude Haiku 4.5 API | $2〜10/月 |
+| Embedding API | $1〜5/月 |
+| **合計** | **約 $11〜35/月（約1,600〜5,000円）** |
+
+---
+
+## 7. 開発フェーズ
 
 | フェーズ | 内容 |
 |----------|------|
-| Phase 1 | プロジェクト初期設定、基本レイアウト（Header/Footer/Navigation） |
-| Phase 2 | トップページ・各サブページのUI実装 |
-| Phase 3 | レスポンシブ対応・アニメーション実装 |
-| Phase 4 | バックエンド（問い合わせフォーム、ブログCMS） |
-| Phase 5 | AIチャットボット実装（RAG + Claude API） |
-| Phase 6 | テスト・パフォーマンス最適化・デプロイ |
+| Phase 1 | プロジェクト初期設定（Next.js / Prisma / Tailwind） |
+| Phase 2 | 基本レイアウト（Header / Footer / Navigation） |
+| Phase 3 | トップページ・各サブページのUI実装 |
+| Phase 4 | レスポンシブ対応・アニメーション実装 |
+| Phase 5 | 管理画面（認証 + 記事CRUD + リッチエディタ） |
+| Phase 6 | AIチャットボット実装（RAG + pgvector + Haiku 4.5） |
+| Phase 7 | テスト・パフォーマンス最適化 |
+| Phase 8 | Railwayデプロイ・ドメイン設定 |
