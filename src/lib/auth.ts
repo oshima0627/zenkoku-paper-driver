@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { prisma } from "./db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -10,20 +11,34 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "パスワード", type: "password" },
       },
       async authorize(credentials) {
-        // TODO: Replace with DB lookup when connected
-        const adminEmail = process.env.ADMIN_EMAIL || "admin@example.com";
-        const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+        const email = credentials?.email as string;
+        const password = credentials?.password as string;
 
-        if (
-          credentials?.email === adminEmail &&
-          credentials?.password === adminPassword
-        ) {
-          return {
-            id: "1",
-            name: "管理者",
-            email: adminEmail,
-          };
+        if (!email || !password) return null;
+
+        // DBからユーザーを検索
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email },
+          });
+
+          if (user && user.password === password) {
+            return {
+              id: user.id,
+              name: user.name,
+              email: user.email,
+            };
+          }
+        } catch {
+          // DB接続失敗時は環境変数フォールバック
+          const adminEmail = process.env.ADMIN_EMAIL;
+          const adminPassword = process.env.ADMIN_PASSWORD;
+
+          if (email === adminEmail && password === adminPassword) {
+            return { id: "1", name: "管理者", email: adminEmail };
+          }
         }
+
         return null;
       },
     }),
