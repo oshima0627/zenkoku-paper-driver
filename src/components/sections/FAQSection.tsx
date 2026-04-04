@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import CTASection from "@/components/sections/CTASection";
 
 const faqs = [
   {
@@ -24,24 +24,18 @@ const faqs = [
     question: "講習の所要時間はどれくらいですか？",
     answer: "1回あたり100分を基本としています。集中力を保ちながら効率的に学べる時間配分です。",
   },
-  {
-    question: "講習の費用はどのように決まりますか？",
-    answer: "受講人数・回数・車両の有無によって変動します。法人様向けにはまとめてのお見積りをご提示いたします。",
-  },
 ];
 
-export default function FAQPage() {
+export default function FAQSection() {
   return (
-    <>
-      <section className="bg-[var(--color-primary)] text-white py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">よくある質問</h1>
-          <p className="text-sm text-[var(--color-accent)] mt-2">-FAQ-</p>
+    <section className="py-16 md:py-24 bg-white">
+      <div className="max-w-3xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">よくある質問</h2>
+          <p className="text-sm text-[var(--color-accent)] mt-1">-FAQ-</p>
         </div>
-      </section>
 
-      <section className="py-16 md:py-24">
-        <div className="max-w-3xl mx-auto px-4 space-y-8">
+        <div className="space-y-6">
           {faqs.map((faq, i) => (
             <motion.div
               key={faq.question}
@@ -50,24 +44,30 @@ export default function FAQPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
             >
-              <div className="flex items-start gap-3 mb-3">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[var(--color-accent)] text-white font-bold text-sm shrink-0">
-                  Q
-                </span>
-                <p className="font-bold text-gray-900 pt-1">{faq.question}</p>
+              <div className="flex items-start gap-3 mb-2">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-accent)] text-white font-bold text-xs shrink-0">Q</span>
+                <p className="font-bold text-gray-900 pt-0.5">{faq.question}</p>
               </div>
-              <div className="flex items-start gap-3 ml-0">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[var(--color-primary)] text-white font-bold text-sm shrink-0">
-                  A
-                </span>
-                <p className="text-gray-600 leading-relaxed pt-1">{faq.answer}</p>
+              <div className="flex items-start gap-3">
+                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--color-primary)] text-white font-bold text-xs shrink-0">A</span>
+                <p className="text-gray-600 leading-relaxed pt-0.5">{faq.answer}</p>
               </div>
             </motion.div>
           ))}
         </div>
-      </section>
 
-      <CTASection />
-    </>
+        <div className="text-center mt-10">
+          <Link
+            href="/faq"
+            className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium hover:underline"
+          >
+            すべての質問を見る
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

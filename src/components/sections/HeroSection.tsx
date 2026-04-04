@@ -1,68 +1,51 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-[var(--color-primary)] text-white overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
-          backgroundSize: "40px 40px",
-        }} />
-      </div>
+    <section className="relative min-h-[600px] flex items-end overflow-hidden bg-gradient-to-br from-slate-700 via-slate-600 to-slate-500">
+      {/* Background overlay to simulate the beach/car image */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-      <div className="relative max-w-6xl mx-auto px-4 py-20 md:py-32">
-        <div className="max-w-2xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-[var(--color-accent)] font-bold text-sm md:text-base mb-4"
-          >
-            企業向け安全運転講習専門スクール
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold leading-tight mb-6"
-          >
-            プロフェッショナル集団による
+      <div className="relative max-w-6xl mx-auto px-4 pb-16 pt-32 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-3xl md:text-5xl font-bold text-white leading-relaxed mb-4">
+            交通社会の専門家であり、
             <br />
-            <span className="text-[var(--color-accent)]">安全運転講習</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
-          >
-            交通社会の専門家であり、道路における法律の専門家。
-            全国どこでも出張対応いたします。
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-[var(--color-accent)] text-white rounded-full hover:bg-[var(--color-accent-light)] transition-colors shadow-lg"
+            道路における法律の専門家
+          </h1>
+          <p className="text-sm md:text-base text-gray-300 tracking-widest font-mono">
+            An expert on traffic society and road law
+          </p>
+        </motion.div>
+
+        {/* Three circles */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex justify-end gap-4 md:gap-6 mt-8"
+        >
+          {[
+            { text: "安全運転講習\n専門スクール" },
+            { text: "プロフェッショナル\n集団" },
+            { text: "元白バイ隊員\n監修\nマニュアル作成" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="w-28 h-28 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-cyan-300/80 to-blue-400/80 backdrop-blur-sm flex items-center justify-center text-center"
             >
-              無料相談はこちら
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold border-2 border-white text-white rounded-full hover:bg-white hover:text-[var(--color-primary)] transition-colors"
-            >
-              講習内容を見る
-            </Link>
-          </motion.div>
-        </div>
+              <p className="text-xs md:text-sm font-bold text-white whitespace-pre-line leading-relaxed">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

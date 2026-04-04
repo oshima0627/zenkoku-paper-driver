@@ -5,13 +5,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "ホーム", href: "/" },
-  { label: "協会について", href: "/about" },
-  { label: "講習内容", href: "/services" },
-  { label: "料金", href: "/price" },
+  { label: "協会理念", href: "/about" },
+  { label: "料金案内", href: "/price" },
   { label: "よくある質問", href: "/faq" },
-  { label: "ブログ", href: "/blog" },
-  { label: "お問い合わせ", href: "/contact" },
+  { label: "会社概要", href: "/company" },
+  { label: "採用情報", href: "/recruit" },
 ];
 
 export default function Header() {
@@ -19,54 +17,51 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      {/* Top bar */}
-      <div className="bg-[var(--color-primary)] text-white text-sm">
-        <div className="max-w-6xl mx-auto px-4 py-1.5 flex justify-between items-center">
-          <p>〜プロフェッショナル集団〜 交通社会の専門家</p>
-          <a
-            href="tel:0120-000-000"
-            className="hidden sm:flex items-center gap-1.5 font-bold"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.2 2.2z" />
-            </svg>
-            0120-000-000
-          </a>
-        </div>
-      </div>
-
-      {/* Main header */}
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-[var(--color-primary)]">
-              全国ペーパードライバー協会
-            </span>
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <span className="text-xl font-bold text-[var(--color-primary)]">
+                全国ペーパードライバー協会
+              </span>
+              <p className="text-[10px] text-[var(--color-primary)] tracking-wider">
+                National Paper Drivers Association
+              </p>
+            </div>
           </Link>
 
           {/* Desktop navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[var(--color-primary)] transition-colors rounded-md hover:bg-gray-50"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[var(--color-primary)] transition-colors"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="ml-2 px-4 py-2 text-sm font-bold text-white bg-[var(--color-accent)] rounded-full hover:bg-[var(--color-accent-light)] transition-colors"
+              className="ml-3 px-6 py-3 text-sm font-bold text-white bg-[var(--color-accent)] rounded-md hover:bg-[var(--color-accent-dark)] transition-colors flex items-center gap-2"
             >
-              無料相談
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              お問い合わせ・お申し込み
             </Link>
           </nav>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700"
+            className="lg:hidden p-2 rounded-md text-gray-700"
             aria-label="メニュー"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +83,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden bg-white border-t"
+            className="lg:hidden overflow-hidden bg-white border-t"
           >
             <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
@@ -101,12 +96,13 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="tel:0120-000-000"
-                className="mt-2 px-4 py-3 text-center text-white font-bold bg-[var(--color-accent)] rounded-full"
+              <Link
+                href="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-2 px-4 py-3 text-center text-white font-bold bg-[var(--color-accent)] rounded-md"
               >
-                0120-000-000（無料相談）
-              </a>
+                お問い合わせ・お申し込み
+              </Link>
             </nav>
           </motion.div>
         )}

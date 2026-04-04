@@ -21,23 +21,15 @@ export default function CTASection() {
             <br className="hidden md:block" />
             専門スタッフが丁寧にご対応いたします。
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold bg-[var(--color-accent)] text-white rounded-full hover:bg-[var(--color-accent-light)] transition-colors shadow-lg"
-            >
-              お問い合わせフォーム
-            </Link>
-            <a
-              href="tel:0120-000-000"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold border-2 border-white text-white rounded-full hover:bg-white hover:text-[var(--color-primary)] transition-colors"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.2 2.2z" />
-              </svg>
-              0120-000-000
-            </a>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold bg-[var(--color-accent)] text-white rounded-md hover:bg-[var(--color-accent-dark)] transition-colors shadow-lg"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            お問い合わせ・お申し込み
+          </Link>
         </motion.div>
       </div>
     </section>
