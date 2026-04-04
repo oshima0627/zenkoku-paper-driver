@@ -109,7 +109,20 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
             editor.chain().focus().unsetLink().run();
           } else {
             const url = window.prompt("リンクURL:");
-            if (url) editor.chain().focus().setLink({ href: url }).run();
+            if (url) {
+              // テキストが選択されていない場合はURLをテキストとして挿入
+              const { from, to } = editor.state.selection;
+              if (from === to) {
+                editor.chain().focus()
+                  .insertContent(`<a href="${url}">${url}</a>`)
+                  .run();
+              } else {
+                editor.chain().focus()
+                  .extendMarkRange("link")
+                  .setLink({ href: url })
+                  .run();
+              }
+            }
           }
         }}
         className={btn(state.isLink)}
