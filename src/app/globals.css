@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
 :root {
+  /* ボタン・フッター・特定文字用の紫 */
   --color-primary: #4a2c8a;
   --color-primary-dark: #3a1f6e;
   --color-primary-light: #6b4baf;
+
+  /* サイト全体のイメージカラー（水色/青） */
+  --color-site: #4a9fd9;
+  --color-site-dark: #2d7bb8;
+  --color-site-light: #7ec4f0;
+  --color-site-pale: #e8f4fc;
+
+  /* アクセントカラー（オレンジ） */
   --color-accent: #e8960c;
   --color-accent-dark: #c47d0a;
   --color-accent-light: #f5b84e;
+
+  /* 基本色 */
   --color-bg: #ffffff;
   --color-bg-gray: #f7f7f7;
   --color-text: #333333;
   --color-text-light: #666666;
   --color-text-white: #ffffff;
   --color-border: #e0e0e0;
-  --color-q: #e8960c;
-  --color-a: #4a2c8a;
 }
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-primary-dark: var(--color-primary-dark);
   --color-primary-light: var(--color-primary-light);
+  --color-site: var(--color-site);
+  --color-site-dark: var(--color-site-dark);
+  --color-site-light: var(--color-site-light);
+  --color-site-pale: var(--color-site-pale);
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
   --color-accent-light: var(--color-accent-light);

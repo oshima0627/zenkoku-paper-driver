@@ -27,7 +27,7 @@ const steps = [
 
 export default function FlowSection() {
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-bg-gray)]">
+    <section className="py-16 md:py-24 bg-[var(--color-site-pale)]">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
@@ -50,7 +50,7 @@ export default function FlowSection() {
             >
               <div className="flex items-start gap-5">
                 <div className="shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-[var(--color-primary)] text-white flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-[var(--color-site)] text-white flex flex-col items-center justify-center">
                     <span className="text-[8px] font-bold leading-none">STEP</span>
                     <span className="text-lg font-bold leading-none">{step.number}</span>
                   </div>

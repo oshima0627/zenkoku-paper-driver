@@ -37,7 +37,7 @@ const points = [
 
 export default function StrongPointSection() {
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-bg-gray)]">
+    <section className="py-16 md:py-24 bg-[var(--color-site-pale)]">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -57,10 +57,10 @@ export default function StrongPointSection() {
               className="text-center"
             >
               <p className="text-sm font-bold text-gray-500 tracking-wider mb-2">POINT</p>
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold mb-4">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-site)] text-white font-bold mb-4">
                 {point.number}
               </div>
-              <div className="border-2 border-blue-300 rounded-xl p-8 bg-white">
+              <div className="border-2 border-[var(--color-site-light)] rounded-xl p-8 bg-white">
                 <div className="flex justify-center mb-4 text-gray-600">
                   {point.icon}
                 </div>

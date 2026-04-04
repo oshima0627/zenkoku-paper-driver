@@ -29,7 +29,7 @@ export default function PriceSection() {
 
           {/* スキル診断 + 技能教習 */}
           <div className="border rounded-lg overflow-hidden mb-4">
-            <div className="bg-[var(--color-primary)] text-white p-4 text-center text-sm">
+            <div className="bg-[var(--color-site)] text-white p-4 text-center text-sm">
               <p className="font-bold">① 安全運転スキル診断　50分11,000円/人（任意）</p>
               <p className="text-xs mt-1">※教習時間を悩まれている場合の診断</p>
               <p className="my-2">↓</p>
@@ -66,7 +66,7 @@ export default function PriceSection() {
 
           {/* 学科学 */}
           <div className="border rounded-lg overflow-hidden mb-4">
-            <div className="bg-[var(--color-primary)] text-white p-4 text-center text-sm">
+            <div className="bg-[var(--color-site)] text-white p-4 text-center text-sm">
               <p>↓</p>
               <p className="font-bold">③ 学科学（任意）</p>
               <p className="text-xs mt-1">※会場を借りる場合は別途支給</p>
@@ -83,7 +83,7 @@ export default function PriceSection() {
 
           {/* 最終運転技能チェック */}
           <div className="border rounded-lg overflow-hidden mb-8">
-            <div className="bg-[var(--color-primary)] text-white p-4 text-center text-sm">
+            <div className="bg-[var(--color-site)] text-white p-4 text-center text-sm">
               <p>↓</p>
               <p className="font-bold">④ 最終運転技能チェック/人（必須）</p>
               <p className="text-xs mt-1">※責任者の同乗可能</p>

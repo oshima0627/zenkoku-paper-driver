@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function CTASection() {
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-primary)]">
+    <section className="py-16 md:py-24 bg-gradient-to-r from-[var(--color-site)] to-[var(--color-site-dark)]">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

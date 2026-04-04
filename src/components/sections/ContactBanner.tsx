@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ContactBanner() {
   return (
-    <section className="bg-gradient-to-r from-blue-200 via-purple-200 to-blue-200 py-10">
+    <section className="bg-gradient-to-r from-[var(--color-site-light)]/30 via-[var(--color-site)]/20 to-[var(--color-site-light)]/30 py-10">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
