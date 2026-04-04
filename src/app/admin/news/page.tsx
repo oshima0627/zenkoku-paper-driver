@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface NewsItem {
@@ -11,6 +12,7 @@ interface NewsItem {
 }
 
 export default function NewsListPage() {
+  const router = useRouter();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -61,10 +63,12 @@ export default function NewsListPage() {
               </thead>
               <tbody className="divide-y">
                 {news.map((item) => (
-                  <tr key={item.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4">
-                      <Link href={`/admin/news/${item.id}`} className="text-sm font-medium text-gray-900 hover:text-[var(--color-primary)]">{item.title}</Link>
-                    </td>
+                  <tr
+                    key={item.id}
+                    onClick={() => router.push(`/admin/news/${item.id}`)}
+                    className="hover:bg-gray-50 cursor-pointer"
+                  >
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{item.title}</td>
                     <td className="px-6 py-4">
                       <span className={`inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium ${item.published ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-600"}`}>
                         {item.published ? "公開中" : "下書き"}
@@ -73,8 +77,8 @@ export default function NewsListPage() {
                     <td className="px-6 py-4 text-sm text-gray-500">{new Date(item.publishedAt).toLocaleDateString("ja-JP")}</td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">
-                        <Link href={`/admin/news/${item.id}`} className="text-xs text-[var(--color-primary)] hover:underline">編集</Link>
-                        <button onClick={() => handleDelete(item.id)} className="text-xs text-red-500 hover:underline">削除</button>
+                        <button onClick={(e) => { e.stopPropagation(); router.push(`/admin/news/${item.id}`); }} className="text-xs text-[var(--color-primary)] hover:underline">編集</button>
+                        <button onClick={(e) => { e.stopPropagation(); handleDelete(item.id); }} className="text-xs text-red-500 hover:underline">削除</button>
                       </div>
                     </td>
                   </tr>

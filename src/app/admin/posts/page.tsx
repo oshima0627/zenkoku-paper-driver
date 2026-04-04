@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface Post {
@@ -13,6 +14,7 @@ interface Post {
 }
 
 export default function PostsListPage() {
+  const router = useRouter();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -79,14 +81,13 @@ export default function PostsListPage() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {posts.map((post) => (
-                  <tr key={post.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4">
-                      <Link
-                        href={`/admin/posts/${post.id}`}
-                        className="text-sm font-medium text-gray-900 hover:text-[var(--color-primary)]"
-                      >
-                        {post.title}
-                      </Link>
+                  <tr
+                    key={post.id}
+                    onClick={() => router.push(`/admin/posts/${post.id}`)}
+                    className="hover:bg-gray-50 cursor-pointer"
+                  >
+                    <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                      {post.title}
                     </td>
                     <td className="px-6 py-4">
                       <span
@@ -104,14 +105,14 @@ export default function PostsListPage() {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">
-                        <Link
-                          href={`/admin/posts/${post.id}`}
+                        <button
+                          onClick={(e) => { e.stopPropagation(); router.push(`/admin/posts/${post.id}`); }}
                           className="text-sm text-[var(--color-primary)] hover:underline"
                         >
                           編集
-                        </Link>
+                        </button>
                         <button
-                          onClick={() => handleDelete(post.id)}
+                          onClick={(e) => { e.stopPropagation(); handleDelete(post.id); }}
                           className="text-sm text-red-500 hover:underline"
                         >
                           削除
