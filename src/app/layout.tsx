@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ChatBot from "@/components/chatbot/ChatBot";
+import SiteShell from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
   title: "企業向け安全運転講習専門スクール｜全国ペーパードライバー協会",
@@ -18,10 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ChatBot />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
