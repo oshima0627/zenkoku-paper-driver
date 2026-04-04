@@ -1,12 +1,8 @@
 import { anthropic } from "@ai-sdk/anthropic";
 import { streamText } from "ai";
+import { getRAGContext } from "@/lib/rag";
 
-export async function POST(req: Request) {
-  const { messages } = await req.json();
-
-  const result = streamText({
-    model: anthropic("claude-haiku-4-5-20251001"),
-    system: `あなたは全国ペーパードライバー協会のAIアシスタントです。
+const SYSTEM_PROMPT = `あなたは全国ペーパードライバー協会のAIアシスタントです。
 以下のルールに従って回答してください：
 
 1. 丁寧で親切な日本語で応答する
@@ -24,7 +20,28 @@ export async function POST(req: Request) {
 【料金目安】
 - 個人向け: 16,500円〜 / 1回（2時間）
 - 企業スタンダード: 55,000円〜 / 1回（3時間、最大5名）
-- 企業プレミアム: 110,000円〜 / 1回（6時間、最大10名）`,
+- 企業プレミアム: 110,000円〜 / 1回（6時間、最大10名）`;
+
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  // Get RAG context from the latest user message
+  const lastUserMessage = [...messages].reverse().find((m: { role: string }) => m.role === "user");
+  let ragContext = "";
+  if (lastUserMessage) {
+    const userText =
+      lastUserMessage.parts
+        ?.filter((p: { type: string }) => p.type === "text")
+        .map((p: { text: string }) => p.text)
+        .join("") || lastUserMessage.content || "";
+    ragContext = await getRAGContext(userText);
+  }
+
+  const systemPrompt = SYSTEM_PROMPT + ragContext;
+
+  const result = streamText({
+    model: anthropic("claude-haiku-4-5-20251001"),
+    system: systemPrompt,
     messages,
   });
 
