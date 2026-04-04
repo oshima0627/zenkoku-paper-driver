@@ -2,6 +2,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { getAllMdPosts } from "@/lib/markdown";
 
+export const dynamic = "force-dynamic";
+
 interface ColumnPost {
   slug: string;
   title: string;
