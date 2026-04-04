@@ -7,6 +7,9 @@ import FlowSection from "@/components/sections/FlowSection";
 import PriceSection from "@/components/sections/PriceSection";
 import FAQSection from "@/components/sections/FAQSection";
 import GreetingSection from "@/components/sections/GreetingSection";
+import SchoolSection from "@/components/sections/SchoolSection";
+import CompanySection from "@/components/sections/CompanySection";
+import RecruitSection from "@/components/sections/RecruitSection";
 import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -21,6 +24,9 @@ export default function Home() {
       <PriceSection />
       <FAQSection />
       <GreetingSection />
+      <SchoolSection />
+      <CompanySection />
+      <RecruitSection />
       <CTASection />
     </>
   );
