@@ -10,7 +10,8 @@ import GreetingSection from "@/components/sections/GreetingSection";
 import SchoolSection from "@/components/sections/SchoolSection";
 import CompanySection from "@/components/sections/CompanySection";
 import RecruitSection from "@/components/sections/RecruitSection";
-import CTASection from "@/components/sections/CTASection";
+import ColumnSection from "@/components/sections/ColumnSection";
+import ContactBanner from "@/components/sections/ContactBanner";
 
 export default function Home() {
   return (
@@ -27,7 +28,8 @@ export default function Home() {
       <SchoolSection />
       <CompanySection />
       <RecruitSection />
-      <CTASection />
+      <ColumnSection />
+      <ContactBanner />
     </>
   );
 }
