@@ -22,9 +22,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden">
-              <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={40} height={40} className="w-full h-full object-cover" />
-            </div>
+            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={80} height={44} className="h-11 w-auto object-contain" />
             <div>
               <span className="text-xl font-bold text-[var(--color-primary)]">
                 全国ペーパードライバー協会
