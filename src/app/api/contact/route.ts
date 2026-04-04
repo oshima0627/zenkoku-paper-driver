@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,13 +13,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TODO: Save to database with Prisma when DB is connected
-    // await prisma.contact.create({ data: { name, email, phone, company, message } });
-
-    console.log("Contact form submission:", { name, email, phone, company, message });
+    await prisma.contact.create({
+      data: { name, email, phone: phone || null, company: company || null, message },
+    });
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+    console.error("Contact form error:", error);
     return NextResponse.json(
       { error: "送信に失敗しました" },
       { status: 500 }
