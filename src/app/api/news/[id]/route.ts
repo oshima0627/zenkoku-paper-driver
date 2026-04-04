@@ -22,13 +22,14 @@ export async function PUT(
   const { id } = await params;
   try {
     const body = await req.json();
-    const { title, content, coverImage, publishedAt } = body;
+    const { title, content, coverImage, publishedAt, published } = body;
     const news = await prisma.news.update({
       where: { id },
       data: {
         title,
         content: content || "",
         coverImage: coverImage || null,
+        published: published ?? undefined,
         publishedAt: publishedAt ? new Date(publishedAt) : undefined,
       },
     });

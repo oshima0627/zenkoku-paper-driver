@@ -19,21 +19,18 @@ export default function NewNewsPage() {
     const formData = new FormData();
     formData.append("file", file);
     const res = await fetch("/api/upload", { method: "POST", body: formData });
-    if (res.ok) {
-      const data = await res.json();
-      setCoverImage(data.url);
-    }
+    if (res.ok) setCoverImage((await res.json()).url);
     e.target.value = "";
   }
 
-  async function handleSave() {
+  async function handleSave(publish: boolean) {
     if (!title.trim()) return alert("タイトルは必須です");
     setSaving(true);
     try {
       const res = await fetch("/api/news", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, content, coverImage, publishedAt }),
+        body: JSON.stringify({ title, content, coverImage, publishedAt, published: publish }),
       });
       if (res.ok) router.push("/admin/news");
       else alert("保存に失敗しました");
@@ -50,8 +47,11 @@ export default function NewNewsPage() {
           <h1 className="text-2xl font-bold text-gray-900">新規ニュース作成</h1>
           <div className="flex gap-3">
             <button onClick={() => router.back()} className="px-4 py-2 text-sm text-gray-600 border rounded-lg hover:bg-gray-50">キャンセル</button>
-            <button onClick={handleSave} disabled={saving} className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] rounded-lg hover:bg-[var(--color-primary-dark)] disabled:opacity-50">
-              {saving ? "保存中..." : "保存"}
+            <button onClick={() => handleSave(false)} disabled={saving} className="px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50">
+              {saving ? "保存中..." : "一時保存"}
+            </button>
+            <button onClick={() => handleSave(true)} disabled={saving} className="px-5 py-2 text-sm font-medium text-white bg-[var(--color-primary)] rounded-lg hover:bg-[var(--color-primary-dark)] disabled:opacity-50">
+              {saving ? "保存中..." : "公開"}
             </button>
           </div>
         </div>
@@ -84,7 +84,6 @@ export default function NewNewsPage() {
               )}
             </div>
           </div>
-
           <div className="bg-white rounded-xl border p-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">本文</label>
             <TiptapEditor content={content} onChange={setContent} />
