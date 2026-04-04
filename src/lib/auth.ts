@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { prisma } from "./db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -16,27 +15,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         if (!email || !password) return null;
 
-        // DBからユーザーを検索
+        // DBからユーザーを検索（API経由）
         try {
-          const user = await prisma.user.findUnique({
-            where: { email },
+          const baseUrl = process.env.AUTH_URL || process.env.NEXTAUTH_URL || "http://localhost:3000";
+          const res = await fetch(`${baseUrl}/api/auth/verify`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
           });
 
-          if (user && user.password === password) {
-            return {
-              id: user.id,
-              name: user.name,
-              email: user.email,
-            };
+          if (res.ok) {
+            const user = await res.json();
+            return { id: user.id, name: user.name, email: user.email };
           }
         } catch {
-          // DB接続失敗時は環境変数フォールバック
-          const adminEmail = process.env.ADMIN_EMAIL;
-          const adminPassword = process.env.ADMIN_PASSWORD;
+          // フォールバック: 環境変数
+        }
 
-          if (email === adminEmail && password === adminPassword) {
-            return { id: "1", name: "管理者", email: adminEmail };
-          }
+        // 環境変数フォールバック
+        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminPassword = process.env.ADMIN_PASSWORD;
+        if (email === adminEmail && password === adminPassword) {
+          return { id: "1", name: "管理者", email: adminEmail };
         }
 
         return null;
