@@ -23,7 +23,7 @@ export default function SchoolSection() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">提携スクール</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">提携スクール</h2>
           <p className="text-sm text-[var(--color-accent)] mt-1">-Affiliated school-</p>
         </div>
 
@@ -39,7 +39,7 @@ export default function SchoolSection() {
             >
               {/* Image placeholder */}
               <div className="h-48 bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                <p className="text-white font-bold text-center whitespace-pre-line text-lg">{school.name}</p>
+                <p className="text-white font-bold text-center whitespace-pre-line text-base sm:text-lg">{school.name}</p>
               </div>
               <div className="p-5">
                 <p className="text-xs text-gray-500 font-bold mb-1">【{school.area}】</p>

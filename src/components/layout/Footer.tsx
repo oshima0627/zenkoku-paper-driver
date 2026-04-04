@@ -18,8 +18,8 @@ export default function Footer() {
           <div className="flex items-center justify-center gap-3 mb-2">
             <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={64} height={35} className="h-9 w-auto object-contain" />
             <div>
-              <span className="text-lg font-bold text-[var(--color-primary)]">全国ペーパードライバー協会</span>
-              <p className="text-[9px] text-[var(--color-primary)] tracking-wider">National Paper Drivers Association</p>
+              <span className="text-sm sm:text-lg font-bold text-[var(--color-primary)]">全国ペーパードライバー協会</span>
+              <p className="text-[8px] sm:text-[9px] text-[var(--color-primary)] tracking-wider">National Paper Drivers Association</p>
             </div>
           </div>
         </div>

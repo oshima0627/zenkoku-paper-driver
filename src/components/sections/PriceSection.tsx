@@ -41,7 +41,7 @@ function StepCard({
             {step}
           </span>
           <div>
-            <h3 className="text-white font-bold">{title}</h3>
+            <h3 className="text-white font-bold text-sm sm:text-base">{title}</h3>
             {subtitle && <p className="text-white/70 text-xs mt-0.5">{subtitle}</p>}
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function PriceSection() {
     <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">料金案内</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">料金案内</h2>
           <p className="text-sm text-[var(--color-accent)] mt-1">-PRICE-</p>
           <p className="text-sm text-gray-500 mt-4">安全運転講習料金プラン</p>
         </div>

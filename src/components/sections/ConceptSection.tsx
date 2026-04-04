@@ -19,7 +19,7 @@ export default function ConceptSection() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 17h.01M12 17h.01M16 17h.01M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
             </svg>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">協会理念</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">協会理念</h2>
           <p className="text-sm text-[var(--color-accent)] mt-1">-concept-</p>
         </motion.div>
 
@@ -28,7 +28,7 @@ export default function ConceptSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-6 text-gray-700 leading-relaxed"
+          className="space-y-6 text-gray-700 leading-relaxed text-sm sm:text-base"
         >
           <p>
             <span className="font-bold text-[var(--color-primary)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4">国家資格</span>である指導員資格保持者 × ペーパードライバースクールを数社運営している<span className="font-bold text-[var(--color-primary)] underline decoration-[var(--color-accent)] decoration-2 underline-offset-4">プロフェッショナル</span>

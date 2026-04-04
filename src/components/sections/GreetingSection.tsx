@@ -7,7 +7,7 @@ export default function GreetingSection() {
     <section className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">代表挨拶</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">代表挨拶</h2>
         </div>
 
         <motion.div

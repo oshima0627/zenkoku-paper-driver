@@ -16,7 +16,7 @@ export default function CompanySection() {
     <section className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">会社概要</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">会社概要</h2>
           <p className="text-sm text-[var(--color-accent)] mt-1">-about-</p>
         </div>
 
@@ -31,10 +31,10 @@ export default function CompanySection() {
             <tbody>
               {companyInfo.map((info, i) => (
                 <tr key={info.label} className={i > 0 ? "border-t" : ""}>
-                  <th className="px-6 py-4 text-sm font-bold text-[var(--color-primary)] text-center w-1/3 bg-gray-50">
+                  <th className="px-3 sm:px-6 py-4 text-xs sm:text-sm font-bold text-[var(--color-primary)] text-center w-1/3 bg-gray-50">
                     {info.label}
                   </th>
-                  <td className="px-6 py-4 text-sm text-gray-700 whitespace-pre-line">{info.value}</td>
+                  <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm text-gray-700 whitespace-pre-line">{info.value}</td>
                 </tr>
               ))}
             </tbody>

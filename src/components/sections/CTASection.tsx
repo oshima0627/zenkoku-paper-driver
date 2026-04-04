@@ -13,10 +13,10 @@ export default function CTASection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
             まずはお気軽にご相談ください
           </h2>
-          <p className="text-gray-200 mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-200 mb-8 leading-relaxed">
             講習内容・料金・スケジュールなど、お気軽にお問い合わせください。
             <br className="hidden md:block" />
             専門スタッフが丁寧にご対応いたします。

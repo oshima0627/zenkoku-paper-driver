@@ -35,7 +35,7 @@ export default function FlowSection() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
             </svg>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">ご利用の流れ</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">ご利用の流れ</h2>
           <p className="text-sm text-[var(--color-accent)] mt-1">-FLOW-</p>
         </div>
 

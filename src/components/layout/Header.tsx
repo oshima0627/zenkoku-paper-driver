@@ -24,10 +24,10 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={80} height={44} className="h-11 w-auto object-contain" />
             <div>
-              <span className="text-xl font-bold text-[var(--color-primary)]">
+              <span className="text-sm sm:text-xl font-bold text-[var(--color-primary)]">
                 全国ペーパードライバー協会
               </span>
-              <p className="text-[10px] text-[var(--color-primary)] tracking-wider">
+              <p className="text-[8px] sm:text-[10px] text-[var(--color-primary)] tracking-wider">
                 National Paper Drivers Association
               </p>
             </div>

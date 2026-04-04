@@ -32,7 +32,7 @@ export default async function NewsSection() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <p className="text-xs font-bold tracking-widest text-[var(--color-accent)] uppercase mb-1">News</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">新着情報</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">新着情報</h2>
             <div className="mt-2 w-12 h-1 bg-[var(--color-accent)] rounded-full" />
           </div>
           <Link

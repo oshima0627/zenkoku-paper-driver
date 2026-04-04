@@ -14,12 +14,12 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl md:text-5xl font-bold text-white leading-relaxed mb-4">
+          <h1 className="text-xl sm:text-3xl md:text-5xl font-bold text-white leading-relaxed mb-4">
             交通社会の専門家であり、
             <br />
             道路における法律の専門家
           </h1>
-          <p className="text-sm md:text-base text-gray-300 tracking-widest font-mono">
+          <p className="text-xs sm:text-sm md:text-base text-gray-300 tracking-widest font-mono">
             An expert on traffic society and road law
           </p>
         </motion.div>
@@ -29,7 +29,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex justify-end gap-4 md:gap-6 mt-8"
+          className="flex justify-end gap-2 sm:gap-4 md:gap-6 mt-8"
         >
           {[
             { text: "安全運転講習\n専門スクール" },
@@ -38,9 +38,9 @@ export default function HeroSection() {
           ].map((item, i) => (
             <div
               key={i}
-              className="w-28 h-28 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-cyan-300/80 to-blue-400/80 backdrop-blur-sm flex items-center justify-center text-center"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-cyan-300/80 to-blue-400/80 backdrop-blur-sm flex items-center justify-center text-center"
             >
-              <p className="text-xs md:text-sm font-bold text-white whitespace-pre-line leading-relaxed">
+              <p className="text-[10px] sm:text-xs md:text-sm font-bold text-white whitespace-pre-line leading-snug sm:leading-relaxed">
                 {item.text}
               </p>
             </div>

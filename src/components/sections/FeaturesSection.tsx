@@ -60,7 +60,7 @@ export default function FeaturesSection() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-[var(--color-primary)] font-bold text-sm mb-2">FEATURES</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
             選ばれる4つの理由
           </h2>
           <div className="mt-3 w-16 h-1 bg-[var(--color-accent)] mx-auto rounded-full" />
