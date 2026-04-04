@@ -1,0 +1,75 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  extensions = [vector]
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+
+  @@map("npd_users")
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  excerpt     String?
+  coverImage  String?
+  published   Boolean  @default(false)
+  publishedAt DateTime?
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("npd_posts")
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique
+  slug  String @unique
+  posts Post[]
+
+  @@map("npd_categories")
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  message   String
+  status    String   @default("unread")
+  createdAt DateTime @default(now())
+
+  @@map("npd_contacts")
+}
+
+model Embedding {
+  id        String                   @id @default(cuid())
+  content   String
+  sourceType String
+  sourceId  String
+  vector    Unsupported("vector(1536)")?
+  createdAt DateTime @default(now())
+
+  @@map("npd_embeddings")
+}
