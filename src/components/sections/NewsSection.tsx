@@ -57,7 +57,7 @@ export default async function NewsSection() {
               <span className="shrink-0 text-xs font-mono text-gray-400 w-24">
                 {item.publishedAt.toLocaleDateString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit" })}
               </span>
-              <span className="flex-1 text-sm md:text-base font-medium text-gray-800 group-hover:text-[var(--color-primary)] transition-colors line-clamp-1">
+              <span className="flex-1 min-w-0 text-sm md:text-base font-medium text-gray-800 group-hover:text-[var(--color-primary)] transition-colors line-clamp-1">
                 {item.title}
               </span>
               <svg className="w-4 h-4 text-gray-300 group-hover:text-[var(--color-primary)] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

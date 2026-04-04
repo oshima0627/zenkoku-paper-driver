@@ -59,7 +59,7 @@ export default async function ColumnSection() {
           <p className="text-sm text-[var(--color-accent)] mt-1">-Column-</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {columns.map((col) => (
             <Link key={col.slug} href={`/blog/${col.slug}`} className="block group">
               <div className="relative h-48 bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg overflow-hidden">

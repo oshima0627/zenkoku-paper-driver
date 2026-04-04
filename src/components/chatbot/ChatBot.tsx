@@ -47,8 +47,8 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden"
-            style={{ height: "500px" }}
+            className="fixed bottom-24 right-4 z-50 w-[calc(100vw-32px)] sm:w-[360px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden"
+            style={{ height: "min(500px, calc(100dvh - 120px))" }}
           >
             {/* Header */}
             <div className="bg-[var(--color-primary)] text-white px-4 py-3 flex items-center gap-3">

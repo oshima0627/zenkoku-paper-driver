@@ -36,7 +36,7 @@ export default function ConceptSection() {
           <p>その現役講師陣が社員の皆様の運転をサポート致します。</p>
 
           {/* Image placeholders */}
-          <div className="grid grid-cols-3 gap-4 my-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
             {[1, 2, 3].map((i) => (
               <div key={i} className="aspect-[4/3] bg-gray-200 rounded-lg flex items-center justify-center">
                 <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

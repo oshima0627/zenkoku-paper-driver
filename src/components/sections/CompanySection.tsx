@@ -25,9 +25,9 @@ export default function CompanySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="border rounded-lg overflow-hidden bg-white"
+          className="border rounded-lg overflow-x-auto bg-white"
         >
-          <table className="w-full">
+          <table className="w-full min-w-[320px]">
             <tbody>
               {companyInfo.map((info, i) => (
                 <tr key={info.label} className={i > 0 ? "border-t" : ""}>
