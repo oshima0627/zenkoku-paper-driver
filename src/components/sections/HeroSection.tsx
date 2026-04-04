@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden bg-gradient-to-br from-slate-700 via-slate-600 to-slate-500">
+    <section className="relative min-h-[calc(100vh-5rem)] flex items-end overflow-hidden bg-gradient-to-br from-slate-700 via-slate-600 to-slate-500">
       {/* Background overlay to simulate the beach/car image */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
