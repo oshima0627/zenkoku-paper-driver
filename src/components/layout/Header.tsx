@@ -23,7 +23,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full overflow-hidden">
-              <Image src="/logo.png" alt="全国ペーパードライバー協会ロゴ" width={40} height={40} className="w-full h-full object-cover" />
+              <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={40} height={40} className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="text-xl font-bold text-[var(--color-primary)]">

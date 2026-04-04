@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-3 mb-2">
             <div className="w-8 h-8 rounded-full overflow-hidden">
-              <Image src="/logo.png" alt="全国ペーパードライバー協会ロゴ" width={32} height={32} className="w-full h-full object-cover" />
+              <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={32} height={32} className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="text-lg font-bold text-[var(--color-primary)]">全国ペーパードライバー協会</span>
