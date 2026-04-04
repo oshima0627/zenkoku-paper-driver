@@ -1,9 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import path from "path";
-import crypto from "crypto";
-
-const UPLOAD_DIR = "/tmp/uploads";
 
 export async function POST(req: NextRequest) {
   try {
@@ -24,19 +19,10 @@ export async function POST(req: NextRequest) {
     }
 
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const base64 = Buffer.from(bytes).toString("base64");
+    const dataUrl = `data:${file.type};base64,${base64}`;
 
-    const ext = path.extname(file.name) || ".jpg";
-    const hash = crypto.randomBytes(8).toString("hex");
-    const filename = `${Date.now()}-${hash}${ext}`;
-
-    await mkdir(UPLOAD_DIR, { recursive: true });
-    await writeFile(path.join(UPLOAD_DIR, filename), buffer);
-
-    // Return API route URL instead of static path
-    const url = `/api/uploads/${filename}`;
-
-    return NextResponse.json({ url });
+    return NextResponse.json({ url: dataUrl });
   } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json({ error: "アップロードに失敗しました" }, { status: 500 });
