@@ -84,7 +84,7 @@ export default async function BlogPage() {
                 >
                   {post.coverImage && (
                     <Link href={`/blog/${post.slug}`}>
-                      <img src={post.coverImage} alt={post.title} className="w-full h-48 object-cover" />
+                      <img src={post.coverImage} alt={post.title} className="w-full h-48 object-contain bg-gray-100" />
                     </Link>
                   )}
                   <div className="p-6">
