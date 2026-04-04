@@ -51,8 +51,8 @@ export default function NewsListPage() {
             <Link href="/admin/news/new" className="text-[var(--color-primary)] font-medium hover:underline">最初のニュースを作成する</Link>
           </div>
         ) : (
-          <div className="bg-white rounded-xl border overflow-hidden">
-            <table className="w-full">
+          <div className="bg-white rounded-xl border overflow-hidden overflow-x-auto">
+            <table className="w-full min-w-[600px]">
               <thead className="bg-gray-50 border-b">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase">タイトル</th>

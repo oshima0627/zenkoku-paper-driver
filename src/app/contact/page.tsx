@@ -4,6 +4,21 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ContactBanner from "@/components/sections/ContactBanner";
 
+function FormRow({ label, sub, required, children }: { label: string; sub?: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col sm:flex-row border-b last:border-b-0">
+      <div className="sm:w-1/3 px-4 py-4 sm:py-5 bg-gray-50 sm:bg-transparent">
+        <p className="text-sm font-bold text-gray-900">
+          {label}
+          {required && <span className="text-red-500 text-xs ml-1">必須</span>}
+        </p>
+        {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
+      </div>
+      <div className="px-4 py-4 sm:py-5 flex-1">{children}</div>
+    </div>
+  );
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -61,105 +76,67 @@ export default function ContactPage() {
               </div>
 
               <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                <table className="w-full border-t">
-                  <tbody>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top w-1/3">
-                        <p className="text-sm font-bold text-gray-900">会社名</p>
-                        <p className="text-xs text-gray-400">Company name</p>
-                      </th>
-                      <td className="px-4 py-5">
-                        <input type="text" name="company" className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">担当者氏名 <span className="text-red-500 text-xs">必須</span></p>
-                        <p className="text-xs text-gray-400">Name</p>
-                      </th>
-                      <td className="px-4 py-5">
-                        <input type="text" name="name" required className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">メールアドレス <span className="text-red-500 text-xs">必須</span></p>
-                        <p className="text-xs text-gray-400">E-mail</p>
-                      </th>
-                      <td className="px-4 py-5">
-                        <input type="email" name="email" required placeholder="例：〇〇@gmail.com" className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">電話番号</p>
-                        <p className="text-xs text-gray-400">Tel</p>
-                      </th>
-                      <td className="px-4 py-5">
-                        <input type="tel" name="phone" placeholder="例：000-0000-0000" className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">お問い合わせの返信方法</p>
-                      </th>
-                      <td className="px-4 py-5 space-y-2">
-                        <label className="flex items-center gap-2 text-sm"><input type="radio" name="replyMethod" value="メール" className="text-[var(--color-primary)]" />メール</label>
-                        <label className="flex items-center gap-2 text-sm"><input type="radio" name="replyMethod" value="電話" className="text-[var(--color-primary)]" />電話</label>
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">返信方法が電話の場合の希望日時</p>
-                      </th>
-                      <td className="px-4 py-5 space-y-2">
-                        <input type="date" name="preferredDate" className="px-3 py-2 border border-gray-300 rounded text-sm" />
-                        <input type="text" name="preferredTime" placeholder="○時から○時" className="ml-2 px-3 py-2 border border-gray-300 rounded text-sm" />
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">使用する車</p>
-                      </th>
-                      <td className="px-4 py-5 space-y-2">
-                        <label className="flex items-center gap-2 text-sm"><input type="radio" name="carType" value="当スクールの教習車" />当スクールの教習車</label>
-                        <label className="flex items-center gap-2 text-sm"><input type="radio" name="carType" value="社用車" />社用車</label>
-                      </td>
-                    </tr>
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">出張先</p>
-                      </th>
-                      <td className="px-4 py-5 space-y-2">
-                        <label className="flex items-center gap-2 text-sm"><input type="radio" name="location" value="会社" />会社</label>
-                        <label className="flex items-center gap-2 text-sm"><input type="radio" name="location" value="会社以外" />会社以外</label>
-                      </td>
-                    </tr>
-                    {[1, 2, 3].map((n) => (
-                      <tr key={n} className="border-b">
-                        <th className="px-4 py-5 text-left align-top">
-                          <p className="text-sm font-bold text-gray-900">第{n}希望日</p>
-                        </th>
-                        <td className="px-4 py-5 flex items-center gap-2">
-                          <input type="date" name={`date${n}`} className="px-3 py-2 border border-gray-300 rounded text-sm" />
-                          <select name={`time${n}`} className="px-3 py-2 border border-gray-300 rounded text-sm">
-                            <option>午前</option>
-                            <option>午後</option>
-                          </select>
-                        </td>
-                      </tr>
-                    ))}
-                    <tr className="border-b">
-                      <th className="px-4 py-5 text-left align-top">
-                        <p className="text-sm font-bold text-gray-900">メッセージ <span className="text-red-500 text-xs">必須</span></p>
-                        <p className="text-xs text-gray-400">Message</p>
-                      </th>
-                      <td className="px-4 py-5">
-                        <textarea name="message" required rows={6} className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm resize-vertical" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className="border-t rounded-lg overflow-hidden">
+                  <FormRow label="会社名" sub="Company name">
+                    <input type="text" name="company" className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
+                  </FormRow>
+
+                  <FormRow label="担当者氏名" sub="Name" required>
+                    <input type="text" name="name" required className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
+                  </FormRow>
+
+                  <FormRow label="メールアドレス" sub="E-mail" required>
+                    <input type="email" name="email" required placeholder="例：〇〇@gmail.com" className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
+                  </FormRow>
+
+                  <FormRow label="電話番号" sub="Tel">
+                    <input type="tel" name="phone" placeholder="例：000-0000-0000" className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm" />
+                  </FormRow>
+
+                  <FormRow label="お問い合わせの返信方法">
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm"><input type="radio" name="replyMethod" value="メール" className="text-[var(--color-primary)]" />メール</label>
+                      <label className="flex items-center gap-2 text-sm"><input type="radio" name="replyMethod" value="電話" className="text-[var(--color-primary)]" />電話</label>
+                    </div>
+                  </FormRow>
+
+                  <FormRow label="返信方法が電話の場合の希望日時">
+                    <div className="flex flex-wrap gap-2">
+                      <input type="date" name="preferredDate" className="px-3 py-2 border border-gray-300 rounded text-sm" />
+                      <input type="text" name="preferredTime" placeholder="○時から○時" className="px-3 py-2 border border-gray-300 rounded text-sm w-32" />
+                    </div>
+                  </FormRow>
+
+                  <FormRow label="使用する車">
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm"><input type="radio" name="carType" value="当スクールの教習車" />当スクールの教習車</label>
+                      <label className="flex items-center gap-2 text-sm"><input type="radio" name="carType" value="社用車" />社用車</label>
+                    </div>
+                  </FormRow>
+
+                  <FormRow label="出張先">
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm"><input type="radio" name="location" value="会社" />会社</label>
+                      <label className="flex items-center gap-2 text-sm"><input type="radio" name="location" value="会社以外" />会社以外</label>
+                    </div>
+                  </FormRow>
+
+                  {[1, 2, 3].map((n) => (
+                    <FormRow key={n} label={`第${n}希望日`}>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <input type="date" name={`date${n}`} className="px-3 py-2 border border-gray-300 rounded text-sm" />
+                        <select name={`time${n}`} className="px-3 py-2 border border-gray-300 rounded text-sm">
+                          <option>午前</option>
+                          <option>午後</option>
+                        </select>
+                      </div>
+                    </FormRow>
+                  ))}
+
+                  <FormRow label="メッセージ" sub="Message" required>
+                    <textarea name="message" required rows={6} className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm resize-vertical" />
+                  </FormRow>
+                </div>
 
                 <div className="text-center mt-8">
                   <button type="submit" className="px-12 py-3 border border-gray-400 rounded text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
