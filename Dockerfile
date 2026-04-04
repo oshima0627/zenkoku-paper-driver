@@ -29,7 +29,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modul
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/pg ./node_modules/pg
 
 USER nextjs
-EXPOSE 3000
-ENV PORT=3000
+EXPOSE 5678
+ENV PORT=5678
 ENV HOSTNAME="0.0.0.0"
 CMD ["node", "server.js"]
