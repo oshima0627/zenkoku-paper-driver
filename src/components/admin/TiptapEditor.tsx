@@ -24,7 +24,7 @@ async function uploadImage(file: File): Promise<string | null> {
   return data.url;
 }
 
-function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEditor>; onImageUpload: () => void }) {
+function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEditor> | null; onImageUpload: () => void }) {
   if (!editor) return null;
 
   const btn = (active: boolean) =>
