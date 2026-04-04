@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function RecruitSection() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">採用情報</h2>

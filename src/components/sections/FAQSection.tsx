@@ -61,7 +61,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export default function FAQSection() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">よくある質問</h2>

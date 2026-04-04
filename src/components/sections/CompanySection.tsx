@@ -13,7 +13,7 @@ const companyInfo = [
 
 export default function CompanySection() {
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-site-pale)]">
+    <section className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">会社概要</h2>

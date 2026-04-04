@@ -15,7 +15,7 @@ const schools = [
 
 export default function SchoolSection() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white border-t border-gray-100">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
