@@ -3,7 +3,10 @@ import IntroSection from "@/components/sections/IntroSection";
 import NewsSection from "@/components/sections/NewsSection";
 import ConceptSection from "@/components/sections/ConceptSection";
 import StrongPointSection from "@/components/sections/StrongPointSection";
+import FlowSection from "@/components/sections/FlowSection";
+import PriceSection from "@/components/sections/PriceSection";
 import FAQSection from "@/components/sections/FAQSection";
+import GreetingSection from "@/components/sections/GreetingSection";
 import CTASection from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -14,7 +17,10 @@ export default function Home() {
       <NewsSection />
       <ConceptSection />
       <StrongPointSection />
+      <FlowSection />
+      <PriceSection />
       <FAQSection />
+      <GreetingSection />
       <CTASection />
     </>
   );
