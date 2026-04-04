@@ -23,9 +23,9 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { title, slug, excerpt, content, published } = body;
+    const { title, slug, excerpt, content, coverImage, published } = body;
 
-    if (!title || !slug || !content) {
+    if (!title || !slug) {
       return NextResponse.json({ error: "必須項目を入力してください" }, { status: 400 });
     }
 
@@ -34,7 +34,8 @@ export async function POST(req: NextRequest) {
         title,
         slug,
         excerpt: excerpt || null,
-        content,
+        content: content || "",
+        coverImage: coverImage || null,
         published,
         publishedAt: published ? new Date() : null,
         authorId: "1", // TODO: Get from session

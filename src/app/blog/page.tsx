@@ -9,6 +9,7 @@ export default async function BlogPage() {
     title: string;
     slug: string;
     excerpt: string | null;
+    coverImage: string | null;
     publishedAt: Date | null;
     createdAt: Date;
   }> = [];
@@ -22,6 +23,7 @@ export default async function BlogPage() {
         title: true,
         slug: true,
         excerpt: true,
+        coverImage: true,
         publishedAt: true,
         createdAt: true,
       },
@@ -52,6 +54,11 @@ export default async function BlogPage() {
                   key={post.id}
                   className="bg-white border rounded-xl overflow-hidden hover:shadow-md transition-shadow"
                 >
+                  {post.coverImage && (
+                    <Link href={`/blog/${post.slug}`}>
+                      <img src={post.coverImage} alt={post.title} className="w-full h-48 object-cover" />
+                    </Link>
+                  )}
                   <div className="p-6">
                     <time className="text-xs text-gray-400">
                       {(post.publishedAt || post.createdAt).toLocaleDateString("ja-JP")}
