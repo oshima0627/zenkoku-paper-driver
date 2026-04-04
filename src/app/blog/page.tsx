@@ -80,11 +80,19 @@ export default async function BlogPage() {
               {allPosts.map((post) => (
                 <article
                   key={`${post.source}-${post.slug}`}
-                  className="bg-white border rounded-xl overflow-hidden hover:shadow-md transition-shadow"
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 group"
                 >
-                  {post.coverImage && (
-                    <Link href={`/blog/${post.slug}`}>
-                      <img src={post.coverImage} alt={post.title} className="w-full h-48 object-contain bg-gray-100" />
+                  {post.coverImage ? (
+                    <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
+                      <img src={post.coverImage} alt={post.title} className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </Link>
+                  ) : (
+                    <Link href={`/blog/${post.slug}`} className="block">
+                      <div className="w-full aspect-video bg-gradient-to-br from-[var(--color-site-light)] to-[var(--color-site)] flex items-center justify-center">
+                        <svg className="w-16 h-16 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                      </div>
                     </Link>
                   )}
                   <div className="p-6">
