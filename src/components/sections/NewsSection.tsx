@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 interface NewsItem {
   id: string;
   title: string;
-  url: string | null;
+  slug: string;
   publishedAt: Date;
 }
 
@@ -32,13 +32,9 @@ export default async function NewsSection() {
         <div className="divide-y divide-gray-200">
           {news.map((item) => (
             <div key={item.id} className="py-5">
-              {item.url ? (
-                <Link href={item.url} className="text-[var(--color-primary)] hover:underline font-medium">
-                  {item.title}
-                </Link>
-              ) : (
-                <span className="font-medium text-gray-900">{item.title}</span>
-              )}
+              <Link href={`/news/${item.slug}`} className="text-[var(--color-primary)] hover:underline font-medium">
+                {item.title}
+              </Link>
               <p className="text-xs text-gray-500 mt-1">
                 {item.publishedAt.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" })}
               </p>

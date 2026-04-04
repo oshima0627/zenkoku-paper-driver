@@ -15,7 +15,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { title, url, publishedAt } = body;
+    const { title, slug, content, coverImage, publishedAt } = body;
 
     if (!title) {
       return NextResponse.json({ error: "タイトルは必須です" }, { status: 400 });
@@ -24,7 +24,9 @@ export async function POST(req: NextRequest) {
     const news = await prisma.news.create({
       data: {
         title,
-        url: url || null,
+        slug: slug || `news-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`,
+        content: content || "",
+        coverImage: coverImage || null,
         publishedAt: publishedAt ? new Date(publishedAt) : new Date(),
       },
     });
