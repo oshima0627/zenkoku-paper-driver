@@ -2,7 +2,6 @@
 
 import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
-import AdminHeader from "@/components/admin/AdminHeader";
 import TiptapEditor from "@/components/admin/TiptapEditor";
 
 export default function EditNewsPage({ params }: { params: Promise<{ id: string }> }) {
@@ -62,13 +61,13 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
   }
 
   if (loading) {
-    return <div className="min-h-screen bg-gray-50"><AdminHeader /><div className="text-center py-16 text-gray-500">読み込み中...</div></div>;
+    return <div><div className="text-center py-16 text-gray-500">読み込み中...</div></div>;
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <AdminHeader />
-      <main className="max-w-4xl mx-auto px-4 py-8">
+    <div>
+      
+      <main className="max-w-4xl mx-auto p-8">
         <div className="flex justify-between items-center mb-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">ニュース編集</h1>

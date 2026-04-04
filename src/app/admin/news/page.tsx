@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import AdminHeader from "@/components/admin/AdminHeader";
 
 interface NewsItem {
   id: string;
@@ -34,9 +33,9 @@ export default function NewsListPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <AdminHeader />
-      <main className="max-w-4xl mx-auto px-4 py-8">
+    <div>
+      
+      <main className="max-w-4xl mx-auto p-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-900">News管理</h1>
           <Link href="/admin/news/new" className="px-4 py-2 bg-[var(--color-primary)] text-white font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors">新規作成</Link>

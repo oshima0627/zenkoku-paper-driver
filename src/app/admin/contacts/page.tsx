@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AdminHeader from "@/components/admin/AdminHeader";
 
 interface Contact {
   id: string;
@@ -36,9 +35,9 @@ export default function ContactsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <AdminHeader />
-      <main className="max-w-6xl mx-auto px-4 py-8">
+    <div>
+      
+      <main className="p-8">
         <h1 className="text-2xl font-bold text-gray-900 mb-6">お問い合わせ管理</h1>
 
         {loading ? (

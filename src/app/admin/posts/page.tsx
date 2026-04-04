@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import AdminHeader from "@/components/admin/AdminHeader";
 
 interface Post {
   id: string;
@@ -42,9 +41,9 @@ export default function PostsListPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <AdminHeader />
-      <main className="max-w-6xl mx-auto px-4 py-8">
+    <div>
+      
+      <main className="p-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-900">記事管理</h1>
           <Link

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import AdminHeader from "@/components/admin/AdminHeader";
 import TiptapEditor from "@/components/admin/TiptapEditor";
 
 function generateSlug(): string {
@@ -56,9 +55,9 @@ export default function NewPostPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <AdminHeader />
-      <main className="max-w-4xl mx-auto px-4 py-8">
+    <div>
+      
+      <main className="max-w-4xl mx-auto p-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-900">新規記事作成</h1>
           <div className="flex gap-3">
