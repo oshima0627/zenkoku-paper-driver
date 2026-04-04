@@ -4,7 +4,10 @@ import { useEditor, EditorContent, useEditorState } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import LinkExtension from "@tiptap/extension-link";
-import { useRef, useCallback } from "react";
+import Underline from "@tiptap/extension-underline";
+import { TextStyle, Color } from "@tiptap/extension-text-style";
+import { Highlight } from "@tiptap/extension-highlight";
+import { useRef, useCallback, useState } from "react";
 
 interface TiptapEditorProps {
   content: string;
@@ -23,11 +26,90 @@ async function uploadImage(file: File): Promise<string | null> {
   return (await res.json()).url;
 }
 
-// Prevent focus loss from editor when clicking toolbar buttons
 const prevent = (e: React.MouseEvent) => e.preventDefault();
 
+const TEXT_COLORS = [
+  { label: "デフォルト", value: "" },
+  { label: "赤", value: "#dc2626" },
+  { label: "オレンジ", value: "#e8960c" },
+  { label: "緑", value: "#16a34a" },
+  { label: "青", value: "#2563eb" },
+  { label: "紫", value: "#4a2c8a" },
+  { label: "グレー", value: "#6b7280" },
+];
+
+const HIGHLIGHT_COLORS = [
+  { label: "なし", value: "" },
+  { label: "黄色", value: "#fef08a" },
+  { label: "緑", value: "#bbf7d0" },
+  { label: "青", value: "#bfdbfe" },
+  { label: "ピンク", value: "#fecdd3" },
+  { label: "オレンジ", value: "#fed7aa" },
+];
+
+function ColorPicker({
+  colors,
+  currentColor,
+  onSelect,
+  label,
+}: {
+  colors: { label: string; value: string }[];
+  currentColor: string;
+  onSelect: (color: string) => void;
+  label: string;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onMouseDown={prevent}
+        onClick={() => setOpen(!open)}
+        className="px-2.5 py-1.5 text-sm rounded-md font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center gap-1"
+        title={label}
+      >
+        {label === "文字色" ? (
+          <span className="flex flex-col items-center">
+            <span className="text-xs font-bold" style={{ color: currentColor || undefined }}>A</span>
+            <span className="w-4 h-1 rounded-full" style={{ backgroundColor: currentColor || "#333" }} />
+          </span>
+        ) : (
+          <span className="flex flex-col items-center">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+            <span className="w-4 h-1 rounded-full" style={{ backgroundColor: currentColor || "#fef08a" }} />
+          </span>
+        )}
+      </button>
+      {open && (
+        <>
+          <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
+          <div className="absolute top-full left-0 mt-1 bg-white border rounded-lg shadow-lg p-2 z-20 min-w-[140px]">
+            {colors.map((c) => (
+              <button
+                key={c.label}
+                type="button"
+                onMouseDown={prevent}
+                onClick={() => { onSelect(c.value); setOpen(false); }}
+                className="w-full flex items-center gap-2 px-2 py-1.5 text-xs rounded hover:bg-gray-100 text-left"
+              >
+                <span
+                  className="w-4 h-4 rounded border border-gray-200 shrink-0"
+                  style={{ backgroundColor: c.value || (label === "文字色" ? "#333" : "transparent") }}
+                />
+                {c.label}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEditor> | null; onImageUpload: () => void }) {
-  // useEditorState for reactive toolbar state - only re-renders when active states change
   const state = useEditorState({
     editor: editor,
     selector: (ctx) => {
@@ -36,12 +118,15 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
       return {
         isBold: e.isActive("bold"),
         isItalic: e.isActive("italic"),
+        isUnderline: e.isActive("underline"),
         isH2: e.isActive("heading", { level: 2 }),
         isH3: e.isActive("heading", { level: 3 }),
         isBulletList: e.isActive("bulletList"),
         isOrderedList: e.isActive("orderedList"),
         isBlockquote: e.isActive("blockquote"),
         isLink: e.isActive("link"),
+        textColor: (e.getAttributes("textStyle").color as string) || "",
+        highlightColor: (e.getAttributes("highlight").color as string) || "",
         canUndo: e.can().undo(),
         canRedo: e.can().redo(),
       };
@@ -61,23 +146,53 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
 
   return (
     <div className="flex flex-wrap items-center gap-1 p-2.5 border-b bg-gray-50" role="toolbar" aria-label="テキスト書式">
-      {/* Block level */}
       <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={btn(state.isH2)} title="見出し2">H2</button>
       <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={btn(state.isH3)} title="見出し3">H3</button>
 
       <div className="w-px h-6 bg-gray-300 mx-1" />
 
-      {/* Inline marks */}
       <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().toggleBold().run()} className={btn(state.isBold)} title="太字 (Ctrl+B)">
         <span className="font-bold">B</span>
       </button>
       <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().toggleItalic().run()} className={btn(state.isItalic)} title="斜体 (Ctrl+I)">
         <span className="italic">I</span>
       </button>
+      <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().toggleUnderline().run()} className={btn(state.isUnderline)} title="下線 (Ctrl+U)">
+        <span className="underline">U</span>
+      </button>
 
       <div className="w-px h-6 bg-gray-300 mx-1" />
 
-      {/* Lists */}
+      {/* Text Color */}
+      <ColorPicker
+        label="文字色"
+        colors={TEXT_COLORS}
+        currentColor={state.textColor}
+        onSelect={(color) => {
+          if (color) {
+            editor.chain().focus().setColor(color).run();
+          } else {
+            editor.chain().focus().unsetColor().run();
+          }
+        }}
+      />
+
+      {/* Highlight */}
+      <ColorPicker
+        label="マーカー"
+        colors={HIGHLIGHT_COLORS}
+        currentColor={state.highlightColor}
+        onSelect={(color) => {
+          if (color) {
+            editor.chain().focus().toggleHighlight({ color }).run();
+          } else {
+            editor.chain().focus().unsetHighlight().run();
+          }
+        }}
+      />
+
+      <div className="w-px h-6 bg-gray-300 mx-1" />
+
       <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().toggleBulletList().run()} className={btn(state.isBulletList)} title="箇条書きリスト">
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <line x1="9" y1="6" x2="20" y2="6" /><line x1="9" y1="12" x2="20" y2="12" /><line x1="9" y1="18" x2="20" y2="18" />
@@ -100,7 +215,6 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
 
       <div className="w-px h-6 bg-gray-300 mx-1" />
 
-      {/* Link */}
       <button
         type="button"
         onMouseDown={prevent}
@@ -110,17 +224,11 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
           } else {
             const url = window.prompt("リンクURL:");
             if (url) {
-              // テキストが選択されていない場合はURLをテキストとして挿入
               const { from, to } = editor.state.selection;
               if (from === to) {
-                editor.chain().focus()
-                  .insertContent(`<a href="${url}">${url}</a>`)
-                  .run();
+                editor.chain().focus().insertContent(`<a href="${url}">${url}</a>`).run();
               } else {
-                editor.chain().focus()
-                  .extendMarkRange("link")
-                  .setLink({ href: url })
-                  .run();
+                editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
               }
             }
           }
@@ -134,7 +242,6 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
         </svg>
       </button>
 
-      {/* Image */}
       <button type="button" onMouseDown={prevent} onClick={onImageUpload} className={btn(false)} title="画像を挿入">
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -145,7 +252,6 @@ function MenuBar({ editor, onImageUpload }: { editor: ReturnType<typeof useEdito
 
       <div className="w-px h-6 bg-gray-300 mx-1" />
 
-      {/* Undo / Redo */}
       <button type="button" onMouseDown={prevent} onClick={() => editor.chain().focus().undo().run()} className={btn(false, !state.canUndo)} disabled={!state.canUndo} title="元に戻す (Ctrl+Z)">
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <polyline points="1 4 1 10 7 10" /><path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
@@ -168,6 +274,10 @@ export default function TiptapEditor({ content, onChange }: TiptapEditorProps) {
       StarterKit,
       Image.configure({ allowBase64: false }),
       LinkExtension.configure({ openOnClick: false }),
+      Underline,
+      TextStyle,
+      Color,
+      Highlight.configure({ multicolor: true }),
     ],
     content: content || "<p></p>",
     immediatelyRender: false,
