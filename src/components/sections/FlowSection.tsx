@@ -27,7 +27,7 @@ const steps = [
 
 export default function FlowSection() {
   return (
-    <section className="py-16 md:py-24 bg-[var(--color-site-pale)]">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
