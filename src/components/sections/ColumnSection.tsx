@@ -1,15 +1,49 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { prisma } from "@/lib/db";
+import { getAllMdPosts } from "@/lib/markdown";
 
-const columns = [
-  { title: "新入社員・異動者に必須！企業が行うべき社用車オリエンテーションとは？", date: "2026年1月30日" },
-  { title: "社用車事故の「心理的原因」─なぜ分かっていても事故は起きるのか？", date: "2026年1月23日" },
-  { title: "雨の日・夜間の事故が増える理由とは？企業が教えるべき環境別安全運転", date: "2026年1月16日" },
-];
+interface ColumnPost {
+  slug: string;
+  title: string;
+  coverImage: string | null;
+  publishedAt: Date;
+}
 
-export default function ColumnSection() {
+export default async function ColumnSection() {
+  // DB記事を取得
+  let dbPosts: ColumnPost[] = [];
+  try {
+    const posts = await prisma.post.findMany({
+      where: { published: true },
+      orderBy: { publishedAt: "desc" },
+      take: 5,
+      select: { slug: true, title: true, coverImage: true, publishedAt: true, createdAt: true },
+    });
+    dbPosts = posts.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      coverImage: p.coverImage,
+      publishedAt: p.publishedAt || p.createdAt,
+    }));
+  } catch {
+    // DB not connected
+  }
+
+  // MD記事を取得
+  const mdPosts: ColumnPost[] = getAllMdPosts().map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    coverImage: p.coverImage,
+    publishedAt: p.publishedAt,
+  }));
+
+  // 統合して最新3件
+  const columns = [...dbPosts, ...mdPosts]
+    .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime())
+    .slice(0, 3);
+
+  if (columns.length === 0) return null;
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-5xl mx-auto px-4">
@@ -24,29 +58,24 @@ export default function ColumnSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {columns.map((col, i) => (
-            <motion.div
-              key={col.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-            >
-              <Link href="/blog" className="block group">
-                <div className="relative h-48 bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-sm font-bold text-white leading-relaxed">{col.title}</h3>
-                    <p className="text-xs text-gray-300 mt-2 flex items-center gap-1">
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      {col.date}
-                    </p>
-                  </div>
+          {columns.map((col) => (
+            <Link key={col.slug} href={`/blog/${col.slug}`} className="block group">
+              <div className="relative h-48 bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg overflow-hidden">
+                {col.coverImage && (
+                  <img src={col.coverImage} alt={col.title} className="absolute inset-0 w-full h-full object-cover" />
+                )}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="text-sm font-bold text-white leading-relaxed">{col.title}</h3>
+                  <p className="text-xs text-gray-300 mt-2 flex items-center gap-1">
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {col.publishedAt.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" })}
+                  </p>
                 </div>
-              </Link>
-            </motion.div>
+              </div>
+            </Link>
           ))}
         </div>
 

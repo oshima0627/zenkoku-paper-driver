@@ -63,6 +63,16 @@ model Contact {
   @@map("npd_contacts")
 }
 
+model News {
+  id          String   @id @default(cuid())
+  title       String
+  url         String?
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  @@map("npd_news")
+}
+
 model Embedding {
   id        String                   @id @default(cuid())
   content   String

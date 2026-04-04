@@ -17,6 +17,9 @@ export default function AdminHeader() {
             <Link href="/admin/posts" className="text-gray-600 hover:text-[var(--color-primary)]">
               記事管理
             </Link>
+            <Link href="/admin/news" className="text-gray-600 hover:text-[var(--color-primary)]">
+              News
+            </Link>
             <Link href="/admin/contacts" className="text-gray-600 hover:text-[var(--color-primary)]">
               お問い合わせ
             </Link>
