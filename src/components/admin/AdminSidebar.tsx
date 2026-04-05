@@ -54,16 +54,16 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
   const { data: session } = useSession();
 
   const sidebarContent = (
-    <aside className="w-64 bg-[#1e2a4a] text-white flex flex-col h-full">
+    <aside className="w-64 bg-white text-gray-800 flex flex-col h-full border-r border-gray-200">
       {/* Logo */}
-      <div className="p-5 border-b border-white/10">
+      <div className="p-5 border-b border-gray-200">
         <Link href="/admin/dashboard" className="flex items-center gap-3" onClick={onClose}>
-          <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5">
+          <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center shrink-0 overflow-hidden p-1.5">
             <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={128} height={70} className="w-full h-full object-contain" />
           </div>
           <div>
-            <p className="text-sm font-bold">管理画面</p>
-            <p className="text-[10px] text-blue-200/60">NPD Admin</p>
+            <p className="text-sm font-bold text-gray-900">管理画面</p>
+            <p className="text-[10px] text-gray-400">NPD Admin</p>
           </div>
         </Link>
       </div>
@@ -80,7 +80,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                 isActive
                   ? "bg-[var(--color-primary)] text-white"
-                  : "text-blue-200/70 hover:bg-white/10 hover:text-white"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
               }`}
             >
               {item.icon}
@@ -91,11 +91,11 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
       </nav>
 
       {/* Bottom */}
-      <div className="p-3 border-t border-white/10 space-y-1">
+      <div className="p-3 border-t border-gray-200 space-y-1">
         <Link
           href="/"
           target="_blank"
-          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-blue-200/70 hover:bg-white/10 hover:text-white transition-colors"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -103,15 +103,15 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
           サイトを表示
         </Link>
         <div className="flex items-center gap-3 px-3 py-2.5">
-          <div className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold">
+          <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
             {session?.user?.name?.[0] || "A"}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-medium truncate">{session?.user?.name || "管理者"}</p>
+            <p className="text-xs font-medium truncate text-gray-700">{session?.user?.name || "管理者"}</p>
           </div>
           <button
             onClick={() => signOut({ callbackUrl: "/admin/login" })}
-            className="text-blue-200/50 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-gray-700 transition-colors"
             title="ログアウト"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -25,10 +25,10 @@ export default function AdminLayout({
 
           <div className="flex-1 flex flex-col overflow-auto">
             {/* Mobile top bar */}
-            <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-[#1e2a4a] text-white shrink-0">
+            <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-white border-b border-gray-200 shrink-0">
               <button
                 onClick={() => setSidebarOpen(true)}
-                className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors text-gray-700"
                 aria-label="メニューを開く"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,10 +36,10 @@ export default function AdminLayout({
                 </svg>
               </button>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden p-1">
+                <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center overflow-hidden p-1">
                   <Image src="/association-logo.png" alt="ロゴ" width={128} height={70} className="w-full h-full object-contain" />
                 </div>
-                <p className="text-sm font-bold">管理画面</p>
+                <p className="text-sm font-bold text-gray-900">管理画面</p>
               </div>
             </div>
 
