@@ -24,10 +24,10 @@ export default function AdminLayout({
 
           <div className="flex-1 flex flex-col overflow-auto">
             {/* Mobile top bar */}
-            <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-gray-900 text-white shrink-0">
+            <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-[#1e2a4a] text-white shrink-0">
               <button
                 onClick={() => setSidebarOpen(true)}
-                className="p-1.5 rounded-lg hover:bg-gray-800 transition-colors"
+                className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
                 aria-label="メニューを開く"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
