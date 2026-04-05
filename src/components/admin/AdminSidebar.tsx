@@ -56,10 +56,10 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
   const sidebarContent = (
     <aside className="w-64 bg-white text-gray-800 flex flex-col h-full border-r border-gray-200">
       {/* Logo */}
-      <div className="p-5 border-b border-gray-200">
+      <div className="p-4 border-b border-gray-200">
         <Link href="/admin/dashboard" className="flex items-center gap-3" onClick={onClose}>
-          <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center shrink-0 overflow-hidden p-1.5">
-            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={128} height={70} className="w-full h-full object-contain" />
+          <div className="shrink-0">
+            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={128} height={70} className="h-10 w-auto object-contain" />
           </div>
           <div>
             <p className="text-sm font-bold text-gray-900">管理画面</p>
