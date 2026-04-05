@@ -58,8 +58,8 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
       {/* Logo */}
       <div className="p-5 border-b border-white/10">
         <Link href="/admin/dashboard" className="flex items-center gap-3" onClick={onClose}>
-          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
-            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={32} height={18} className="h-5 w-auto object-contain" />
+          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden">
+            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={128} height={70} className="h-6 w-auto object-contain" />
           </div>
           <div>
             <p className="text-sm font-bold">管理画面</p>
