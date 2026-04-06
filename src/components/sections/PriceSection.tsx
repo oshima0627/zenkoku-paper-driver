@@ -118,7 +118,7 @@ export default function PriceSection() {
                   className={`flex items-center justify-between px-6 ${row.popular > 0 ? "py-4" : "py-3.5"} ${i > 0 ? "border-t border-gray-100" : ""} ${row.popular === 1 ? "bg-rose-50/50" : ""}`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-700">{row.time}</span>
+                    <span className={`text-sm ${row.popular > 0 ? "font-bold text-[var(--color-primary)]" : "text-gray-700"}`}>{row.time}</span>
                     {row.popular === 1 && (
                       <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white">人気No.1</span>
                     )}
@@ -127,7 +127,7 @@ export default function PriceSection() {
                     )}
                   </div>
                   <div className="text-right">
-                    <span className={`font-bold ${row.popular === 1 ? "text-3xl text-rose-500" : row.popular === 2 ? "text-2xl text-rose-500" : "text-lg text-[var(--color-primary)]"}`}>{row.price}</span>
+                    <span className={`font-bold ${row.popular > 0 ? "text-2xl text-rose-500" : "text-lg text-[var(--color-primary)]"}`}>{row.price}</span>
                     <span className="text-xs text-gray-400 ml-1">円</span>
                   </div>
                 </div>
