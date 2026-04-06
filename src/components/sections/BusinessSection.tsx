@@ -47,7 +47,7 @@ export default function BusinessSection() {
               transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
             >
               <Link href={biz.href} className="block group">
-                <div className="relative bg-white rounded-3xl p-8 md:p-10 h-full overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+                <div className="relative bg-white rounded-3xl p-8 md:p-10 h-full overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
                   {/* Gradient accent line */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${biz.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
