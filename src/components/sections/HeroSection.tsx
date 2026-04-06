@@ -52,7 +52,7 @@ export default function HeroSection() {
             className="mt-12 flex flex-col sm:flex-row justify-center gap-4"
           >
             <Link
-              href="/ai-support"
+              href="/#ai-support"
               className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-[var(--color-accent)] rounded-full hover:bg-[var(--color-accent-light)] transition-all duration-300 shadow-[0_0_20px_rgba(0,113,227,0.3)]"
             >
               スクールサポートAI事業
@@ -61,7 +61,7 @@ export default function HeroSection() {
               </svg>
             </Link>
             <Link
-              href="/driving"
+              href="/#driving"
               className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium text-white/80 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/15 transition-all duration-300"
             >
               安全運転講習事業(協会)

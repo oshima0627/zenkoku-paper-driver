@@ -135,15 +135,16 @@ export default function PriceSection() {
   return (
     <section className="bg-white">
 
-      {/* Hero */}
-      <div className="py-28 md:py-36 text-center bg-[var(--color-bg-gray)]">
+      {/* Section header */}
+      <div className="py-20 md:py-24 text-center bg-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Price</p>
-          <h1 className="text-3xl sm:text-5xl font-bold text-[var(--color-primary)] tracking-tight">料金案内</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">料金案内</h2>
           <p className="mt-4 text-sm text-[var(--color-text-light)]">2つの事業それぞれの料金をご確認いただけます</p>
         </motion.div>
       </div>

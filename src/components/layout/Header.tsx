@@ -6,10 +6,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "私たちについて", href: "/about" },
-  { label: "スクールサポートAI事業", href: "/ai-support" },
-  { label: "安全運転講習事業(協会)", href: "/driving" },
-  { label: "料金案内", href: "/price" },
+  { label: "私たちについて", href: "/#about" },
+  { label: "スクールサポートAI事業", href: "/#ai-support" },
+  { label: "安全運転講習事業(協会)", href: "/#driving" },
+  { label: "料金案内", href: "/#price" },
 ];
 
 export default function Header() {

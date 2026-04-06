@@ -5,16 +5,16 @@ const footerLinks = [
   {
     title: "事業内容",
     items: [
-      { label: "スクールサポートAI事業", href: "/ai-support" },
-      { label: "安全運転講習事業(協会)", href: "/driving" },
-      { label: "料金案内", href: "/price" },
+      { label: "スクールサポートAI事業", href: "/#ai-support" },
+      { label: "安全運転講習事業(協会)", href: "/#driving" },
+      { label: "料金案内", href: "/#price" },
     ],
   },
   {
     title: "協会について",
     items: [
-      { label: "私たちについて", href: "/about" },
-      { label: "採用情報", href: "/recruit" },
+      { label: "私たちについて", href: "/#about" },
+      { label: "採用情報", href: "/#recruit" },
       { label: "ブログ", href: "/blog" },
     ],
   },
@@ -22,7 +22,7 @@ const footerLinks = [
     title: "サポート",
     items: [
       { label: "お問い合わせ", href: "/contact" },
-      { label: "よくある質問", href: "/faq" },
+      { label: "よくある質問", href: "/#faq" },
     ],
   },
 ];
