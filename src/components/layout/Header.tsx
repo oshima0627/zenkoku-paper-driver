@@ -9,17 +9,17 @@ const dropdownMenus = [
   {
     label: "スクールサポートAI事業",
     items: [
-      { label: "サービス内容", href: "/#ai-support" },
-      { label: "ご利用の流れ", href: "/#ai-flow" },
-      { label: "料金案内", href: "/#ai-price" },
+      { label: "サービス内容", href: "/ai-support" },
+      { label: "ご利用の流れ", href: "/ai-support#ai-flow" },
+      { label: "料金案内", href: "/ai-support#ai-price" },
     ],
   },
   {
     label: "安全運転講習事業(協会)",
     items: [
-      { label: "サービス内容", href: "/#driving" },
-      { label: "ご利用の流れ", href: "/#driving-flow" },
-      { label: "料金案内", href: "/#price" },
+      { label: "サービス内容", href: "/driving" },
+      { label: "ご利用の流れ", href: "/driving#driving-flow" },
+      { label: "料金案内", href: "/driving#price" },
     ],
   },
 ];
@@ -106,7 +106,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/#contact"
+              href="/contact"
               className="px-5 py-1.5 text-xs font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300"
             >
               お問い合わせ
@@ -167,7 +167,7 @@ export default function Header() {
               ))}
 
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="mt-2 px-4 py-3 text-center text-white text-sm font-medium bg-[var(--color-primary)] rounded-full"
               >

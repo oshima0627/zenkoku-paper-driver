@@ -33,7 +33,7 @@ export default function RecruitSection() {
 
           <div className="text-center pt-8 mt-8 border-t border-[var(--color-border)]/30">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center justify-center px-10 py-3.5 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.1)]"
             >
               お問い合わせはこちら

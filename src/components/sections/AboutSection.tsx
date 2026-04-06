@@ -125,7 +125,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-[var(--color-bg-gray)] rounded-3xl p-8 md:p-10 shadow-md space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9]"
+            className="bg-white rounded-3xl p-8 md:p-10 shadow-md space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9]"
           >
             <p><span className="text-[var(--color-primary)] font-semibold">国家資格</span>である指導員資格保持者 × ペーパードライバースクールを数社運営している<span className="text-[var(--color-primary)] font-semibold">プロフェッショナル</span></p>
             <p>その現役講師陣が社員の皆様の運転をサポート致します。</p>

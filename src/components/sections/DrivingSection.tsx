@@ -35,7 +35,7 @@ export default function DrivingSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold mb-4">安全運転講習事業（協会）</span>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-4">安全運転講習事業（協会）</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">サービス内容</h2>
           </motion.div>
 
@@ -54,7 +54,7 @@ export default function DrivingSection() {
                 <ul className="space-y-2.5">
                   {service.features.map((f) => (
                     <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--color-primary)]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                       {f}
                     </li>
                   ))}
@@ -75,7 +75,7 @@ export default function DrivingSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold mb-4">安全運転講習事業（協会）</span>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-4">安全運転講習事業（協会）</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">ご利用の流れ</h2>
           </motion.div>
           <div className="space-y-6">
@@ -88,7 +88,7 @@ export default function DrivingSection() {
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
                 className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-md"
               >
-                <div className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-400 text-white flex items-center justify-center text-sm font-bold">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white flex items-center justify-center text-sm font-bold">
                   {step.number}
                 </div>
                 <div>

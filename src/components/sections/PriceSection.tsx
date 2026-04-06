@@ -41,7 +41,7 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
       transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0, 1] }}
       className="bg-white rounded-2xl overflow-hidden shadow-md"
     >
-      <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-pink-300 to-rose-400">
+      <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-blue-400 to-blue-600">
         <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
           {number}
         </span>
@@ -56,7 +56,7 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
           {note && <p className="text-xs text-gray-400 mt-1">※{note}</p>}
         </div>
         <div className="text-right shrink-0">
-          <p className="text-2xl font-bold text-rose-400 leading-tight">{price}</p>
+          <p className="text-2xl font-bold text-blue-600 leading-tight">{price}</p>
           <p className="text-xs text-gray-400 mt-0.5">{unit}</p>
         </div>
       </div>
@@ -66,7 +66,7 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
 
 export default function PriceSection() {
   return (
-    <section>
+    <section id="price">
 
       {/* ── 安全運転講習 ── */}
       <div className="py-28 md:py-36">
@@ -103,7 +103,7 @@ export default function PriceSection() {
               transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
               className="bg-white rounded-2xl overflow-hidden shadow-md"
             >
-              <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-pink-300 to-rose-400">
+              <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-blue-400 to-blue-600">
                 <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
                   2
                 </span>
@@ -115,19 +115,19 @@ export default function PriceSection() {
               {techPlan.map((row, i) => (
                 <div
                   key={i}
-                  className={`flex items-center justify-between px-6 ${row.popular > 0 ? "py-4" : "py-3.5"} ${i > 0 ? "border-t border-gray-100" : ""} ${row.popular === 1 ? "bg-rose-50/50" : ""}`}
+                  className={`flex items-center justify-between px-6 ${row.popular > 0 ? "py-4" : "py-3.5"} ${i > 0 ? "border-t border-gray-100" : ""} ${row.popular === 1 ? "bg-blue-50/50" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className={`text-sm ${row.popular > 0 ? "font-bold text-[var(--color-primary)]" : "text-gray-700"}`}>{row.time}</span>
                     {row.popular === 1 && (
-                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-l from-pink-300 to-rose-400 text-white">人気No.1</span>
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-l from-blue-400 to-blue-600 text-white">人気No.1</span>
                     )}
                     {row.popular === 2 && (
                       <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-500">人気No.2</span>
                     )}
                   </div>
                   <div className="text-right">
-                    <span className={`font-bold ${row.popular > 0 ? "text-2xl text-rose-400" : "text-lg text-[var(--color-primary)]"}`}>{row.price}</span>
+                    <span className={`font-bold ${row.popular > 0 ? "text-2xl text-blue-600" : "text-lg text-[var(--color-primary)]"}`}>{row.price}</span>
                     <span className="text-xs text-gray-400 ml-1">円</span>
                   </div>
                 </div>
@@ -175,11 +175,11 @@ export default function PriceSection() {
               <div className="divide-y divide-gray-100">
                 <div className="flex justify-between items-center px-6 py-3.5">
                   <span className="text-sm text-gray-500">修了証明書発行</span>
-                  <span className="text-sm font-semibold text-rose-400">1人 ¥5,000</span>
+                  <span className="text-sm font-semibold text-blue-600">1人 ¥5,000</span>
                 </div>
                 <div className="flex justify-between items-center px-6 py-3.5">
                   <span className="text-sm text-gray-500">教習報告書作成</span>
-                  <span className="text-sm font-semibold text-rose-400">1回 ¥3,000</span>
+                  <span className="text-sm font-semibold text-blue-600">1回 ¥3,000</span>
                 </div>
               </div>
               <div className="px-6 py-3 border-t border-gray-100 bg-gray-50">
@@ -200,7 +200,7 @@ export default function PriceSection() {
         >
           <p className="text-sm text-[var(--color-text-light)] mb-6">ご不明な点はお気軽にお問い合わせください</p>
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center justify-center px-12 py-4 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300"
           >
             お申し込み・お問い合わせ

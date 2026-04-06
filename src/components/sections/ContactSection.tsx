@@ -69,7 +69,7 @@ export default function ContactSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <div className="bg-[var(--color-bg-gray)] rounded-3xl overflow-hidden shadow-md">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-md">
                 <FormRow label="会社名" sub="Company name">
                   <input type="text" name="company" className={inputClass} />
                 </FormRow>
