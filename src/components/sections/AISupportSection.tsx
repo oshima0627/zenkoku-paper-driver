@@ -37,7 +37,7 @@ export default function AISupportSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Services</p>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">サービス内容</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,7 +76,7 @@ export default function AISupportSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Partner</p>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight mb-6">業務委託パートナー</h2>
             <p className="text-[15px] text-[var(--color-text-light)] leading-[1.9] mb-10 max-w-xl mx-auto">
               AI業務自動化・HP制作の開発パートナーとしてNexeed Labと連携し、<br />高品質なソリューションを提供します。
@@ -106,7 +106,7 @@ export default function AISupportSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Flow</p>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">ご利用の流れ</h2>
           </motion.div>
           <div className="space-y-6">
