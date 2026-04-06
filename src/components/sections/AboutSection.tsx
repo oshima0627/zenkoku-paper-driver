@@ -31,7 +31,7 @@ export default function AboutSection() {
   return (
     <>
       {/* Mission */}
-      <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
+      <section className="py-28 md:py-36 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -137,7 +137,7 @@ export default function AboutSection() {
       </section>
 
       {/* Company Info */}
-      <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
+      <section className="py-28 md:py-36 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

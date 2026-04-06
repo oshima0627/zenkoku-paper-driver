@@ -24,7 +24,7 @@ const businesses = [
 
 export default function BusinessSection() {
   return (
-    <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
+    <section className="py-28 md:py-36 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

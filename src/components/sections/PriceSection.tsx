@@ -176,7 +176,7 @@ export default function PriceSection() {
       </div>
 
       {/* ── 安全運転講習 ── */}
-      <div className="py-20 md:py-28 bg-[var(--color-bg-gray)]">
+      <div className="py-20 md:py-28 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}

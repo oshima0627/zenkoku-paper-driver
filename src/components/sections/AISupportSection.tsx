@@ -28,7 +28,7 @@ export default function AISupportSection() {
   return (
     <>
       {/* Services */}
-      <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
+      <section className="py-28 md:py-36 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function AISupportSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
-                className="group bg-white rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
+                className="group bg-white rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden border border-gray-100"
               >
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{service.title}</h3>
@@ -61,6 +61,42 @@ export default function AISupportSection() {
                     </li>
                   ))}
                 </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Flow */}
+      <section className="py-28 md:py-36 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">ご利用の流れ</h2>
+          </motion.div>
+          <div className="space-y-6">
+            {flow.map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
+                className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+              >
+                <div className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white flex items-center justify-center text-sm font-bold">
+                  {item.step}
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[var(--color-primary)] mb-1">{item.title}</h3>
+                  <p className="text-sm text-[var(--color-text-light)] leading-relaxed">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -93,42 +129,6 @@ export default function AISupportSection() {
               </svg>
             </a>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Flow */}
-      <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">ご利用の流れ</h2>
-          </motion.div>
-          <div className="space-y-6">
-            {flow.map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
-                className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-sm"
-              >
-                <div className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white flex items-center justify-center text-sm font-bold">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-[var(--color-primary)] mb-1">{item.title}</h3>
-                  <p className="text-sm text-[var(--color-text-light)] leading-relaxed">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
     </>
