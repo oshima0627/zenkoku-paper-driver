@@ -28,7 +28,7 @@ export default function HeroSection() {
             <span className="sm:hidden">School Support AI<br />&times;<br />Safety Driving</span>
             <span className="hidden sm:inline">School Support AI &times; Safety Driving</span>
           </motion.p>
-          <h1 className="text-[clamp(1.75rem,7vw,4.5rem)] font-bold text-white leading-[1.15] tracking-tight whitespace-nowrap">
+          <h1 className="text-[clamp(1.75rem,7vw,4.5rem)] font-bold text-white leading-[1.15] tracking-tight">
             テクノロジーと安全で、
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">

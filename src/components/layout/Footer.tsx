@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         {/* Links grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {footerLinks.map((group) => (
             <div key={group.title}>
               <h3 className="text-sm font-semibold text-white mb-4">{group.title}</h3>

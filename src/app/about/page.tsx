@@ -164,18 +164,16 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-white rounded-3xl overflow-hidden shadow-sm"
           >
-            <table className="w-full min-w-[320px]">
-              <tbody>
-                {companyInfo.map((info, i) => (
-                  <tr key={info.label} className={i > 0 ? "border-t border-[var(--color-border)]/30" : ""}>
-                    <th className="px-6 md:px-8 py-6 text-sm font-semibold text-[var(--color-primary)] text-left w-1/3 align-top">
-                      {info.label}
-                    </th>
-                    <td className="px-6 md:px-8 py-6 text-sm text-[var(--color-text-light)] whitespace-pre-line leading-relaxed">{info.value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="divide-y divide-[var(--color-border)]/30">
+              {companyInfo.map((info) => (
+                <div key={info.label} className="flex flex-col sm:flex-row px-5 sm:px-8 py-5">
+                  <div className="sm:w-1/3 shrink-0 mb-1 sm:mb-0">
+                    <p className="text-sm font-semibold text-[var(--color-primary)]">{info.label}</p>
+                  </div>
+                  <p className="text-sm text-[var(--color-text-light)] whitespace-pre-line leading-relaxed">{info.value}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>

@@ -84,9 +84,9 @@ export default function ContactPage() {
                   </div>
                 </FormRow>
                 <FormRow label="電話の場合の希望日時">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input type="date" name="preferredDate" className={inputClass} />
-                    <input type="text" name="preferredTime" placeholder="○時から○時" className={inputClass + " w-32"} />
+                    <input type="text" name="preferredTime" placeholder="○時から○時" className={inputClass + " sm:w-32"} />
                   </div>
                 </FormRow>
                 <FormRow label="使用する車">
@@ -103,9 +103,9 @@ export default function ContactPage() {
                 </FormRow>
                 {[1, 2, 3].map((n) => (
                   <FormRow key={n} label={`第${n}希望日`}>
-                    <div className="flex flex-wrap items-center gap-2">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                       <input type="date" name={`date${n}`} className={inputClass} />
-                      <select name={`time${n}`} className={inputClass + " w-24"}>
+                      <select name={`time${n}`} className={inputClass + " sm:w-24"}>
                         <option>午前</option>
                         <option>午後</option>
                       </select>

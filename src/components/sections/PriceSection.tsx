@@ -44,7 +44,7 @@ export default function PriceSection() {
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient}`} />
                 <h4 className="text-base font-bold text-[var(--color-primary)] mb-2">{item.title}</h4>
                 <p className="text-sm text-[var(--color-text-light)] mb-5">{item.desc}</p>
-                <p className="text-2xl font-bold text-[var(--color-primary)]">{item.price}<span className="text-sm font-normal text-[var(--color-text-light)] ml-1">{item.unit}</span></p>
+                <p className="text-xl sm:text-2xl font-bold text-[var(--color-primary)]">{item.price}<span className="text-xs sm:text-sm font-normal text-[var(--color-text-light)] ml-1">{item.unit}</span></p>
                 <p className="text-xs text-[var(--color-text-light)] mt-2">{item.note}</p>
               </motion.div>
             ))}

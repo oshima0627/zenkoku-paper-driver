@@ -17,7 +17,7 @@ export default function ContactBanner() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <p className="text-xs font-medium text-[var(--color-text-light)] tracking-wider mb-2">お電話でのご相談</p>
-              <a href="tel:070-2002-0948" className="flex items-center gap-2 text-2xl md:text-3xl font-bold text-[var(--color-primary)] tracking-tight">
+              <a href="tel:070-2002-0948" className="flex items-center gap-2 text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-primary)] tracking-tight">
                 070-2002-0948
               </a>
             </div>
