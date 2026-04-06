@@ -22,7 +22,7 @@ export default function RecruitSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-3xl p-8 md:p-10 shadow-sm"
+          className="bg-white rounded-3xl p-8 md:p-10 shadow-md"
         >
           <div className="space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9]">
             <p>現在、当協会ではペーパードライバー講習や企業向け安全運転講習の事業サポートを全国で積極的に行っております。</p>

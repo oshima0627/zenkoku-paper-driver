@@ -24,6 +24,37 @@ const flow = [
   { step: 4, title: "納品・運用", description: "納品後も継続的なサポートと改善を行います。" },
 ];
 
+const aiPlans = [
+  {
+    number: 1,
+    title: "AI業務自動化",
+    subtitle: "DX推進・業務効率化",
+    description: "業務内容に応じて最適なプランをご提案します。",
+    price: "¥20,000〜",
+    unit: "/ 月",
+    note: "業務内容に応じてお見積り",
+  },
+  {
+    number: 2,
+    title: "HP制作",
+    subtitle: "デザイン・開発・運用",
+    description: "デザイン・開発・運用までワンストップで対応します。",
+    price: "¥50,000〜",
+    unit: "/ 制作",
+    note: "運用費 月額10,000円〜",
+  },
+];
+
+function ChevronDown() {
+  return (
+    <div className="flex justify-center my-1">
+      <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  );
+}
+
 export default function AISupportSection() {
   return (
     <>
@@ -48,7 +79,7 @@ export default function AISupportSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
-                className="group bg-white rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden border border-gray-100"
+                className="group bg-white rounded-3xl p-8 md:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden border border-gray-100"
               >
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{service.title}</h3>
@@ -88,7 +119,7 @@ export default function AISupportSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
-                className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+                className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-md border border-gray-100"
               >
                 <div className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white flex items-center justify-center text-sm font-bold">
                   {item.step}
@@ -129,6 +160,57 @@ export default function AISupportSection() {
               </svg>
             </a>
           </motion.div>
+        </div>
+      </section>
+
+      {/* AI Pricing */}
+      <section className="py-28 md:py-36 bg-white">
+        <div className="max-w-2xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">料金案内</h2>
+          </motion.div>
+
+          <div className="space-y-2">
+            {aiPlans.map((plan, i) => (
+              <div key={plan.title}>
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
+                  className="bg-white rounded-2xl overflow-hidden shadow-md"
+                >
+                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600">
+                    <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
+                      {plan.number}
+                    </span>
+                    <div>
+                      <p className="text-base font-bold text-white leading-tight">{plan.title}</p>
+                      <p className="text-xs text-white/75 mt-0.5">{plan.subtitle}</p>
+                    </div>
+                  </div>
+                  <div className="px-6 py-5 flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-500 leading-relaxed">{plan.description}</p>
+                      {plan.note && <p className="text-xs text-gray-400 mt-1">※{plan.note}</p>}
+                    </div>
+                    <div className="text-right shrink-0">
+                      <p className="text-2xl font-bold text-indigo-600 leading-tight">{plan.price}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">{plan.unit}</p>
+                    </div>
+                  </div>
+                </motion.div>
+                {i < aiPlans.length - 1 && <ChevronDown />}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

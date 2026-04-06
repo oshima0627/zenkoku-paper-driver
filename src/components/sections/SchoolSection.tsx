@@ -41,7 +41,7 @@ export default function SchoolSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.05, ease: [0.25, 0.1, 0, 1] }}
               >
-                <Wrapper {...wrapperProps} className="block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 group">
+                <Wrapper {...wrapperProps} className="block bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500 group">
                   <div className="relative h-48">
                     <Image src={school.image} alt={school.name.replace("\n", " ")} fill className={`object-cover group-hover:scale-105 transition-transform duration-500 ${school.imagePosition === "top" ? "object-top" : ""}`} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end">

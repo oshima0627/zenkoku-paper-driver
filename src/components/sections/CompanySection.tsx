@@ -31,7 +31,7 @@ export default function CompanySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-white rounded-3xl overflow-hidden shadow-sm"
+          className="bg-white rounded-3xl overflow-hidden shadow-md"
         >
           <div className="divide-y divide-[var(--color-border)]/30">
             {companyInfo.map((info) => (

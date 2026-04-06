@@ -32,7 +32,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center gap-4 py-5 px-6 text-left bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
+        className="w-full flex items-center gap-4 py-5 px-6 text-left bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
       >
         <span className="flex-1 font-medium text-[var(--color-primary)] text-sm">{question}</span>
         <svg

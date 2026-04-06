@@ -40,7 +40,7 @@ export default async function NewsSection() {
           </Link>
         </div>
 
-        <div className="bg-white rounded-3xl overflow-hidden shadow-sm divide-y divide-[var(--color-border)]/30">
+        <div className="bg-white rounded-3xl overflow-hidden shadow-md divide-y divide-[var(--color-border)]/30">
           {news.map((item) => (
             <Link
               key={item.id}

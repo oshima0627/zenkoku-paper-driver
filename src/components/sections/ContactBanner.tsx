@@ -12,7 +12,7 @@ export default function ContactBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-3xl p-8 md:p-10 shadow-sm"
+          className="bg-white rounded-3xl p-8 md:p-10 shadow-md"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">

@@ -3,63 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const aiPlans = [
-  {
-    number: 1,
-    title: "AI業務自動化",
-    subtitle: "DX推進・業務効率化",
-    description: "業務内容に応じて最適なプランをご提案します。",
-    price: "¥20,000〜",
-    unit: "/ 月",
-    note: "業務内容に応じてお見積り",
-  },
-  {
-    number: 2,
-    title: "HP制作",
-    subtitle: "デザイン・開発・運用",
-    description: "デザイン・開発・運用までワンストップで対応します。",
-    price: "¥50,000〜",
-    unit: "/ 制作",
-    note: "運用費 月額10,000円〜",
-  },
-];
-
-const drivingSteps = [
-  {
-    number: 1,
-    title: "安全運転スキル診断",
-    subtitle: "任意",
-    description: "50分 / 1人あたり",
-    price: "¥11,000",
-    unit: "円（税込）",
-  },
-  {
-    number: 2,
-    title: "技能教習",
-    subtitle: "100分 × 1〜5日",
-    description: "100分ごとの教習。日数に応じたプランをお選びいただけます。",
-    price: "¥18,000〜",
-    unit: "/ 100分",
-    note: "追加教習は100分毎に18,000円",
-  },
-  {
-    number: 3,
-    title: "学科",
-    subtitle: "任意",
-    description: "50分",
-    price: "¥18,000",
-    unit: "円（税込）",
-  },
-  {
-    number: 4,
-    title: "最終運転技能チェック",
-    subtitle: "必須",
-    description: "50分",
-    price: "¥11,000",
-    unit: "円（税込）",
-  },
-];
-
 const techPlan = [
   { time: "100分 × 1日", price: "18,000", popular: 0 },
   { time: "100分 × 2日", price: "36,000", popular: 0 },
@@ -87,19 +30,17 @@ interface PlanCardProps {
   unit: string;
   note?: string;
   delay?: number;
-  extra?: React.ReactNode;
 }
 
-function PlanCard({ number, title, subtitle, description, price, unit, note, delay = 0, extra }: PlanCardProps) {
+function PlanCard({ number, title, subtitle, description, price, unit, note, delay = 0 }: PlanCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0, 1] }}
-      className="bg-white rounded-2xl overflow-hidden shadow-sm"
+      className="bg-white rounded-2xl overflow-hidden shadow-md"
     >
-      {/* Header gradient band */}
       <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600">
         <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
           {number}
@@ -109,8 +50,6 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
           <p className="text-xs text-white/75 mt-0.5">{subtitle}</p>
         </div>
       </div>
-
-      {/* Body */}
       <div className="px-6 py-5 flex items-start justify-between gap-4">
         <div className="flex-1">
           <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
@@ -121,12 +60,6 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
           <p className="text-xs text-gray-400 mt-0.5">{unit}</p>
         </div>
       </div>
-
-      {extra && (
-        <div className="border-t border-gray-100">
-          {extra}
-        </div>
-      )}
     </motion.div>
   );
 }
@@ -135,59 +68,18 @@ export default function PriceSection() {
   return (
     <section className="bg-white">
 
-      {/* Section header */}
-      <div className="py-20 md:py-24 text-center bg-white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Price</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">料金案内</h2>
-          <p className="mt-4 text-sm text-[var(--color-text-light)]">2つの事業それぞれの料金をご確認いただけます</p>
-        </motion.div>
-      </div>
-
-      {/* ── AI事業 ── */}
-      <div className="py-20 md:py-28 bg-white">
-        <div className="max-w-2xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-10"
-          >
-            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-2">AI Business</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] tracking-tight">スクールサポートAI事業</h2>
-            <p className="text-sm text-[var(--color-text-light)] mt-2">AIと最新Web技術で、業務の課題を解決します。</p>
-          </motion.div>
-
-          <div className="space-y-2">
-            {aiPlans.map((plan, i) => (
-              <div key={plan.title}>
-                <PlanCard {...plan} delay={i * 0.1} />
-                {i < aiPlans.length - 1 && <ChevronDown />}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* ── 安全運転講習 ── */}
-      <div className="py-20 md:py-28 bg-white">
+      <div className="py-28 md:py-36 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-10"
+            className="text-center mb-10"
           >
-            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-2">Safety Driving</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] tracking-tight">安全運転講習事業（協会）</h2>
-            <p className="text-sm text-[var(--color-text-light)] mt-2">ステップ1〜4の流れで教習が進みます。</p>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold mb-4">安全運転講習事業（協会）</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">料金案内</h2>
           </motion.div>
 
           <div className="space-y-2">
@@ -209,9 +101,8 @@ export default function PriceSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm"
+              className="bg-white rounded-2xl overflow-hidden shadow-md"
             >
-              {/* Header */}
               <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600">
                 <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
                   2
@@ -221,11 +112,10 @@ export default function PriceSection() {
                   <p className="text-xs text-white/75 mt-0.5">100分単位でお選びいただけます</p>
                 </div>
               </div>
-              {/* Plan rows */}
               {techPlan.map((row, i) => (
                 <div
                   key={i}
-                  className={`flex items-center justify-between px-6 py-3.5 ${i > 0 ? "border-t border-gray-100" : ""}`}
+                  className={`flex items-center justify-between px-6 ${row.popular > 0 ? "py-4" : "py-3.5"} ${i > 0 ? "border-t border-gray-100" : ""} ${row.popular === 1 ? "bg-indigo-50/50" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-gray-700">{row.time}</span>
@@ -237,7 +127,7 @@ export default function PriceSection() {
                     )}
                   </div>
                   <div className="text-right">
-                    <span className={`text-lg font-bold ${row.popular > 0 ? "text-indigo-600" : "text-[var(--color-primary)]"}`}>{row.price}</span>
+                    <span className={`font-bold ${row.popular === 1 ? "text-3xl text-indigo-600" : row.popular === 2 ? "text-2xl text-indigo-600" : "text-lg text-[var(--color-primary)]"}`}>{row.price}</span>
                     <span className="text-xs text-gray-400 ml-1">円</span>
                   </div>
                 </div>
@@ -277,7 +167,7 @@ export default function PriceSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0, 1] }}
-              className="mt-6 bg-white rounded-2xl overflow-hidden shadow-sm"
+              className="mt-6 bg-white rounded-2xl overflow-hidden shadow-md"
             >
               <div className="px-6 py-4 border-b border-gray-100">
                 <p className="text-sm font-bold text-[var(--color-primary)]">その他費用</p>
