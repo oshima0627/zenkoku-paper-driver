@@ -16,7 +16,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[var(--color-border)]/30">
+    <header className="sticky top-0 z-50 bg-white border-b border-[var(--color-border)]/30">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="flex items-center gap-3">
