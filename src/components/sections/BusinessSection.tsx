@@ -51,13 +51,6 @@ export default function BusinessSection() {
                   {/* Gradient accent line */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${biz.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                  {/* Icon */}
-                  <div className={`w-12 h-12 ${biz.iconBg} rounded-2xl flex items-center justify-center mb-6`}>
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-
                   <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3 group-hover:text-[var(--color-accent)] transition-colors duration-300">
                     {biz.title}
                   </h3>

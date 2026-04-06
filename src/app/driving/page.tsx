@@ -81,40 +81,6 @@ export default function DrivingPage() {
         </div>
       </section>
 
-      {/* Strong Points */}
-      <section className="py-28 md:py-36 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Strong Points</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">プロフェッショナル集団の強み</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {points.map((point, i) => (
-              <motion.div
-                key={point.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
-                className="text-center bg-[var(--color-bg-gray)] rounded-3xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-500"
-              >
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${point.gradient} text-white font-bold mb-5`}>
-                  {point.number}
-                </div>
-                <h3 className="text-base font-bold text-[var(--color-primary)] mb-3">{point.title}</h3>
-                <p className="text-sm text-[var(--color-text-light)] leading-relaxed">{point.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Flow */}
       <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
         <div className="max-w-3xl mx-auto px-6">
