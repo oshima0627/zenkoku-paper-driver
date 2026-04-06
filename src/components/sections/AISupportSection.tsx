@@ -99,7 +99,7 @@ export default function AISupportSection() {
       </section>
 
       {/* Flow */}
-      <section className="py-28 md:py-36 bg-white">
+      <section id="ai-flow" className="py-28 md:py-36 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ export default function AISupportSection() {
       </section>
 
       {/* AI Pricing */}
-      <section className="py-28 md:py-36 bg-white">
+      <section id="ai-price" className="py-28 md:py-36 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
