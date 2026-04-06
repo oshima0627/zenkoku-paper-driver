@@ -38,7 +38,7 @@ export default function ContactSection() {
   return (
     <>
       {/* Contact form */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export default function ContactSection() {
       </section>
 
       {/* Phone / LINE banner */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -66,10 +66,10 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
 
 export default function PriceSection() {
   return (
-    <section className="bg-white">
+    <section>
 
       {/* ── 安全運転講習 ── */}
-      <div className="py-28 md:py-36 bg-white">
+      <div className="py-28 md:py-36">
         <div className="max-w-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -191,7 +191,7 @@ export default function PriceSection() {
       </div>
 
       {/* CTA */}
-      <div className="py-16 bg-white text-center">
+      <div className="py-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}

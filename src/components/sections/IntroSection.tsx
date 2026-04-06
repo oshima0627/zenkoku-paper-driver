@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function IntroSection() {
   return (
-    <section className="py-28 md:py-36 bg-white">
+    <section className="py-28 md:py-36">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -59,7 +59,7 @@ export default function AISupportSection() {
   return (
     <>
       {/* Services */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36">
         <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,6 @@ export default function AISupportSection() {
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
                 className="group bg-white rounded-3xl p-8 md:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden border border-gray-100"
               >
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{service.title}</h3>
                 <p className="text-sm text-[var(--color-text-light)] leading-relaxed mb-6 whitespace-pre-line">{service.description}</p>
                 <ul className="space-y-2.5">
@@ -99,7 +98,7 @@ export default function AISupportSection() {
       </section>
 
       {/* Flow */}
-      <section id="ai-flow" className="py-28 md:py-36 bg-white">
+      <section id="ai-flow" className="py-28 md:py-36">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,7 +134,7 @@ export default function AISupportSection() {
       </section>
 
       {/* Partner */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -164,7 +163,7 @@ export default function AISupportSection() {
       </section>
 
       {/* AI Pricing */}
-      <section id="ai-price" className="py-28 md:py-36 bg-white">
+      <section id="ai-price" className="py-28 md:py-36">
         <div className="max-w-2xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
