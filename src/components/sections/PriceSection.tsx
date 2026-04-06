@@ -236,7 +236,7 @@ export default function PriceSection() {
                     )}
                   </div>
                   <div className="text-right">
-                    <span className="text-lg font-bold text-indigo-600">{row.price}</span>
+                    <span className={`text-lg font-bold ${row.popular > 0 ? "text-indigo-600" : "text-[var(--color-primary)]"}`}>{row.price}</span>
                     <span className="text-xs text-gray-400 ml-1">円</span>
                   </div>
                 </div>
