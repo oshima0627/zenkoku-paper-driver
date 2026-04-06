@@ -25,7 +25,8 @@ export default function HeroSection() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-sm font-medium tracking-[0.2em] text-white/50 uppercase mb-6"
           >
-            School Support AI &times; Safety Driving
+            <span className="sm:hidden">School Support AI<br />&times;<br />Safety Driving</span>
+            <span className="hidden sm:inline">School Support AI &times; Safety Driving</span>
           </motion.p>
           <h1 className="text-[clamp(1.75rem,7vw,4.5rem)] font-bold text-white leading-[1.15] tracking-tight whitespace-nowrap">
             テクノロジーと安全で、
