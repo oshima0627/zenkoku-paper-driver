@@ -21,7 +21,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/association-logo.png" alt="ロゴ" width={64} height={36} className="h-8 w-auto object-contain" />
-            <span className="text-sm font-semibold text-[var(--color-primary)] hidden sm:inline">
+            <span className="text-xs sm:text-sm font-semibold text-[var(--color-primary)]">
               全国ペーパードライバー協会
             </span>
           </Link>

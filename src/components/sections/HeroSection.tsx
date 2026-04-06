@@ -28,7 +28,7 @@ export default function HeroSection() {
             School Support AI &times; Safety Driving
           </motion.p>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-            テクノロジーと安全で、
+            <span className="inline-block">テクノロジーと安全で、</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
               社会に貢献する。
