@@ -187,7 +187,7 @@ export default function AISupportSection() {
                   transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
                   className="bg-white rounded-2xl overflow-hidden shadow-md"
                 >
-                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600">
+                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500">
                     <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
                       {plan.number}
                     </span>
@@ -202,7 +202,7 @@ export default function AISupportSection() {
                       {plan.note && <p className="text-xs text-gray-400 mt-1">※{plan.note}</p>}
                     </div>
                     <div className="text-right shrink-0">
-                      <p className="text-2xl font-bold text-indigo-600 leading-tight">{plan.price}</p>
+                      <p className="text-2xl font-bold text-blue-600 leading-tight">{plan.price}</p>
                       <p className="text-xs text-gray-400 mt-0.5">{plan.unit}</p>
                     </div>
                   </div>
