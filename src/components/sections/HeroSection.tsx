@@ -41,7 +41,7 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mt-8 text-base sm:text-lg text-white/60 leading-relaxed max-w-xl mx-auto"
           >
-            AI業務自動化・HP制作と安全運転講習の2つの事業を柱に、
+            AI業務自動化・HP制作と安全運転講習の2つの事業を柱に、<br />
             企業の課題解決に取り組みます。
           </motion.p>
 

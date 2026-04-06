@@ -23,7 +23,7 @@ export default function CTASection() {
             ご相談ください。
           </h2>
           <p className="text-base text-white/50 mb-12 leading-relaxed max-w-md mx-auto">
-            スクールサポートAI・安全運転講習など、お気軽にお問い合わせください。
+            スクールサポートAI・安全運転講習など、<br />お気軽にお問い合わせください。
           </p>
           <Link
             href="/contact"

@@ -6,13 +6,13 @@ import CTASection from "@/components/sections/CTASection";
 const services = [
   {
     title: "AI業務自動化",
-    description: "日々の業務プロセスをAIで自動化し、生産性を大幅に向上させます。",
+    description: "日々の業務プロセスをAIで自動化し、\n生産性を大幅に向上させます。",
     features: ["業務プロセスの分析と最適化", "AIチャットボットの導入", "データ処理の自動化", "カスタムAIツールの開発"],
     gradient: "from-blue-500 to-cyan-400",
   },
   {
     title: "HP制作・運用",
-    description: "最新のWeb技術を活用した、高品質なホームページの制作と運用を行います。",
+    description: "最新のWeb技術を活用した、\n高品質なホームページの制作と運用を行います。",
     features: ["モダンなデザインのWeb制作", "レスポンシブ対応", "SEO対策・アクセス解析", "保守・運用サポート"],
     gradient: "from-purple-500 to-pink-400",
   },
@@ -75,7 +75,7 @@ export default function AISupportPage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{service.title}</h3>
-                <p className="text-sm text-[var(--color-text-light)] leading-relaxed mb-6">{service.description}</p>
+                <p className="text-sm text-[var(--color-text-light)] leading-relaxed mb-6 whitespace-pre-line">{service.description}</p>
                 <ul className="space-y-2.5">
                   {service.features.map((f) => (
                     <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--color-primary)]">
@@ -102,7 +102,7 @@ export default function AISupportPage() {
             <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Partner</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight mb-6">業務委託パートナー</h2>
             <p className="text-[15px] text-[var(--color-text-light)] leading-[1.9] mb-10 max-w-xl mx-auto">
-              AI業務自動化・HP制作の開発パートナーとしてNexeed Labと連携し、高品質なソリューションを提供します。
+              AI業務自動化・HP制作の開発パートナーとしてNexeed Labと連携し、<br />高品質なソリューションを提供します。
             </p>
             <a
               href="https://www.nexeed-web.com/"

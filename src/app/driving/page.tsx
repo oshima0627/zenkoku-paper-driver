@@ -46,7 +46,7 @@ export default function DrivingPage() {
             <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-4">Safety Driving</p>
             <h1 className="text-3xl sm:text-5xl font-bold text-[var(--color-primary)] leading-tight tracking-tight mb-6">安全運転講習事業(協会)</h1>
             <p className="text-base text-[var(--color-text-light)] max-w-2xl mx-auto leading-relaxed">
-              国家資格保持者とペーパードライバースクール経営陣によるプロフェッショナル集団が、企業向け安全運転講習を全国で提供します。
+              国家資格保持者とペーパードライバースクール経営陣によるプロフェッショナル集団が、<br />企業向け安全運転講習を全国で提供します。
             </p>
           </motion.div>
         </div>
