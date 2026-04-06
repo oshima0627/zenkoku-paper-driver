@@ -6,15 +6,15 @@ import ContactBanner from "@/components/sections/ContactBanner";
 
 function FormRow({ label, sub, required, children }: { label: string; sub?: string; required?: boolean; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col sm:flex-row border-b border-[var(--color-border)]/50 last:border-b-0">
-      <div className="sm:w-1/3 px-4 py-4 sm:py-5">
-        <p className="text-sm font-medium text-[var(--color-primary)]">
+    <div className="flex flex-col sm:flex-row border-b border-[var(--color-border)]/30 last:border-b-0">
+      <div className="sm:w-1/3 px-6 py-5">
+        <p className="text-sm font-semibold text-[var(--color-primary)]">
           {label}
           {required && <span className="text-red-500 text-xs ml-1">*</span>}
         </p>
-        {sub && <p className="text-xs text-[var(--color-text-light)] mt-0.5">{sub}</p>}
+        {sub && <p className="text-[11px] text-[var(--color-text-light)] mt-0.5 tracking-wider">{sub}</p>}
       </div>
-      <div className="px-4 py-4 sm:py-5 flex-1">{children}</div>
+      <div className="px-6 py-5 flex-1">{children}</div>
     </div>
   );
 }
@@ -34,18 +34,23 @@ export default function ContactPage() {
     if (res.ok) setSubmitted(true);
   }
 
-  const inputClass = "w-full max-w-xs px-3 py-2 bg-[var(--color-bg-gray)] border border-[var(--color-border)]/50 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm text-[var(--color-primary)]";
+  const inputClass = "w-full max-w-xs px-4 py-2.5 bg-white border border-[var(--color-border)]/50 rounded-xl focus:ring-2 focus:ring-[var(--color-accent)]/30 focus:border-[var(--color-accent)] outline-none text-sm text-[var(--color-primary)] transition-all duration-200";
 
   return (
     <>
       <ContactBanner />
 
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <p className="text-sm font-medium text-[var(--color-text-light)] tracking-widest uppercase mb-2">Contact</p>
-            <h1 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">お問い合わせ</h1>
-          </div>
+      <section className="py-28 md:py-36 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Contact</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">お問い合わせ</h1>
+          </motion.div>
 
           {submitted ? (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-16">
@@ -58,8 +63,8 @@ export default function ContactPage() {
               <p className="text-[var(--color-text-light)]">お問い合わせありがとうございます。<br />1営業日以内にご連絡させて頂きます。</p>
             </motion.div>
           ) : (
-            <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <div className="bg-[var(--color-bg-gray)] rounded-2xl overflow-hidden">
+            <motion.form onSubmit={handleSubmit} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+              <div className="bg-[var(--color-bg-gray)] rounded-3xl overflow-hidden shadow-sm">
                 <FormRow label="会社名" sub="Company name">
                   <input type="text" name="company" className={inputClass} />
                 </FormRow>
@@ -73,9 +78,9 @@ export default function ContactPage() {
                   <input type="tel" name="phone" placeholder="例：000-0000-0000" className={inputClass} />
                 </FormRow>
                 <FormRow label="返信方法">
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm text-[var(--color-primary)]"><input type="radio" name="replyMethod" value="メール" />メール</label>
-                    <label className="flex items-center gap-2 text-sm text-[var(--color-primary)]"><input type="radio" name="replyMethod" value="電話" />電話</label>
+                  <div className="space-y-2.5">
+                    <label className="flex items-center gap-2.5 text-sm text-[var(--color-primary)] cursor-pointer"><input type="radio" name="replyMethod" value="メール" className="accent-[var(--color-accent)]" />メール</label>
+                    <label className="flex items-center gap-2.5 text-sm text-[var(--color-primary)] cursor-pointer"><input type="radio" name="replyMethod" value="電話" className="accent-[var(--color-accent)]" />電話</label>
                   </div>
                 </FormRow>
                 <FormRow label="電話の場合の希望日時">
@@ -85,15 +90,15 @@ export default function ContactPage() {
                   </div>
                 </FormRow>
                 <FormRow label="使用する車">
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm text-[var(--color-primary)]"><input type="radio" name="carType" value="当スクールの教習車" />当スクールの教習車</label>
-                    <label className="flex items-center gap-2 text-sm text-[var(--color-primary)]"><input type="radio" name="carType" value="社用車" />社用車</label>
+                  <div className="space-y-2.5">
+                    <label className="flex items-center gap-2.5 text-sm text-[var(--color-primary)] cursor-pointer"><input type="radio" name="carType" value="当スクールの教習車" className="accent-[var(--color-accent)]" />当スクールの教習車</label>
+                    <label className="flex items-center gap-2.5 text-sm text-[var(--color-primary)] cursor-pointer"><input type="radio" name="carType" value="社用車" className="accent-[var(--color-accent)]" />社用車</label>
                   </div>
                 </FormRow>
                 <FormRow label="出張先">
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-2 text-sm text-[var(--color-primary)]"><input type="radio" name="location" value="会社" />会社</label>
-                    <label className="flex items-center gap-2 text-sm text-[var(--color-primary)]"><input type="radio" name="location" value="会社以外" />会社以外</label>
+                  <div className="space-y-2.5">
+                    <label className="flex items-center gap-2.5 text-sm text-[var(--color-primary)] cursor-pointer"><input type="radio" name="location" value="会社" className="accent-[var(--color-accent)]" />会社</label>
+                    <label className="flex items-center gap-2.5 text-sm text-[var(--color-primary)] cursor-pointer"><input type="radio" name="location" value="会社以外" className="accent-[var(--color-accent)]" />会社以外</label>
                   </div>
                 </FormRow>
                 {[1, 2, 3].map((n) => (
@@ -108,12 +113,12 @@ export default function ContactPage() {
                   </FormRow>
                 ))}
                 <FormRow label="メッセージ" sub="Message" required>
-                  <textarea name="message" required rows={6} className="w-full px-3 py-2 bg-white border border-[var(--color-border)]/50 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm text-[var(--color-primary)] resize-vertical" />
+                  <textarea name="message" required rows={6} className="w-full px-4 py-3 bg-white border border-[var(--color-border)]/50 rounded-xl focus:ring-2 focus:ring-[var(--color-accent)]/30 focus:border-[var(--color-accent)] outline-none text-sm text-[var(--color-primary)] resize-vertical transition-all duration-200" />
                 </FormRow>
               </div>
 
-              <div className="text-center mt-8">
-                <button type="submit" className="px-10 py-3.5 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-colors">
+              <div className="text-center mt-10">
+                <button type="submit" className="px-12 py-4 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.1)]">
                   送信する
                 </button>
               </div>

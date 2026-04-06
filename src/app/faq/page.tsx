@@ -29,11 +29,11 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.3, delay: index * 0.03 }}
+      transition={{ duration: 0.3, delay: index * 0.03, ease: [0.25, 0.1, 0, 1] }}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center gap-4 py-5 px-5 text-left bg-[var(--color-bg-gray)] rounded-2xl hover:bg-[var(--color-bg-gray)]/80 transition-colors"
+        className="w-full flex items-center gap-4 py-5 px-6 text-left bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
       >
         <span className="flex-1 font-medium text-[var(--color-primary)] text-sm">{question}</span>
         <svg
@@ -52,8 +52,8 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="px-5 py-4">
-              <p className="text-sm text-[var(--color-text-light)] leading-relaxed">{answer}</p>
+            <div className="px-6 py-4">
+              <p className="text-sm text-[var(--color-text-light)] leading-[1.8]">{answer}</p>
             </div>
           </motion.div>
         )}
@@ -65,15 +65,21 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 export default function FAQPage() {
   return (
     <>
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-sm font-medium text-[var(--color-text-light)] tracking-widest uppercase mb-4">FAQ</p>
-          <h1 className="text-3xl sm:text-5xl font-bold text-[var(--color-primary)] tracking-tight">よくある質問</h1>
+      <section className="py-28 md:py-36 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-4">FAQ</p>
+            <h1 className="text-3xl sm:text-5xl font-bold text-[var(--color-primary)] tracking-tight">よくある質問</h1>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4">
+      <section className="py-16 md:py-24 bg-[var(--color-bg-gray)]">
+        <div className="max-w-3xl mx-auto px-6">
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <FAQItem key={faq.question} question={faq.question} answer={faq.answer} index={i} />

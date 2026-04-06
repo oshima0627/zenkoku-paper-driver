@@ -13,28 +13,34 @@ const companyInfo = [
 
 export default function CompanySection() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-3xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-sm font-medium text-[var(--color-text-light)] tracking-widest uppercase mb-2">Company</p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">会社概要</h2>
-        </div>
+    <section className="py-28 md:py-36 bg-[var(--color-bg-gray)]">
+      <div className="max-w-3xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Company</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">会社概要</h2>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-2xl overflow-x-auto bg-[var(--color-bg-gray)]"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="bg-white rounded-3xl overflow-hidden shadow-sm"
         >
           <table className="w-full min-w-[320px]">
             <tbody>
               {companyInfo.map((info, i) => (
-                <tr key={info.label} className={i > 0 ? "border-t border-[var(--color-border)]/50" : ""}>
-                  <th className="px-6 py-5 text-xs sm:text-sm font-semibold text-[var(--color-primary)] text-left w-1/3">
+                <tr key={info.label} className={i > 0 ? "border-t border-[var(--color-border)]/30" : ""}>
+                  <th className="px-6 md:px-8 py-6 text-sm font-semibold text-[var(--color-primary)] text-left w-1/3 align-top">
                     {info.label}
                   </th>
-                  <td className="px-6 py-5 text-xs sm:text-sm text-[var(--color-text-light)] whitespace-pre-line">{info.value}</td>
+                  <td className="px-6 md:px-8 py-6 text-sm text-[var(--color-text-light)] whitespace-pre-line leading-relaxed">{info.value}</td>
                 </tr>
               ))}
             </tbody>

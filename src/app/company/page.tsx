@@ -1,11 +1,5 @@
-import CompanySection from "@/components/sections/CompanySection";
-import CTASection from "@/components/sections/CTASection";
+import { redirect } from "next/navigation";
 
 export default function CompanyPage() {
-  return (
-    <>
-      <CompanySection />
-      <CTASection />
-    </>
-  );
+  redirect("/about");
 }

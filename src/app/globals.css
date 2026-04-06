@@ -2,22 +2,18 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  /* プライマリ（ブラック） */
   --color-primary: #1d1d1f;
   --color-primary-dark: #000000;
   --color-primary-light: #6e6e73;
 
-  /* アクセント（ブルー） */
   --color-accent: #0071e3;
   --color-accent-dark: #0077ed;
   --color-accent-light: #2997ff;
 
-  /* セカンダリ（パープル） */
   --color-secondary: #6e6e73;
   --color-secondary-dark: #424245;
   --color-secondary-light: #86868b;
 
-  /* 基本色 */
   --color-bg: #ffffff;
   --color-bg-light: #fbfbfd;
   --color-bg-gray: #f5f5f7;
@@ -43,10 +39,16 @@
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Modern selection */
+::selection {
+  background: rgba(0, 113, 227, 0.15);
 }
