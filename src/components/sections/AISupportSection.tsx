@@ -133,35 +133,6 @@ export default function AISupportSection() {
         </div>
       </section>
 
-      {/* Partner */}
-      <section className="py-28 md:py-36">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight mb-6">業務委託パートナー</h2>
-            <p className="text-[15px] text-[var(--color-text-light)] leading-[1.9] mb-10 max-w-xl mx-auto">
-              AI業務自動化・HP制作の開発パートナーとしてNexeed Labと連携し、<br />高品質なソリューションを提供します。
-            </p>
-            <a
-              href="https://www.nexeed-web.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.1)]"
-            >
-              Nexeed Lab
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
       {/* AI Pricing */}
       <section id="ai-price" className="py-28 md:py-36">
         <div className="max-w-2xl mx-auto px-6">
@@ -210,6 +181,35 @@ export default function AISupportSection() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Partner */}
+      <section className="py-28 md:py-36">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-50 text-[var(--color-accent)] text-xs font-semibold mb-4">スクールサポートAI事業</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight mb-6">業務委託パートナー</h2>
+            <p className="text-[15px] text-[var(--color-text-light)] leading-[1.9] mb-10 max-w-xl mx-auto">
+              AI業務自動化・HP制作の開発パートナーとしてNexeed Labと連携し、<br />高品質なソリューションを提供します。
+            </p>
+            <a
+              href="https://www.nexeed-web.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.1)]"
+            >
+              Nexeed Lab
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </motion.div>
         </div>
       </section>
     </>
