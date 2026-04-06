@@ -30,7 +30,7 @@ export default function PriceSection() {
           <h3 className="text-center text-lg font-bold text-[var(--color-primary)] mb-8">スクールサポートAI事業</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: "AI業務自動化", desc: "業務内容に応じて最適なプランをご提案", gradient: "from-blue-500 to-cyan-400", price: "10,000", unit: "円〜 / 月", note: "※業務内容に応じてお見積り" },
+              { title: "AI業務自動化", desc: "業務内容に応じて最適なプランをご提案", gradient: "from-blue-500 to-cyan-400", price: "20,000", unit: "円〜 / 月", note: "※業務内容に応じてお見積り" },
               { title: "HP制作", desc: "デザイン・開発・運用までワンストップ", gradient: "from-purple-500 to-pink-400", price: "50,000", unit: "円〜", note: "※運用費 月額10,000円〜" },
             ].map((item, i) => (
               <motion.div
