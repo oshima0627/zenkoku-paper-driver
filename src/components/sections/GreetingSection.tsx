@@ -22,7 +22,7 @@ export default function GreetingSection() {
           <div className="shrink-0 mb-6 md:mb-0">
             <div className="relative w-48 h-64 rounded-lg overflow-hidden mx-auto md:mx-0">
               <Image
-                src="/IMG_3694.jpeg"
+                src="/IMG_3682.jpeg"
                 alt="代表 東山 勇人"
                 fill
                 className="object-cover object-top"
