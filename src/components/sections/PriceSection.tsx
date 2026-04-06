@@ -30,8 +30,8 @@ export default function PriceSection() {
           <h3 className="text-center text-lg font-bold text-[var(--color-primary)] mb-8">スクールサポートAI事業</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: "AI業務自動化", desc: "業務内容に応じて最適なプランをご提案", gradient: "from-blue-500 to-cyan-400" },
-              { title: "HP制作", desc: "デザイン・開発・運用までワンストップ", gradient: "from-purple-500 to-pink-400" },
+              { title: "AI業務自動化", desc: "業務内容に応じて最適なプランをご提案", gradient: "from-blue-500 to-cyan-400", price: "10,000", unit: "円〜 / 月", note: "※業務内容に応じてお見積り" },
+              { title: "HP制作", desc: "デザイン・開発・運用までワンストップ", gradient: "from-purple-500 to-pink-400", price: "50,000", unit: "円〜", note: "※運用費 月額10,000円〜" },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -44,8 +44,8 @@ export default function PriceSection() {
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient}`} />
                 <h4 className="text-base font-bold text-[var(--color-primary)] mb-2">{item.title}</h4>
                 <p className="text-sm text-[var(--color-text-light)] mb-5">{item.desc}</p>
-                <p className="text-2xl font-bold text-[var(--color-primary)]">要お見積り</p>
-                <p className="text-xs text-[var(--color-text-light)] mt-2">※個別にお見積りいたします</p>
+                <p className="text-2xl font-bold text-[var(--color-primary)]">{item.price}<span className="text-sm font-normal text-[var(--color-text-light)] ml-1">{item.unit}</span></p>
+                <p className="text-xs text-[var(--color-text-light)] mt-2">{item.note}</p>
               </motion.div>
             ))}
           </div>
