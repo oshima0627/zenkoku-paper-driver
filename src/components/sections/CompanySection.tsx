@@ -8,7 +8,7 @@ const companyInfo = [
   { label: "住所", value: "〒531-0071\n大阪市北区中津６丁目7-7-5F" },
   { label: "メールアドレス", value: "info@kyokai-npd.com" },
   { label: "従業員数", value: "5名" },
-  { label: "事業内容", value: "AIサポート事業（AI業務自動化・HP制作）\n企業向け安全運転講習\nペーパードライバー講習\n運転インストラクター育成事業" },
+  { label: "事業内容", value: "スクールサポートAI事業（AI業務自動化・HP制作）\n企業向け安全運転講習\nペーパードライバー講習\n運転インストラクター育成事業" },
 ];
 
 export default function CompanySection() {

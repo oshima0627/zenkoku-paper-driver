@@ -30,7 +30,7 @@ export default function AISupportPage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-sm font-medium text-[var(--color-text-light)] tracking-widest uppercase mb-4">AI Support</p>
-          <h1 className="text-3xl sm:text-5xl font-bold text-[var(--color-primary)] leading-tight tracking-tight mb-6">AIサポート事業</h1>
+          <h1 className="text-3xl sm:text-5xl font-bold text-[var(--color-primary)] leading-tight tracking-tight mb-6">スクールサポートAI事業</h1>
           <p className="text-base text-[var(--color-text-light)] max-w-2xl mx-auto leading-relaxed">
             AI業務自動化とHP制作を通じて、企業のDX推進と業務効率化を支援します。
           </p>

@@ -22,7 +22,7 @@ export default function PriceSection() {
 
         {/* AI Support Pricing */}
         <div className="mb-20">
-          <h3 className="text-center text-lg font-bold text-[var(--color-primary)] mb-8">AIサポート事業</h3>
+          <h3 className="text-center text-lg font-bold text-[var(--color-primary)] mb-8">スクールサポートAI事業</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { title: "AI業務自動化", desc: "業務内容に応じて最適なプランをご提案" },
@@ -47,7 +47,7 @@ export default function PriceSection() {
 
         {/* Driving Pricing */}
         <div>
-          <h3 className="text-center text-lg font-bold text-[var(--color-primary)] mb-8">安全運転講習事業</h3>
+          <h3 className="text-center text-lg font-bold text-[var(--color-primary)] mb-8">安全運転講習事業(協会)</h3>
 
           <div className="space-y-6 max-w-3xl mx-auto">
             {/* Steps */}

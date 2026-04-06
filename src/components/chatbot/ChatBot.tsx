@@ -62,7 +62,7 @@ export default function ChatBot() {
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               {messages.length === 0 && (
                 <div className="bg-[var(--color-bg-gray)] rounded-2xl p-3 text-sm text-[var(--color-text-light)] max-w-[80%]">
-                  こんにちは！AIサポート事業や安全運転講習など、お気軽にご質問ください。
+                  こんにちは！スクールサポートAI事業や安全運転講習など、お気軽にご質問ください。
                 </div>
               )}
               {messages.map((msg) => (

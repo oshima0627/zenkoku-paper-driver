@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 const businesses = [
   {
-    title: "AIサポート事業",
+    title: "スクールサポートAI事業",
     description: "AI業務自動化やHP制作を通じて、企業のDX推進と業務効率化を支援します。",
     features: ["AI業務自動化", "HP制作・運用", "DXコンサルティング"],
     href: "/ai-support",
   },
   {
-    title: "安全運転講習事業",
+    title: "安全運転講習事業(協会)",
     description: "国家資格保持者による企業向け安全運転講習を全国で提供します。",
     features: ["企業向け安全運転講習", "全国出張対応", "元白バイ隊員監修"],
     href: "/driving",

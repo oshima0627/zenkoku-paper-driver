@@ -26,13 +26,13 @@ export default function HeroSection() {
               href="/ai-support"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-colors"
             >
-              AIサポート事業
+              スクールサポートAI事業
             </Link>
             <Link
               href="/driving"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-[var(--color-accent)] bg-white border border-[var(--color-border)] rounded-full hover:bg-[var(--color-bg-gray)] transition-colors"
             >
-              安全運転講習事業
+              安全運転講習事業(協会)
             </Link>
           </div>
         </motion.div>

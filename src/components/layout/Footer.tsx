@@ -4,8 +4,8 @@ const footerLinks = [
   {
     title: "事業内容",
     items: [
-      { label: "AIサポート事業", href: "/ai-support" },
-      { label: "安全運転講習事業", href: "/driving" },
+      { label: "スクールサポートAI事業", href: "/ai-support" },
+      { label: "安全運転講習事業(協会)", href: "/driving" },
       { label: "料金案内", href: "/price" },
     ],
   },

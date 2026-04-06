@@ -60,7 +60,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold tracking-widest text-[var(--color-accent)] uppercase mb-2">Mission</p>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">私たちの使命</h2>
             <p className="text-[var(--color-text)] leading-relaxed max-w-2xl mx-auto">
-              全国ペーパードライバー協会は、<span className="text-[var(--color-accent)] font-bold">AIサポート事業</span>と<span className="text-[var(--color-accent)] font-bold">安全運転講習事業</span>の2つの柱を通じて、企業の課題解決と社会貢献に取り組んでいます。テクノロジーの力で業務を効率化し、プロフェッショナルな講習で交通安全を実現する。この2つのアプローチで、より良い社会づくりを目指します。
+              全国ペーパードライバー協会は、<span className="text-[var(--color-accent)] font-bold">スクールサポートAI事業</span>と<span className="text-[var(--color-accent)] font-bold">安全運転講習事業(協会)</span>の2つの柱を通じて、企業の課題解決と社会貢献に取り組んでいます。テクノロジーの力で業務を効率化し、プロフェッショナルな講習で交通安全を実現する。この2つのアプローチで、より良い社会づくりを目指します。
             </p>
           </motion.div>
 

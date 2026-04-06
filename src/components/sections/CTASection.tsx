@@ -17,7 +17,7 @@ export default function CTASection() {
             まずはお気軽にご相談ください
           </h2>
           <p className="text-sm sm:text-base text-white/60 mb-10 leading-relaxed">
-            AIサポート・安全運転講習など、お気軽にお問い合わせください。
+            スクールサポートAI・安全運転講習など、お気軽にお問い合わせください。
           </p>
           <Link
             href="/contact"
