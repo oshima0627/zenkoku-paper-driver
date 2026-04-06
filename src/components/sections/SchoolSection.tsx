@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 const schools = [
   { name: "うめきた大阪\nペーパードライバースクール", area: "大阪市内エリア", motto: "〜超が付くくらいのペーパードライバーさんと接することが大好き！！〜", instructor: "東山 勇人", role: "うめきた大阪ペーパードライバースクール代表", image: "/IMG_3682.jpeg", url: "https://umekitaosakapds.com/" },
-  { name: "ペーパードライバースクール\nちょこっとドライブ", area: "大阪南部、奈良エリア", motto: "〜スキマ時間にサクッと練習！安心のペーパードライバースクール〜", instructor: "河野 裕介", role: "ペーパードライバースクールちょこっとドライブ代表", image: "/IMG_3680.jpeg", url: "https://chokottodrive.com/class/" },
+  { name: "ペーパードライバースクール\nちょこっとドライブ", area: "大阪南部、奈良エリア", motto: "〜スキマ時間にサクッと練習！安心のペーパードライバースクール〜", instructor: "河野 裕介", role: "ペーパードライバースクールちょこっとドライブ代表", image: "/IMG_3680.jpeg", url: "https://chokottodrive.com/class/", imagePosition: "top" },
   { name: "まごころ\nペーパードライバースクール", area: "大阪北摂、兵庫エリア", motto: "〜指導力に自信あり！！最短時限&最少費用で運転の苦手を克服！！〜", instructor: "浜田 裕也", role: "まごころペーパードライバースクール代表", image: "/IMG_3701.jpeg", url: "https://www.magokoro-driver.com/" },
   { name: "かがやき\nペーパードライバースクール", area: "大阪北摂、兵庫エリア", motto: "〜元ペーパードライバー！気持ちが分かる女性指導員が優しく指導〜", instructor: "松下 陽奈真", role: "かがやきペーパードライバースクール代表", image: "/IMG_3681.jpeg", url: "https://kagayaki-driverschool.com/" },
   { name: "アンカー\nドライビングスクール", area: "阪神、大阪市内エリア", motto: "〜選ばれるのは、\"安心\"と\"品格\"を大切にする講習です〜", instructor: "百野 将生", role: "アンカードライビングスクール代表", image: "/IMG_3692.jpeg", url: "https://anchor-ds.com/" },
   { name: "バンビ\nドライビングスクール", area: "広島エリア", motto: "〜小鹿(バンビ)のように、少しずつ前へ〜", instructor: "百野 将生", role: "バンビドライビングスクール代表", image: "/IMG_3691.jpeg", url: "https://bambi-ds.com/" },
-  { name: "タイヨウライディングスクール", area: "大阪エリア 自転車教室", motto: "〜「乗りたい」を「乗れる」に〜", instructor: "志村 太陽", role: "タイヨウライディングスクール代表", image: "/IMG_3697.jpeg", url: "https://taiyors.com/" },
+  { name: "タイヨウライディングスクール", area: "大阪エリア 自転車教室", motto: "〜「乗りたい」を「乗れる」に〜", instructor: "志村 太陽", role: "タイヨウライディングスクール代表", image: "/IMG_3697.jpeg", url: "https://taiyors.com/", imagePosition: "top" },
   { name: "シーズンインストラクター", area: "公安委員会指定自動車教習所のシーズンインストラクター", motto: "〜あなたのチャレンジを応援します〜", instructor: "志村 太陽", role: "シーズンインストラクター", image: "/IMG_3683.jpeg" },
 ];
 
@@ -43,7 +43,7 @@ export default function SchoolSection() {
               >
                 <Wrapper {...wrapperProps} className="block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 group">
                   <div className="relative h-48">
-                    <Image src={school.image} alt={school.name.replace("\n", " ")} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={school.image} alt={school.name.replace("\n", " ")} fill className={`object-cover group-hover:scale-105 transition-transform duration-500 ${school.imagePosition === "top" ? "object-top" : ""}`} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end">
                       <p className="text-white font-bold whitespace-pre-line text-base sm:text-lg p-6 drop-shadow-lg">{school.name}</p>
                     </div>
