@@ -64,7 +64,7 @@ export default function Footer() {
 
         {/* Divider + copyright */}
         <div className="border-t border-white/10 pt-6">
-          <p className="text-xs text-white/30 tracking-wider">
+          <p className="text-xs text-white/30 tracking-wider text-center">
             &copy; {new Date().getFullYear()} 全国ペーパードライバー協会 All rights Reserved.
           </p>
         </div>
