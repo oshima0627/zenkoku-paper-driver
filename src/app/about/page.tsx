@@ -91,9 +91,6 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
                 className="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white mx-auto mb-5">
-                  {value.icon}
-                </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)] mb-3">{value.title}</h3>
                 <p className="text-sm text-[var(--color-text-light)] leading-relaxed">{value.description}</p>
               </motion.div>
