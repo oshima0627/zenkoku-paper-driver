@@ -1,58 +1,40 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] flex items-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/IMG_3677.jpeg"
-        alt="海辺の車"
-        fill
-        className="object-cover"
-        priority
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-
-      <div className="relative max-w-6xl mx-auto px-4 py-16 w-full">
+    <section className="py-24 md:py-36 bg-white">
+      <div className="max-w-4xl mx-auto px-4 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-xl sm:text-3xl md:text-5xl font-bold text-white leading-relaxed mb-4">
-            交通社会の専門家であり、
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[var(--color-primary)] leading-tight tracking-tight">
+            テクノロジーと安全で、
             <br />
-            道路における法律の専門家
+            社会に貢献する。
           </h1>
-          <p className="text-xs sm:text-sm md:text-base text-gray-300 tracking-widest font-mono">
-            An expert on traffic society and road law
+          <p className="mt-6 text-base sm:text-lg text-[var(--color-text-light)] leading-relaxed max-w-2xl mx-auto">
+            AI業務自動化・HP制作と安全運転講習の2つの事業を柱に、
+            企業の課題解決に取り組みます。
           </p>
-        </motion.div>
-
-        {/* Three circles */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex justify-end gap-2 sm:gap-4 md:gap-6 mt-8"
-        >
-          {[
-            { text: "安全運転講習\n専門スクール" },
-            { text: "プロフェッショナル\n集団" },
-            { text: "元白バイ隊員\n監修\nマニュアル作成" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-cyan-300/80 to-blue-400/80 backdrop-blur-sm flex items-center justify-center text-center"
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              href="/ai-support"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-colors"
             >
-              <p className="text-[10px] sm:text-xs md:text-sm font-bold text-white whitespace-pre-line leading-snug sm:leading-relaxed">
-                {item.text}
-              </p>
-            </div>
-          ))}
+              AIサポート事業
+            </Link>
+            <Link
+              href="/driving"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-[var(--color-accent)] bg-white border border-[var(--color-border)] rounded-full hover:bg-[var(--color-bg-gray)] transition-colors"
+            >
+              安全運転講習事業
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -16,16 +16,11 @@ const schools = [
 
 export default function SchoolSection() {
   return (
-    <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+    <section className="py-20 md:py-28 bg-[var(--color-bg-gray)]">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="flex justify-center mb-4">
-            <svg className="w-14 h-14 text-[var(--color-primary-light)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">提携スクール</h2>
-          <p className="text-sm text-[var(--color-accent)] mt-1">-Affiliated school-</p>
+          <p className="text-sm font-medium text-[var(--color-text-light)] tracking-widest uppercase mb-2">Affiliated School</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">提携スクール</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -36,24 +31,19 @@ export default function SchoolSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="border rounded-lg overflow-hidden"
+              className="bg-white rounded-2xl overflow-hidden"
             >
               <div className="relative h-48">
-                <Image
-                  src={school.image}
-                  alt={school.name.replace("\n", " ")}
-                  fill
-                  className="object-cover"
-                />
+                <Image src={school.image} alt={school.name.replace("\n", " ")} fill className="object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <p className="text-white font-bold text-center whitespace-pre-line text-base sm:text-lg drop-shadow-lg">{school.name}</p>
                 </div>
               </div>
               <div className="p-5">
-                <p className="text-xs text-gray-500 font-bold mb-1">【{school.area}】</p>
-                <p className="text-sm text-gray-700 mb-3">{school.motto}</p>
-                <p className="text-xs text-gray-500">インストラクター　{school.instructor}</p>
-                <p className="text-xs text-gray-400">{school.role}</p>
+                <p className="text-xs text-[var(--color-text-light)] font-medium mb-1">【{school.area}】</p>
+                <p className="text-sm text-[var(--color-primary)] mb-3">{school.motto}</p>
+                <p className="text-xs text-[var(--color-text-light)]">インストラクター　{school.instructor}</p>
+                <p className="text-xs text-[var(--color-text-light)]">{school.role}</p>
               </div>
             </motion.div>
           ))}

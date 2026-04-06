@@ -6,62 +6,51 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "協会理念", href: "/about" },
+  { label: "私たちについて", href: "/about" },
+  { label: "AIサポート事業", href: "/ai-support" },
+  { label: "安全運転講習事業", href: "/driving" },
   { label: "料金案内", href: "/price" },
-  { label: "よくある質問", href: "/faq" },
   { label: "会社概要", href: "/company" },
-  { label: "採用情報", href: "/recruit" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[var(--color-border)]/50">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={80} height={44} className="h-11 w-auto object-contain" />
-            <div>
-              <span className="text-sm sm:text-xl font-bold text-[var(--color-primary)]">
-                全国ペーパードライバー協会
-              </span>
-              <p className="text-[8px] sm:text-[10px] text-[var(--color-primary)] tracking-wider">
-                National Paper Drivers Association
-              </p>
-            </div>
+            <Image src="/association-logo.png" alt="ロゴ" width={64} height={36} className="h-9 w-auto object-contain" />
+            <span className="text-sm sm:text-base font-semibold text-[var(--color-primary)]">
+              全国ペーパードライバー協会
+            </span>
           </Link>
 
-          {/* Desktop navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[var(--color-primary)] transition-colors"
+                className="text-xs font-medium text-[var(--color-text-light)] hover:text-[var(--color-primary)] transition-colors"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="ml-3 px-6 py-3 text-sm font-bold text-white bg-[var(--color-accent)] rounded-md hover:bg-[var(--color-accent-dark)] transition-colors flex items-center gap-2"
+              className="px-5 py-2 text-xs font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-colors"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              お問い合わせ・お申し込み
+              お問い合わせ
             </Link>
           </nav>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-700"
+            className="lg:hidden p-2 text-[var(--color-primary)]"
             aria-label="メニュー"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -72,7 +61,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -80,7 +68,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden overflow-hidden bg-white border-t"
+            className="lg:hidden overflow-hidden bg-white border-t border-[var(--color-border)]/50"
           >
             <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
@@ -88,7 +76,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                  className="px-4 py-3 text-sm text-[var(--color-text-light)] hover:text-[var(--color-primary)] rounded-lg transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -96,9 +84,9 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-2 px-4 py-3 text-center text-white font-bold bg-[var(--color-accent)] rounded-md"
+                className="mt-2 px-4 py-3 text-center text-white text-sm font-medium bg-[var(--color-primary)] rounded-full"
               >
-                お問い合わせ・お申し込み
+                お問い合わせ
               </Link>
             </nav>
           </motion.div>

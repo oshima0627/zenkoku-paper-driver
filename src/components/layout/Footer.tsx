@@ -1,44 +1,56 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const footerLinks = [
-  { label: "協会理念", href: "/about" },
-  { label: "料金案内", href: "/price" },
-  { label: "よくある質問", href: "/faq" },
-  { label: "会社概要", href: "/company" },
-  { label: "採用情報", href: "/recruit" },
+  {
+    title: "事業内容",
+    items: [
+      { label: "AIサポート事業", href: "/ai-support" },
+      { label: "安全運転講習事業", href: "/driving" },
+      { label: "料金案内", href: "/price" },
+    ],
+  },
+  {
+    title: "協会について",
+    items: [
+      { label: "私たちについて", href: "/about" },
+      { label: "会社概要", href: "/company" },
+      { label: "採用情報", href: "/recruit" },
+    ],
+  },
+  {
+    title: "サポート",
+    items: [
+      { label: "お問い合わせ", href: "/contact" },
+      { label: "よくある質問", href: "/faq" },
+      { label: "ブログ", href: "/blog" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer>
-      {/* Logo area */}
-      <div className="bg-white py-8">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={64} height={35} className="h-9 w-auto object-contain" />
-            <div>
-              <span className="text-sm sm:text-lg font-bold text-[var(--color-primary)]">全国ペーパードライバー協会</span>
-              <p className="text-[8px] sm:text-[9px] text-[var(--color-primary)] tracking-wider">National Paper Drivers Association</p>
+    <footer className="bg-[var(--color-bg-gray)] border-t border-[var(--color-border)]/50">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {footerLinks.map((group) => (
+            <div key={group.title}>
+              <h3 className="text-xs font-semibold text-[var(--color-primary)] mb-3">{group.title}</h3>
+              <ul className="space-y-2">
+                {group.items.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-xs text-[var(--color-text-light)] hover:text-[var(--color-primary)] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-
-      {/* Navigation bar */}
-      <div className="bg-[var(--color-primary)]">
+      <div className="border-t border-[var(--color-border)]/50">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex justify-center items-center gap-1 flex-wrap">
-            {footerLinks.map((link, i) => (
-              <div key={link.label} className="flex items-center">
-                {i > 0 && <span className="text-white/40 mx-2">|</span>}
-                <Link href={link.href} className="text-sm text-white hover:text-gray-200 transition-colors">
-                  {link.label}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-xs text-white/60 mt-3">
+          <p className="text-center text-xs text-[var(--color-text-light)]">
             &copy; {new Date().getFullYear()} 全国ペーパードライバー協会 All rights Reserved.
           </p>
         </div>

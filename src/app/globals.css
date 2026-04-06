@@ -2,48 +2,49 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  /* ボタン・フッター・特定文字用の紫 */
-  --color-primary: #4a2c8a;
-  --color-primary-dark: #3a1f6e;
-  --color-primary-light: #6b4baf;
+  /* プライマリ（ブラック） */
+  --color-primary: #1d1d1f;
+  --color-primary-dark: #000000;
+  --color-primary-light: #6e6e73;
 
-  /* サイト全体のイメージカラー（水色/青） */
-  --color-site: #4a9fd9;
-  --color-site-dark: #2d7bb8;
-  --color-site-light: #7ec4f0;
-  --color-site-pale: #e8f4fc;
+  /* アクセント（ブルー） */
+  --color-accent: #0071e3;
+  --color-accent-dark: #0077ed;
+  --color-accent-light: #2997ff;
 
-  /* アクセントカラー（オレンジ） */
-  --color-accent: #e8960c;
-  --color-accent-dark: #c47d0a;
-  --color-accent-light: #f5b84e;
+  /* セカンダリ（パープル） */
+  --color-secondary: #6e6e73;
+  --color-secondary-dark: #424245;
+  --color-secondary-light: #86868b;
 
   /* 基本色 */
   --color-bg: #ffffff;
-  --color-bg-gray: #f7f7f7;
-  --color-text: #333333;
-  --color-text-light: #666666;
+  --color-bg-light: #fbfbfd;
+  --color-bg-gray: #f5f5f7;
+  --color-bg-card: #ffffff;
+  --color-text: #1d1d1f;
+  --color-text-light: #6e6e73;
   --color-text-white: #ffffff;
-  --color-border: #e0e0e0;
+  --color-border: #d2d2d7;
 }
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-primary-dark: var(--color-primary-dark);
   --color-primary-light: var(--color-primary-light);
-  --color-site: var(--color-site);
-  --color-site-dark: var(--color-site-dark);
-  --color-site-light: var(--color-site-light);
-  --color-site-pale: var(--color-site-pale);
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
   --color-accent-light: var(--color-accent-light);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-secondary-light: var(--color-secondary-light);
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
