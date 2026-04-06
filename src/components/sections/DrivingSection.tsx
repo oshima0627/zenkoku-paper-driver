@@ -49,7 +49,7 @@ export default function DrivingSection() {
                 transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0, 1] }}
                 className="group bg-white rounded-3xl p-8 md:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden border border-[var(--color-border)]/40"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-pink-400 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
                 <h3 className="text-xl font-bold text-[var(--color-primary)] mb-3">{service.title}</h3>
                 <p className="text-sm text-[var(--color-text-light)] leading-relaxed mb-6">{service.description}</p>
                 <ul className="space-y-2.5">
