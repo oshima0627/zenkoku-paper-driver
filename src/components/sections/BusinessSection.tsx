@@ -34,7 +34,7 @@ export default function BusinessSection() {
           className="text-center mb-16"
         >
           <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Business</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">事業内容</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">事業</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
