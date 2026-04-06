@@ -187,7 +187,7 @@ export default function AISupportSection() {
                   transition={{ duration: 0.5, delay: i * 0.1, ease: [0.25, 0.1, 0, 1] }}
                   className="bg-white rounded-2xl overflow-hidden shadow-md"
                 >
-                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-400 to-blue-600">
+                  <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-blue-400 to-blue-600">
                     <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
                       {plan.number}
                     </span>

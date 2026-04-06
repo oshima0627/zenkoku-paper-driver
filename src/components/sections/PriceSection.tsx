@@ -41,7 +41,7 @@ function PlanCard({ number, title, subtitle, description, price, unit, note, del
       transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0, 1] }}
       className="bg-white rounded-2xl overflow-hidden shadow-md"
     >
-      <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-pink-300 to-rose-400">
+      <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-pink-300 to-rose-400">
         <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
           {number}
         </span>
@@ -103,7 +103,7 @@ export default function PriceSection() {
               transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
               className="bg-white rounded-2xl overflow-hidden shadow-md"
             >
-              <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-pink-300 to-rose-400">
+              <div className="flex items-center gap-4 px-6 py-4 bg-gradient-to-l from-pink-300 to-rose-400">
                 <span className="w-8 h-8 rounded-full bg-white/20 text-white text-sm font-bold flex items-center justify-center shrink-0">
                   2
                 </span>
@@ -120,7 +120,7 @@ export default function PriceSection() {
                   <div className="flex items-center gap-3">
                     <span className={`text-sm ${row.popular > 0 ? "font-bold text-[var(--color-primary)]" : "text-gray-700"}`}>{row.time}</span>
                     {row.popular === 1 && (
-                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-pink-300 to-rose-400 text-white">人気No.1</span>
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-l from-pink-300 to-rose-400 text-white">人気No.1</span>
                     )}
                     {row.popular === 2 && (
                       <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-500">人気No.2</span>
