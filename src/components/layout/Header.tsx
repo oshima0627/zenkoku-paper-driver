@@ -37,7 +37,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/#contact"
               className="px-5 py-1.5 text-xs font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300"
             >
               お問い合わせ
@@ -81,7 +81,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href="/#contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="mt-2 px-4 py-3 text-center text-white text-sm font-medium bg-[var(--color-primary)] rounded-full"
               >

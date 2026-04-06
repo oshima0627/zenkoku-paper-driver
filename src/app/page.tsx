@@ -9,7 +9,7 @@ import PriceSection from "@/components/sections/PriceSection";
 import FAQSection from "@/components/sections/FAQSection";
 import IntroSection from "@/components/sections/IntroSection";
 import AboutSection from "@/components/sections/AboutSection";
-import CTASection from "@/components/sections/CTASection";
+import ContactSection from "@/components/sections/ContactSection";
 
 function Divider() {
   return (
@@ -60,7 +60,11 @@ export default function Home() {
         <AboutSection />
       </div>
 
-      <CTASection />
+      <Divider />
+
+      <div id="contact">
+        <ContactSection />
+      </div>
     </>
   );
 }

@@ -26,7 +26,7 @@ export default function CTASection() {
             スクールサポートAI・安全運転講習など、<br />お気軽にお問い合わせください。
           </p>
           <Link
-            href="/contact"
+            href="/#contact"
             className="inline-flex items-center justify-center px-10 py-4 text-sm font-medium bg-white text-[var(--color-primary)] rounded-full hover:bg-white/90 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
           >
             お問い合わせ

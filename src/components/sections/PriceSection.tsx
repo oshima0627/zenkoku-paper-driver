@@ -200,7 +200,7 @@ export default function PriceSection() {
         >
           <p className="text-sm text-[var(--color-text-light)] mb-6">ご不明な点はお気軽にお問い合わせください</p>
           <Link
-            href="/contact"
+            href="/#contact"
             className="inline-flex items-center justify-center px-12 py-4 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-light)] transition-all duration-300"
           >
             お申し込み・お問い合わせ
