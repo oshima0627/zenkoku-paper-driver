@@ -34,7 +34,7 @@ export default function Footer() {
         {/* Logo & tagline */}
         <div className="mb-12">
           <Link href="/" className="flex items-center gap-3 mb-4">
-            <Image src="/association-logo.png" alt="ロゴ" width={48} height={28} className="h-7 w-auto object-contain invert brightness-200" />
+            <Image src="/association-logo.png" alt="ロゴ" width={48} height={28} className="h-7 w-auto object-contain brightness-0 invert opacity-90" />
             <span className="text-base font-semibold text-white">
               全国ペーパードライバー協会
             </span>
