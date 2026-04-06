@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function GreetingSection() {
@@ -17,12 +18,15 @@ export default function GreetingSection() {
           transition={{ duration: 0.5 }}
           className="md:flex gap-8 items-start"
         >
-          {/* Photo placeholder */}
+          {/* Representative photo */}
           <div className="shrink-0 mb-6 md:mb-0">
-            <div className="w-48 h-64 bg-gray-300 rounded-lg mx-auto md:mx-0 flex items-center justify-center">
-              <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+            <div className="relative w-48 h-64 rounded-lg overflow-hidden mx-auto md:mx-0">
+              <Image
+                src="/IMG_3694.jpeg"
+                alt="代表 東山 勇人"
+                fill
+                className="object-cover object-top"
+              />
             </div>
           </div>
 

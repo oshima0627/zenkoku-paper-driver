@@ -1,16 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const schools = [
-  { name: "うめきた大阪\nペーパードライバースクール", area: "大阪市内エリア", motto: "〜超が付くくらいのペーパードライバーさんと接することが大好き！！〜", instructor: "東山 勇人", role: "うめきた大阪ペーパードライバースクール代表" },
-  { name: "ペーパードライバースクール\nちょこっとドライブ", area: "大阪南部、奈良エリア", motto: "〜スキマ時間にサクッと練習！安心のペーパードライバースクール〜", instructor: "河野 裕介", role: "ペーパードライバースクールちょこっとドライブ代表" },
-  { name: "まごころ\nペーパードライバースクール", area: "大阪北摂、兵庫エリア", motto: "〜指導力に自信あり！！最短時限&最少費用で運転の苦手を克服！！〜", instructor: "浜田 裕也", role: "まごころペーパードライバースクール代表" },
-  { name: "かがやき\nペーパードライバースクール", area: "大阪北摂、兵庫エリア", motto: "〜元ペーパードライバー！気持ちが分かる女性指導員が優しく指導〜", instructor: "松下 陽奈真", role: "かがやきペーパードライバースクール代表" },
-  { name: "アンカー\nドライビングスクール", area: "阪神、大阪市内エリア", motto: "〜選ばれるのは、\"安心\"と\"品格\"を大切にする講習です〜", instructor: "百野 将生", role: "アンカードライビングスクール代表" },
-  { name: "バンビ\nドライビングスクール", area: "広島エリア", motto: "〜小鹿(バンビ)のように、少しずつ前へ〜", instructor: "百野 将生", role: "バンビドライビングスクール代表" },
-  { name: "タイヨウライディングスクール", area: "大阪エリア 自転車教室", motto: "〜「乗りたい」を「乗れる」に〜", instructor: "志村 太陽", role: "タイヨウライディングスクール代表" },
-  { name: "シーズンインストラクター", area: "公安委員会指定自動車教習所のシーズンインストラクター", motto: "〜あなたのチャレンジを応援します〜", instructor: "志村 太陽", role: "シーズンインストラクター" },
+  { name: "うめきた大阪\nペーパードライバースクール", area: "大阪市内エリア", motto: "〜超が付くくらいのペーパードライバーさんと接することが大好き！！〜", instructor: "東山 勇人", role: "うめきた大阪ペーパードライバースクール代表", image: "/IMG_3684.jpeg" },
+  { name: "ペーパードライバースクール\nちょこっとドライブ", area: "大阪南部、奈良エリア", motto: "〜スキマ時間にサクッと練習！安心のペーパードライバースクール〜", instructor: "河野 裕介", role: "ペーパードライバースクールちょこっとドライブ代表", image: "/IMG_3697.jpeg" },
+  { name: "まごころ\nペーパードライバースクール", area: "大阪北摂、兵庫エリア", motto: "〜指導力に自信あり！！最短時限&最少費用で運転の苦手を克服！！〜", instructor: "浜田 裕也", role: "まごころペーパードライバースクール代表", image: "/IMG_3696.jpeg" },
+  { name: "かがやき\nペーパードライバースクール", area: "大阪北摂、兵庫エリア", motto: "〜元ペーパードライバー！気持ちが分かる女性指導員が優しく指導〜", instructor: "松下 陽奈真", role: "かがやきペーパードライバースクール代表", image: "/IMG_3681.jpeg" },
+  { name: "アンカー\nドライビングスクール", area: "阪神、大阪市内エリア", motto: "〜選ばれるのは、\"安心\"と\"品格\"を大切にする講習です〜", instructor: "百野 将生", role: "アンカードライビングスクール代表", image: "/IMG_3692.jpeg" },
+  { name: "バンビ\nドライビングスクール", area: "広島エリア", motto: "〜小鹿(バンビ)のように、少しずつ前へ〜", instructor: "百野 将生", role: "バンビドライビングスクール代表", image: "/IMG_3691.jpeg" },
+  { name: "タイヨウライディングスクール", area: "大阪エリア 自転車教室", motto: "〜「乗りたい」を「乗れる」に〜", instructor: "志村 太陽", role: "タイヨウライディングスクール代表", image: "/IMG_3680.jpeg" },
+  { name: "シーズンインストラクター", area: "公安委員会指定自動車教習所のシーズンインストラクター", motto: "〜あなたのチャレンジを応援します〜", instructor: "志村 太陽", role: "シーズンインストラクター", image: "/IMG_3683.jpeg" },
 ];
 
 export default function SchoolSection() {
@@ -37,9 +38,16 @@ export default function SchoolSection() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="border rounded-lg overflow-hidden"
             >
-              {/* Image placeholder */}
-              <div className="h-48 bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                <p className="text-white font-bold text-center whitespace-pre-line text-base sm:text-lg">{school.name}</p>
+              <div className="relative h-48">
+                <Image
+                  src={school.image}
+                  alt={school.name.replace("\n", " ")}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <p className="text-white font-bold text-center whitespace-pre-line text-base sm:text-lg drop-shadow-lg">{school.name}</p>
+                </div>
               </div>
               <div className="p-5">
                 <p className="text-xs text-gray-500 font-bold mb-1">【{school.area}】</p>
