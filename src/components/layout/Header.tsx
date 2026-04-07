@@ -24,8 +24,9 @@ export default function Header() {
         <div className="flex justify-between items-center h-12">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/association-logo.png" alt="ロゴ" width={64} height={36} className="h-8 w-auto object-contain" />
-            <span className="text-xs sm:text-sm font-semibold text-[var(--color-primary)]">
-              Co-Drive Lab
+            <span className="text-sm sm:text-base font-bold tracking-tight leading-none">
+              <span className="text-[var(--color-primary)]">Co-Drive</span>
+              <span className="ml-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">Lab</span>
             </span>
           </Link>
 

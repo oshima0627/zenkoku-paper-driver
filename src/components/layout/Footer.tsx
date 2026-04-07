@@ -34,8 +34,9 @@ export default function Footer() {
         <div className="mb-12">
           <Link href="/" className="flex items-center gap-3 mb-4">
             <Image src="/association-logo.png" alt="ロゴ" width={48} height={28} className="h-7 w-auto object-contain" />
-            <span className="text-base font-semibold text-white">
-              Co-Drive Lab
+            <span className="text-lg font-bold tracking-tight leading-none">
+              <span className="text-white">Co-Drive</span>
+              <span className="ml-0.5 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Lab</span>
             </span>
           </Link>
           <p className="text-sm text-white/50 leading-relaxed">
