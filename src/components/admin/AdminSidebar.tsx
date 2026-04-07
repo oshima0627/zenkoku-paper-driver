@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
+import { LogoMark } from "@/components/ui/Logo";
 
 const navItems = [
   {
@@ -59,11 +59,11 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
       <div className="p-4 border-b border-gray-200">
         <Link href="/admin/dashboard" className="flex items-center gap-3" onClick={onClose}>
           <div className="shrink-0">
-            <Image src="/association-logo.png" alt="Co-Drive Labロゴ" width={128} height={70} className="h-10 w-auto object-contain" />
+            <LogoMark className="h-10 w-10" />
           </div>
           <div>
             <p className="text-sm font-bold text-gray-900">管理画面</p>
-            <p className="text-[10px] text-gray-400">NPD Admin</p>
+            <p className="text-[10px] text-gray-400">Co-Drive Lab</p>
           </div>
         </Link>
       </div>

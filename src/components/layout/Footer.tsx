@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@/components/ui/Logo";
 
 const footerLinks = [
   {
@@ -32,12 +32,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-12">
         {/* Logo & tagline */}
         <div className="mb-12">
-          <Link href="/" className="flex items-center gap-3 mb-4">
-            <Image src="/association-logo.png" alt="ロゴ" width={48} height={28} className="h-7 w-auto object-contain" />
-            <span className="text-lg font-bold tracking-tight leading-none">
-              <span className="text-white">Co-Drive</span>
-              <span className="ml-0.5 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Lab</span>
-            </span>
+          <Link href="/" className="flex items-center mb-4">
+            <Logo size="lg" theme="dark" />
           </Link>
           <p className="text-sm text-white/50 leading-relaxed">
             テクノロジーと安全で、社会に貢献する。

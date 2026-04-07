@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
 
 const businessButtons = [
   { label: "スクールサポートAI事業", href: "/ai-support" },
@@ -22,12 +22,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-[var(--color-border)]/30">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-12">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/association-logo.png" alt="ロゴ" width={64} height={36} className="h-8 w-auto object-contain" />
-            <span className="text-sm sm:text-base font-bold tracking-tight leading-none">
-              <span className="text-[var(--color-primary)]">Co-Drive</span>
-              <span className="ml-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">Lab</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Logo size="sm" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
