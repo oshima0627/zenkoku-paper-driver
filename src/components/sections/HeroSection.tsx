@@ -14,14 +14,14 @@ export default function HeroSection() {
 
       <div className="relative max-w-5xl mx-auto px-6 py-20 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0, 1] }}
+          transition={{ duration: 0.8, ease: [0, 0, 0.2, 1] }}
         >
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
             className="text-sm font-medium tracking-[0.2em] text-white/50 uppercase mb-6"
           >
             <span className="sm:hidden">School Support AI<br />&times;<br />Safety Driving</span>
@@ -35,9 +35,9 @@ export default function HeroSection() {
             </span>
           </h1>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
             className="mt-8 text-base sm:text-lg text-white/60 leading-relaxed max-w-xl mx-auto"
           >
             テクノロジーと安全で、社会に貢献する。

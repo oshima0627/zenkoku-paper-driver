@@ -139,7 +139,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             onClick={onClose}
           />
           {/* Sidebar panel */}
-          <div className="relative flex flex-col min-h-screen">
+          <div className="relative flex flex-col h-full overflow-y-auto">
             {sidebarContent}
           </div>
         </div>
