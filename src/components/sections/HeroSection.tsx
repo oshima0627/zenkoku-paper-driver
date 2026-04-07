@@ -53,8 +53,10 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 mb-10"
           >
             <span className="w-6 h-px bg-blue-500/60" />
-            <span className="text-[11px] font-semibold tracking-[0.35em] text-blue-400/80 uppercase">
-              School Support AI &times; Safety Driving
+            <span className="text-[11px] font-semibold tracking-[0.35em] text-blue-400/80 uppercase flex flex-col items-center leading-relaxed">
+              <span>School Support AI</span>
+              <span>&times;</span>
+              <span>Safety Driving</span>
             </span>
             <span className="w-6 h-px bg-blue-500/60" />
           </motion.div>
