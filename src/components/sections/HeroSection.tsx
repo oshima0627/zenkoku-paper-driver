@@ -46,7 +46,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#f5f5f7] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#f5f5f7] via-[#f5f5f7]/60 to-transparent" />
     </section>
   );
 }
