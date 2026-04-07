@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100dvh-3rem)] flex items-center overflow-hidden bg-[var(--color-primary)]">
+    <section className="relative min-h-[calc(100svh-3rem)] flex items-center overflow-hidden bg-[var(--color-primary)]">
       {/* Gradient mesh background */}
       <div className="absolute inset-0">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px]" />
