@@ -9,10 +9,10 @@ interface LogoMarkProps {
 
 /**
  * Co-Drive Lab のシンボルマーク
- * - 外周リング: ステアリングホイール / Lab の円環
- * - 3本のスポーク: 運転の動きと方向
- * - 各スポーク先端のノード: AI / 回路 / テクノロジー
- * - 中央ハブ: 2事業を束ねる中心
+ * - 270°アーク: スピードメーター（Drive）/ 計測器の文字盤（Lab）
+ * - 斜めの針: 前進・成長ベクトル（11時方向 = 上昇トレンド）
+ * - 中央ピボット: 2事業を束ねる軸
+ * - ティップノード: 目的地 / イノベーション
  */
 export const LogoMark = memo(function LogoMark({ className, title = "Co-Drive Lab" }: LogoMarkProps) {
   return (
@@ -30,28 +30,31 @@ export const LogoMark = memo(function LogoMark({ className, title = "Co-Drive La
         </linearGradient>
       </defs>
 
-      {/* Outer ring (steering wheel / Lab circle) */}
-      <circle
-        cx="32"
-        cy="32"
-        r="24"
+      {/* Speedometer arc — 270°, opening at bottom (Drive + Lab dial) */}
+      <path
+        d="M 16.4 47.6 A 22 22 0 1 1 47.6 47.6"
         fill="none"
         stroke="url(#cdl-logo-grad)"
-        strokeWidth="3.5"
+        strokeWidth="5"
+        strokeLinecap="round"
       />
 
-      {/* Y-shaped spokes (steering wheel + motion lines) */}
-      <line x1="32" y1="32" x2="32" y2="11" stroke="url(#cdl-logo-grad)" strokeWidth="3.5" strokeLinecap="round" />
-      <line x1="32" y1="32" x2="14" y2="43" stroke="url(#cdl-logo-grad)" strokeWidth="3.5" strokeLinecap="round" />
-      <line x1="32" y1="32" x2="50" y2="43" stroke="url(#cdl-logo-grad)" strokeWidth="3.5" strokeLinecap="round" />
+      {/* Needle — forward/growth vector pointing to ~11 o'clock */}
+      <line
+        x1="32"
+        y1="32"
+        x2="44"
+        y2="18"
+        stroke="url(#cdl-logo-grad)"
+        strokeWidth="4.5"
+        strokeLinecap="round"
+      />
 
-      {/* Center hub */}
-      <circle cx="32" cy="32" r="4.5" fill="url(#cdl-logo-grad)" />
+      {/* Center pivot */}
+      <circle cx="32" cy="32" r="3.8" fill="#3b82f6" />
 
-      {/* Circuit nodes at spoke tips (AI / tech) */}
-      <circle cx="32" cy="11" r="2.8" fill="#3b82f6" />
-      <circle cx="14" cy="43" r="2.8" fill="#06b6d4" />
-      <circle cx="50" cy="43" r="2.8" fill="#06b6d4" />
+      {/* Tip node — destination / innovation */}
+      <circle cx="44" cy="18" r="3" fill="#06b6d4" />
     </svg>
   );
 });
