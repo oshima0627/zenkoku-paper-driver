@@ -1,5 +1,5 @@
 import { anthropic } from "@ai-sdk/anthropic";
-import { streamText } from "ai";
+import { streamText, convertToModelMessages } from "ai";
 import { getRAGContext } from "@/lib/rag";
 
 const SYSTEM_PROMPT = `あなたはCo-Drive LabのAIアシスタントです。
@@ -57,8 +57,8 @@ export async function POST(req: Request) {
   const result = streamText({
     model: anthropic("claude-haiku-4-5-20251001"),
     system: systemPrompt,
-    messages,
+    messages: await convertToModelMessages(messages),
   });
 
-  return result.toDataStreamResponse();
+  return result.toUIMessageStreamResponse();
 }
