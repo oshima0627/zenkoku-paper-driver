@@ -109,7 +109,7 @@ export default function AboutSection() {
 
             <div className="space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9]">
               <p>Co-Drive Labのホームページをご覧いただき、誠にありがとうございます。</p>
-              <p>当協会は、ペーパードライバースクールを展開するメンバーと元白バイ隊員と共に設立した法人向け安全運転講習専門の団体です。さらに、AIの力で企業の業務効率化やDX推進を支援する<span className="text-[var(--color-primary)] font-semibold">スクールサポートAI事業</span>を新たな柱として展開しています。</p>
+              <p>当ラボは、ペーパードライバースクールを展開するメンバーと元白バイ隊員と共に設立した法人向け安全運転講習専門ラボです。さらに、AIの力で企業の業務効率化やDX推進を支援する<span className="text-[var(--color-primary)] font-semibold">スクールサポートAI事業</span>を新たな柱として展開しています。</p>
               <p>AI業務自動化やHP制作といったテクノロジー分野と、国家資格保持者・元白バイ隊員によるプロフェッショナルな安全運転講習。この2つの事業を通じて、社会に貢献していくことが私たちの使命です。</p>
               <p>唯一無二のプロフェッショナル集団として、お客様それぞれの最適解を提案し、これからも歩み続けていきます。</p>
               <div className="text-right pt-6 border-t border-[var(--color-border)]/30 mt-8">
