@@ -36,7 +36,8 @@ export default function BusinessSection() {
           <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Business</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">事業</h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--color-text-light)] leading-relaxed">
-            AI業務自動化・HP制作と安全運転講習の2つの事業を柱に、<br />
+            AI業務自動化・HP制作と<br />
+            安全運転講習の2つの事業を柱に、<br />
             企業の課題解決に取り組みます。
           </p>
         </motion.div>
