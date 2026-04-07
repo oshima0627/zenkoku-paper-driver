@@ -47,20 +47,6 @@ export default function AboutSection() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-3xl p-8 md:p-10 shadow-md space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9] max-w-3xl mx-auto mb-16"
-          >
-            <p><span className="text-[var(--color-primary)] font-semibold">国家資格</span>である指導員資格保持者 × ペーパードライバースクールを数社運営している<span className="text-[var(--color-primary)] font-semibold">プロフェッショナル</span></p>
-            <p>その現役講師陣が社員の皆様の運転をサポート致します。</p>
-            <p>何かを学ぶ時、誰から学ぶかということが重要です。私たちはどこよりも<span className="font-semibold text-[var(--color-primary)]">人</span>に力を入れております。</p>
-            <p>信頼して頂くためには相手のことを知ることから始まります。そして相手のことを好きになります。</p>
-            <p>依頼のあったお客様から<span className="text-[var(--color-primary)] font-semibold">交通安全の分野</span>で<span className="text-[var(--color-primary)] font-semibold">プロフェッショナル</span>というポジションでお任せ頂ければ光栄です。</p>
-          </motion.div>
-
           {/* Values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((value, i) => (
