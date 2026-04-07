@@ -28,7 +28,7 @@ export default function AdminHeader() {
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">{session?.user?.name}</span>
           <button
-            onClick={() => signOut({ callbackUrl: "/admin/login" })}
+            onClick={() => signOut({ callbackUrl: `${window.location.origin}/admin/login` })}
             className="text-sm text-gray-500 hover:text-gray-700"
           >
             ログアウト

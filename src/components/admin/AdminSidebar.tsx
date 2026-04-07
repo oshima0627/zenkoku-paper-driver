@@ -110,7 +110,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             <p className="text-xs font-medium truncate text-gray-700">{session?.user?.name || "管理者"}</p>
           </div>
           <button
-            onClick={() => signOut({ callbackUrl: "/admin/login" })}
+            onClick={() => signOut({ callbackUrl: `${window.location.origin}/admin/login` })}
             className="text-gray-400 hover:text-gray-700 transition-colors"
             title="ログアウト"
           >
