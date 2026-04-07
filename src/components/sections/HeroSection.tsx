@@ -22,7 +22,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-sm font-medium tracking-[0.2em] text-gray-400 uppercase mb-6"
+            className="text-sm font-medium tracking-[0.2em] text-white/50 uppercase mb-6"
           >
             <span className="sm:hidden">School Support AI<br />&times;<br />Safety Driving</span>
             <span className="hidden sm:inline">School Support AI &times; Safety Driving</span>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mt-8 text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto"
+            className="mt-8 text-base sm:text-lg text-white/60 leading-relaxed max-w-xl mx-auto"
           >
             テクノロジーと安全で、社会に貢献する。
           </motion.p>
@@ -46,7 +46,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--color-primary)] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }
