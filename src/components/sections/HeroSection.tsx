@@ -28,10 +28,10 @@ export default function HeroSection() {
             <span className="hidden sm:inline">School Support AI &times; Safety Driving</span>
           </motion.p>
           <h1 className="text-[clamp(1.75rem,7vw,4.5rem)] font-bold text-[var(--color-primary)] leading-[1.15] tracking-tight">
-            テクノロジーと安全で、
+            運転も、業務も、
             <br />
             <span className="bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              社会に貢献する。
+              隣で支える。
             </span>
           </h1>
           <motion.p
@@ -40,8 +40,7 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mt-8 text-base sm:text-lg text-[var(--color-text-light)] leading-relaxed max-w-xl mx-auto"
           >
-            AI業務自動化・HP制作と安全運転講習の2つの事業を柱に、<br />
-            企業の課題解決に取り組みます。
+            テクノロジーと安全で、社会に貢献する。
           </motion.p>
         </motion.div>
       </div>
