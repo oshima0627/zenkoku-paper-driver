@@ -33,7 +33,7 @@ export default function Footer() {
         {/* Logo & tagline */}
         <div className="mb-12">
           <Link href="/" className="flex items-center mb-4">
-            <Logo size="lg" />
+            <Logo size="lg" theme="dark" />
           </Link>
           <p className="text-sm text-white/50 leading-relaxed">
             テクノロジーと安全で、社会に貢献する。
