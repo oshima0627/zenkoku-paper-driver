@@ -4,6 +4,14 @@ import { useChat } from "@ai-sdk/react";
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const QUICK_QUESTIONS = [
+  "料金を教えてください",
+  "対応エリアはどこですか？",
+  "AI業務自動化とは？",
+  "ペーパードライバー講習について",
+  "お問い合わせ方法は？",
+];
+
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -19,6 +27,13 @@ export default function ChatBot() {
     setInput("");
     await sendMessage({ text });
   }
+
+  async function handleQuickQuestion(text: string) {
+    if (isLoading) return;
+    await sendMessage({ text });
+  }
+
+  const showQuickQuestions = messages.length === 0;
 
   return (
     <>
@@ -46,8 +61,9 @@ export default function ChatBot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0, 1] }}
             className="fixed bottom-24 right-4 z-50 w-[calc(100vw-32px)] sm:w-[380px] bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-[var(--color-border)]/30 flex flex-col overflow-hidden"
-            style={{ height: "min(520px, calc(100dvh - 120px))" }}
+            style={{ height: "min(560px, calc(100dvh - 120px))" }}
           >
+            {/* Header */}
             <div className="px-5 py-4 flex items-center gap-3 border-b border-[var(--color-border)]/30">
               <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center">
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,12 +76,30 @@ export default function ChatBot() {
               </div>
             </div>
 
+            {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
-              {messages.length === 0 && (
-                <div className="bg-[var(--color-bg-gray)] rounded-2xl p-3.5 text-sm text-[var(--color-text-light)] max-w-[85%] leading-relaxed">
-                  こんにちは！スクールサポートAI事業や安全運転講習など、お気軽にご質問ください。
+              {/* Greeting */}
+              <div className="bg-[var(--color-bg-gray)] rounded-2xl p-3.5 text-sm text-[var(--color-text-light)] max-w-[85%] leading-relaxed">
+                こんにちは！スクールサポートAI事業や安全運転講習など、お気軽にご質問ください。
+              </div>
+
+              {/* Quick question buttons */}
+              {showQuickQuestions && (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {QUICK_QUESTIONS.map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => handleQuickQuestion(q)}
+                      disabled={isLoading}
+                      className="text-xs px-3 py-2 rounded-full border border-[var(--color-accent)]/30 text-[var(--color-accent)] hover:bg-blue-50 transition-colors duration-200 disabled:opacity-40"
+                    >
+                      {q}
+                    </button>
+                  ))}
                 </div>
               )}
+
+              {/* Chat messages */}
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`rounded-2xl p-3.5 text-sm max-w-[85%] ${msg.role === "user" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-bg-gray)] text-[var(--color-primary)]"}`}>
@@ -75,6 +109,8 @@ export default function ChatBot() {
                   </div>
                 </div>
               ))}
+
+              {/* Loading indicator */}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
                 <div className="flex justify-start">
                   <div className="bg-[var(--color-bg-gray)] rounded-2xl p-3.5 text-sm text-[var(--color-text-light)]">
@@ -89,6 +125,7 @@ export default function ChatBot() {
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Input */}
             <form onSubmit={handleSubmit} className="border-t border-[var(--color-border)]/30 p-3 flex gap-2">
               <input
                 value={input}
