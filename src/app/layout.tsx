@@ -3,9 +3,9 @@ import "./globals.css";
 import SiteShell from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
-  title: "企業向け安全運転講習専門スクール｜全国ペーパードライバー協会",
+  title: "企業向け安全運転講習専門スクール｜Co-Drive Lab",
   description:
-    "全国ペーパードライバー協会は、企業向け安全運転講習を専門とするプロフェッショナル集団です。交通社会の専門家が全国どこでも出張対応いたします。",
+    "Co-Drive Labは、企業向け安全運転講習を専門とするプロフェッショナル集団です。交通社会の専門家が全国どこでも出張対応いたします。",
 };
 
 export default function RootLayout({

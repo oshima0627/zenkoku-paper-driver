@@ -19,7 +19,7 @@ const values = [
 ];
 
 const companyInfo = [
-  { label: "協会名", value: "全国ペーパードライバー協会" },
+  { label: "協会名", value: "Co-Drive Lab" },
   { label: "代表", value: "東山　勇人" },
   { label: "住所", value: "〒531-0071\n大阪市北区中津６丁目7-7-5F" },
   { label: "メールアドレス", value: "info@kyokai-npd.com" },
@@ -43,7 +43,7 @@ export default function AboutSection() {
             <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">Mission</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight mb-6">私たちの使命</h2>
             <p className="text-[15px] text-[var(--color-text-light)] leading-[1.9] max-w-2xl mx-auto">
-              全国ペーパードライバー協会は、<span className="text-[var(--color-primary)] font-semibold">スクールサポートAI事業</span>と<span className="text-[var(--color-primary)] font-semibold">安全運転講習事業(協会)</span>の2つの柱を通じて、企業の課題解決と社会貢献に取り組んでいます。テクノロジーの力で業務を効率化し、プロフェッショナルな講習で交通安全を実現する。この2つのアプローチで、より良い社会づくりを目指します。
+              Co-Drive Labは、<span className="text-[var(--color-primary)] font-semibold">スクールサポートAI事業</span>と<span className="text-[var(--color-primary)] font-semibold">安全運転講習事業</span>の2つの柱を通じて、企業の課題解決と社会貢献に取り組んでいます。テクノロジーの力で業務を効率化し、プロフェッショナルな講習で交通安全を実現する。この2つのアプローチで、より良い社会づくりを目指します。
             </p>
           </motion.div>
 
@@ -94,7 +94,7 @@ export default function AboutSection() {
             </div>
 
             <div className="space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9]">
-              <p>全国ペーパードライバー協会のホームページをご覧いただき、誠にありがとうございます。</p>
+              <p>Co-Drive Labのホームページをご覧いただき、誠にありがとうございます。</p>
               <p>当協会は、ペーパードライバースクールを展開するメンバーと元白バイ隊員と共に設立した法人向け安全運転講習専門の団体です。さらに、AIの力で企業の業務効率化やDX推進を支援する<span className="text-[var(--color-primary)] font-semibold">スクールサポートAI事業</span>を新たな柱として展開しています。</p>
               <p>AI業務自動化やHP制作といったテクノロジー分野と、国家資格保持者・元白バイ隊員によるプロフェッショナルな安全運転講習。この2つの事業を通じて、社会に貢献していくことが私たちの使命です。</p>
               <p>唯一無二のプロフェッショナル集団として、お客様それぞれの最適解を提案し、これからも歩み続けていきます。</p>

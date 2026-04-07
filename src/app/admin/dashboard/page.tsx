@@ -13,7 +13,7 @@ export default function DashboardPage() {
     <div className="p-8">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">ダッシュボード</h1>
-        <p className="text-sm text-gray-500 mt-1">全国ペーパードライバー協会 管理画面</p>
+        <p className="text-sm text-gray-500 mt-1">Co-Drive Lab 管理画面</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

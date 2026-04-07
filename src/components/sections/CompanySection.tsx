@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const companyInfo = [
-  { label: "協会名", value: "全国ペーパードライバー協会" },
+  { label: "協会名", value: "Co-Drive Lab" },
   { label: "代表", value: "東山　勇人" },
   { label: "住所", value: "〒531-0071\n大阪市北区中津６丁目7-7-5F" },
   { label: "メールアドレス", value: "info@kyokai-npd.com" },

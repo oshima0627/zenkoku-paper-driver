@@ -13,7 +13,7 @@ const businesses = [
     iconBg: "bg-gradient-to-br from-blue-500 to-cyan-400",
   },
   {
-    title: "安全運転講習事業(協会)",
+    title: "安全運転講習事業",
     description: "国家資格保持者による企業向け安全運転講習を全国で提供します。",
     features: ["企業向け安全運転講習", "全国出張対応", "元白バイ隊員監修"],
     href: "/driving",

@@ -78,7 +78,7 @@ export default function PriceSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold mb-4">安全運転講習事業（協会）</span>
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold mb-4">安全運転講習事業</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">料金案内</h2>
           </motion.div>
 

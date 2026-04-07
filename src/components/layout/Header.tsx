@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const businessButtons = [
   { label: "スクールサポートAI事業", href: "/ai-support" },
-  { label: "安全運転講習事業(協会)", href: "/driving" },
+  { label: "安全運転講習事業", href: "/driving" },
 ];
 
 const navItems = [
@@ -25,7 +25,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image src="/association-logo.png" alt="ロゴ" width={64} height={36} className="h-8 w-auto object-contain" />
             <span className="text-xs sm:text-sm font-semibold text-[var(--color-primary)]">
-              全国ペーパードライバー協会
+              Co-Drive Lab
             </span>
           </Link>
 

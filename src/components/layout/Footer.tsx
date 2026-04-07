@@ -6,7 +6,7 @@ const footerLinks = [
     title: "事業内容",
     items: [
       { label: "スクールサポートAI事業", href: "/ai-support" },
-      { label: "安全運転講習事業(協会)", href: "/driving" },
+      { label: "安全運転講習事業", href: "/driving" },
     ],
   },
   {
@@ -35,7 +35,7 @@ export default function Footer() {
           <Link href="/" className="flex items-center gap-3 mb-4">
             <Image src="/association-logo.png" alt="ロゴ" width={48} height={28} className="h-7 w-auto object-contain" />
             <span className="text-base font-semibold text-white">
-              全国ペーパードライバー協会
+              Co-Drive Lab
             </span>
           </Link>
           <p className="text-sm text-white/50 leading-relaxed">
@@ -64,7 +64,7 @@ export default function Footer() {
         {/* Divider + copyright */}
         <div className="border-t border-white/10 pt-6">
           <p className="text-xs text-white/30 tracking-wider text-center">
-            &copy; {new Date().getFullYear()} 全国ペーパードライバー協会 All rights Reserved.
+            &copy; {new Date().getFullYear()} Co-Drive Lab All rights Reserved.
           </p>
         </div>
       </div>

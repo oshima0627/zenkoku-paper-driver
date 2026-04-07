@@ -59,7 +59,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
       <div className="p-4 border-b border-gray-200">
         <Link href="/admin/dashboard" className="flex items-center gap-3" onClick={onClose}>
           <div className="shrink-0">
-            <Image src="/association-logo.png" alt="全国ペーパードライバー協会ロゴ" width={128} height={70} className="h-10 w-auto object-contain" />
+            <Image src="/association-logo.png" alt="Co-Drive Labロゴ" width={128} height={70} className="h-10 w-auto object-contain" />
           </div>
           <div>
             <p className="text-sm font-bold text-gray-900">管理画面</p>
