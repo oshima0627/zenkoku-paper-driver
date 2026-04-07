@@ -30,7 +30,7 @@ const aiPlans = [
     title: "AI業務自動化",
     subtitle: "DX推進・業務効率化",
     description: "業務内容に応じて最適なプランをご提案します。",
-    price: "¥20,000〜",
+    price: "¥10,000〜",
     unit: "/ 月",
     note: "業務内容に応じてお見積り",
   },
