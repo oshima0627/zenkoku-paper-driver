@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-3rem)] flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-gray-800">
+    <section className="relative min-h-[calc(100dvh-3rem)] flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-gray-800">
       {/* Subtle gradient orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-15%] right-[-5%] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px]" />
