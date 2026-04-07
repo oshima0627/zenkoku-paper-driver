@@ -9,10 +9,11 @@ interface LogoMarkProps {
 
 /**
  * Co-Drive Lab のシンボルマーク
- * - 270°アーク: スピードメーター（Drive）/ 計測器の文字盤（Lab）
- * - 斜めの針: 前進・成長ベクトル（11時方向 = 上昇トレンド）
- * - 中央ピボット: 2事業を束ねる軸
- * - ティップノード: 目的地 / イノベーション
+ * モダンな3スポーク・ステアリングホイールを忠実に再現:
+ * - 外周リム（円形ハンドル）
+ * - T字型3スポーク（左右水平 + 下方向 / BMW・Tesla 等の主流配置）
+ * - 中央ハブ（エアバッグ/ホーン部）
+ * - 12時マーカー（直進位置インジケーター: Ferrari/Porsche 等のレーシング仕様）
  */
 export const LogoMark = memo(function LogoMark({ className, title = "Co-Drive Lab" }: LogoMarkProps) {
   return (
@@ -30,31 +31,58 @@ export const LogoMark = memo(function LogoMark({ className, title = "Co-Drive La
         </linearGradient>
       </defs>
 
-      {/* Speedometer arc — 270°, opening at bottom (Drive + Lab dial) */}
-      <path
-        d="M 16.4 47.6 A 22 22 0 1 1 47.6 47.6"
+      {/* Outer rim */}
+      <circle
+        cx="32"
+        cy="32"
+        r="26"
         fill="none"
         stroke="url(#cdl-logo-grad)"
-        strokeWidth="5"
+        strokeWidth="3.5"
+      />
+
+      {/* 12 o'clock straight-ahead marker (racing wheel detail) */}
+      <line
+        x1="28"
+        y1="9.5"
+        x2="36"
+        y2="9.5"
+        stroke="#3b82f6"
+        strokeWidth="2.5"
         strokeLinecap="round"
       />
 
-      {/* Needle — forward/growth vector pointing to ~11 o'clock */}
+      {/* T-shape 3 spokes: left horizontal, right horizontal, bottom */}
       <line
         x1="32"
         y1="32"
-        x2="44"
-        y2="18"
+        x2="10"
+        y2="32"
         stroke="url(#cdl-logo-grad)"
-        strokeWidth="4.5"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <line
+        x1="32"
+        y1="32"
+        x2="54"
+        y2="32"
+        stroke="url(#cdl-logo-grad)"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <line
+        x1="32"
+        y1="32"
+        x2="32"
+        y2="54"
+        stroke="url(#cdl-logo-grad)"
+        strokeWidth="4"
         strokeLinecap="round"
       />
 
-      {/* Center pivot */}
-      <circle cx="32" cy="32" r="3.8" fill="#3b82f6" />
-
-      {/* Tip node — destination / innovation */}
-      <circle cx="44" cy="18" r="3" fill="#06b6d4" />
+      {/* Center hub (airbag / horn) */}
+      <circle cx="32" cy="32" r="7.5" fill="url(#cdl-logo-grad)" />
     </svg>
   );
 });
