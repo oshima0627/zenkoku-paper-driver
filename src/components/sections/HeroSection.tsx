@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100dvh-3rem)] flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-gray-800">
-      {/* Subtle gradient orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-15%] right-[-5%] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[100px]" />
-        <div className="absolute top-[40%] left-[30%] w-[300px] h-[300px] bg-blue-400/10 rounded-full blur-[80px]" />
+    <section className="relative min-h-[calc(100dvh-3rem)] flex items-center overflow-hidden bg-[var(--color-primary)]">
+      {/* Gradient mesh background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-[120px]" />
+        <div className="absolute top-[30%] left-[40%] w-[400px] h-[400px] bg-cyan-400/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative max-w-5xl mx-auto px-6 py-20 text-center">
@@ -46,7 +46,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--color-primary)] to-transparent" />
     </section>
   );
 }
