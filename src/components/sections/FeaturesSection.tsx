@@ -19,8 +19,8 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ),
-    title: "全国出張対応",
-    description: "北海道から沖縄まで、全国どこでも出張講習に対応。御社のご指定場所で実施可能です。",
+    title: "関西エリア対応（順次全国展開予定）",
+    description: "現在は関西エリアを中心に出張講習に対応。御社のご指定場所で実施可能です。順次全国展開予定です。",
   },
   {
     icon: (

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const businesses = [
   {
     title: "スクールサポートAI事業",
-    description: "AI業務自動化やHP制作を通じて、企業のDX推進と業務効率化を支援します。",
+    description: "AI業務自動化やHP制作を通じて、企業のDX推進と業務効率化を支援します。まずはペーパードライバースクールのサポートから始めます。",
     features: ["AI業務自動化", "HP制作・運用", "DXコンサルティング"],
     href: "/ai-support",
     gradient: "from-blue-500 to-cyan-400",
@@ -14,8 +14,8 @@ const businesses = [
   },
   {
     title: "安全運転講習事業",
-    description: "国家資格保持者による企業向け安全運転講習を全国で提供します。",
-    features: ["企業向け安全運転講習", "全国出張対応", "元白バイ隊員監修"],
+    description: "国家資格保持者による企業向け安全運転講習を提供します。現在は関西地区のみ対応、順次全国展開予定です。",
+    features: ["企業向け安全運転講習", "現在は関西地区のみ（順次全国対応予定）", "元白バイ隊員監修"],
     href: "/driving",
     gradient: "from-purple-500 to-pink-400",
     iconBg: "bg-gradient-to-br from-purple-500 to-pink-400",
