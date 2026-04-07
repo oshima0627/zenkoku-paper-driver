@@ -53,7 +53,11 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 mb-10"
           >
             <span className="w-6 h-px bg-blue-500/60" />
-            <span className="text-[11px] font-semibold tracking-[0.35em] text-blue-400/80 uppercase flex flex-col items-center leading-relaxed">
+            {/* PC: 1行, スマホ: 3行 */}
+            <span className="text-[11px] font-semibold tracking-[0.35em] text-blue-400/80 uppercase hidden sm:inline">
+              School Support AI &times; Safety Driving
+            </span>
+            <span className="text-[11px] font-semibold tracking-[0.35em] text-blue-400/80 uppercase flex flex-col items-center leading-relaxed sm:hidden">
               <span>School Support AI</span>
               <span>&times;</span>
               <span>Safety Driving</span>
