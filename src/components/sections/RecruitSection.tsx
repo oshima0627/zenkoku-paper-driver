@@ -25,7 +25,7 @@ export default function RecruitSection() {
           className="bg-white rounded-3xl p-8 md:p-10 shadow-md"
         >
           <div className="space-y-5 text-[15px] text-[var(--color-text-light)] leading-[1.9]">
-            <p>現在、当協会ではペーパードライバー講習や企業向け安全運転講習の事業サポートを全国で積極的に行っております。</p>
+            <p>現在、当ラボではペーパードライバー講習や企業向け安全運転講習の事業サポートを全国で積極的に行っております。</p>
             <p>私自身も、立ち上げ当初は一人ではなく老舗スクールからの手厚いサポートを受けてスタートしました。その経験を活かし、同じ志を持つ皆さまのチャレンジを<span className="font-semibold text-[var(--color-primary)]">全力でサポート</span>いたします。</p>
             <p>まずは<span className="font-semibold text-[var(--color-primary)]">業務委託という形</span>で一緒にお仕事を始めることも可能です。</p>
             <p>また、<span className="font-semibold text-[var(--color-primary)]">提携スクールの募集</span>も随時受付しております。お気軽にご連絡ください。</p>

@@ -10,7 +10,7 @@ const footerLinks = [
     ],
   },
   {
-    title: "協会について",
+    title: "ラボについて",
     items: [
       { label: "私たちについて", href: "/#about" },
       { label: "会社概要", href: "/#company" },
