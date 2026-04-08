@@ -58,8 +58,8 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
       {/* Logo */}
       <div className="p-4 border-b border-gray-200">
         <Link href="/admin/dashboard" className="flex items-center gap-3" onClick={onClose}>
-          <div className="shrink-0">
-            <LogoMark className="h-10" />
+          <div className="shrink-0 bg-[#1a2d4a] rounded-xl p-1.5">
+            <LogoMark size="sm" theme="dark" />
           </div>
           <div>
             <p className="text-sm font-bold text-gray-900">管理画面</p>

@@ -30,9 +30,9 @@ export default function HeroSection() {
         <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px]" />
       </div>
 
-      {/* Horizontal light beam */}
+      {/* Horizontal light beam — PCのみ */}
       <div
-        className="absolute left-0 right-0 top-[68%] sm:top-1/2 -translate-y-1/2 h-[1px] opacity-25"
+        className="hidden sm:block absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] opacity-25"
         style={{
           background: "linear-gradient(to right, transparent 0%, #3b82f6 25%, #06b6d4 50%, #3b82f6 75%, transparent 100%)",
         }}
@@ -80,6 +80,14 @@ export default function HeroSection() {
               社会に貢献する。
             </span>
           </h1>
+
+          {/* スマホ専用: 見出し直下の横線 */}
+          <div
+            className="sm:hidden w-full h-[1px] mt-6 opacity-30"
+            style={{
+              background: "linear-gradient(to right, transparent 0%, #3b82f6 25%, #06b6d4 50%, #3b82f6 75%, transparent 100%)",
+            }}
+          />
 
           {/* Subtext */}
           <motion.p
