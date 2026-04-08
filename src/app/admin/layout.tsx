@@ -36,7 +36,7 @@ export default function AdminLayout({
                 </svg>
               </button>
               <div className="flex items-center gap-2">
-                <Image src="/association-logo.png" alt="ロゴ" width={128} height={70} className="h-7 w-auto object-contain" />
+                <Image src="/IMG_3727.png" alt="ロゴ" width={128} height={128} className="h-7 w-7 object-contain" />
                 <p className="text-sm font-bold text-gray-900">管理画面</p>
               </div>
             </div>
