@@ -67,7 +67,7 @@ export default function HeroSection() {
 
           {/* Heading */}
           <h1 className="text-[clamp(2rem,8vw,5rem)] font-bold leading-[1.1] tracking-tight">
-            <span className="block text-white">運転も、業務も、</span>
+            <span className="block text-white">テクノロジーと安全で、</span>
             <span
               className="block mt-1"
               style={{
@@ -77,7 +77,7 @@ export default function HeroSection() {
                 backgroundClip: "text",
               }}
             >
-              隣で支える。
+              社会に貢献する。
             </span>
           </h1>
 
@@ -88,7 +88,7 @@ export default function HeroSection() {
             transition={{ delay: 0.35, duration: 0.8 }}
             className="mt-10 text-base sm:text-lg text-white/40 leading-relaxed tracking-wide"
           >
-            テクノロジーと安全で、社会に貢献する。
+            運転も、業務も、隣で支える。
           </motion.p>
         </motion.div>
       </div>
