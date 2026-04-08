@@ -2,8 +2,9 @@ import Image from "next/image";
 import { memo } from "react";
 
 const LOGO_SRC_LIGHT = "/IMG_3727.png";
+const LOGO_NATIVE_SIZE_LIGHT = 488;
 const LOGO_SRC_DARK = "/IMG_3737.png";
-const LOGO_NATIVE_SIZE = 488;
+const LOGO_NATIVE_SIZE_DARK = 768;
 
 type Theme = "light" | "dark";
 
@@ -24,14 +25,15 @@ const MARK_SIZE: Record<NonNullable<LogoMarkProps["size"]>, string> = {
  */
 export const LogoMark = memo(function LogoMark({ className, size = "md", theme = "light" }: LogoMarkProps) {
   const src = theme === "dark" ? LOGO_SRC_DARK : LOGO_SRC_LIGHT;
+  const nativeSize = theme === "dark" ? LOGO_NATIVE_SIZE_DARK : LOGO_NATIVE_SIZE_LIGHT;
   return (
     <Image
       src={src}
       alt="Co-Drive Lab"
-      width={LOGO_NATIVE_SIZE}
-      height={LOGO_NATIVE_SIZE}
+      width={nativeSize}
+      height={nativeSize}
       priority
-      className={`${MARK_SIZE[size]} object-contain rounded-lg ${className ?? ""}`}
+      className={`${MARK_SIZE[size]} object-contain ${className ?? ""}`}
     />
   );
 });
