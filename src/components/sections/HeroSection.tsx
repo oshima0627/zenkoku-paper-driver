@@ -32,7 +32,7 @@ export default function HeroSection() {
 
       {/* Horizontal light beam */}
       <div
-        className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] opacity-25"
+        className="absolute left-0 right-0 top-[68%] sm:top-1/2 -translate-y-1/2 h-[1px] opacity-25"
         style={{
           background: "linear-gradient(to right, transparent 0%, #3b82f6 25%, #06b6d4 50%, #3b82f6 75%, transparent 100%)",
         }}
