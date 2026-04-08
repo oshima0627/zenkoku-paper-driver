@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { memo } from "react";
 
-const LOGO_SRC = "/IMG_3727.png";
+const LOGO_SRC_LIGHT = "/IMG_3727.png";
+const LOGO_SRC_DARK = "/IMG_3737.png";
 const LOGO_NATIVE_SIZE = 488;
 
 type Theme = "light" | "dark";
@@ -9,6 +10,7 @@ type Theme = "light" | "dark";
 interface LogoMarkProps {
   className?: string;
   size?: "sm" | "md" | "lg";
+  theme?: Theme;
 }
 
 const MARK_SIZE: Record<NonNullable<LogoMarkProps["size"]>, string> = {
@@ -20,15 +22,16 @@ const MARK_SIZE: Record<NonNullable<LogoMarkProps["size"]>, string> = {
 /**
  * Co-Drive Lab シンボルマーク（画像単体）
  */
-export const LogoMark = memo(function LogoMark({ className, size = "md" }: LogoMarkProps) {
+export const LogoMark = memo(function LogoMark({ className, size = "md", theme = "light" }: LogoMarkProps) {
+  const src = theme === "dark" ? LOGO_SRC_DARK : LOGO_SRC_LIGHT;
   return (
     <Image
-      src={LOGO_SRC}
+      src={src}
       alt="Co-Drive Lab"
       width={LOGO_NATIVE_SIZE}
       height={LOGO_NATIVE_SIZE}
       priority
-      className={`${MARK_SIZE[size]} object-contain ${className ?? ""}`}
+      className={`${MARK_SIZE[size]} object-contain rounded-lg ${className ?? ""}`}
     />
   );
 });
@@ -55,7 +58,7 @@ export const Logo = memo(function Logo({ className, theme = "light", size = "md"
 
   return (
     <span className={`inline-flex items-center gap-2.5 ${className ?? ""}`}>
-      <LogoMark size={size} />
+      <LogoMark size={size} theme={theme} />
       <span className={`${TEXT_SIZE[size]} font-bold tracking-tight leading-none`}>
         <span className={coDriveColor}>Co-Drive</span>
         <span className={`ml-0.5 bg-gradient-to-r ${labGradient} bg-clip-text text-transparent`}>
