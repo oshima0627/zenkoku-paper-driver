@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const companyInfo = [
-  { label: "ラボ名", value: "Co-Drive Lab" },
+  { label: "社名", value: "Co-Drive Lab" },
   { label: "代表", value: "東山　勇人" },
   { label: "住所", value: "〒531-0071\n大阪市北区中津６丁目7-7-5F" },
   { label: "メールアドレス", value: "info@kyokai-npd.com" },
