@@ -42,6 +42,7 @@ interface LogoProps {
   className?: string;
   theme?: Theme;
   size?: "sm" | "md" | "lg";
+  iconSize?: "sm" | "md" | "lg";
 }
 
 const TEXT_SIZE: Record<NonNullable<LogoProps["size"]>, string> = {
@@ -53,14 +54,14 @@ const TEXT_SIZE: Record<NonNullable<LogoProps["size"]>, string> = {
 /**
  * Co-Drive Lab フルロゴ（シンボル + ワードマーク）
  */
-export const Logo = memo(function Logo({ className, theme = "light", size = "md" }: LogoProps) {
+export const Logo = memo(function Logo({ className, theme = "light", size = "md", iconSize }: LogoProps) {
   const coDriveColor = theme === "dark" ? "text-white" : "text-[var(--color-primary)]";
   const labGradient =
     theme === "dark" ? "from-blue-400 to-cyan-300" : "from-blue-500 to-cyan-400";
 
   return (
     <span className={`inline-flex items-center gap-2.5 ${className ?? ""}`}>
-      <LogoMark size={size} theme={theme} />
+      <LogoMark size={iconSize ?? size} theme={theme} />
       <span className={`${TEXT_SIZE[size]} font-bold tracking-tight leading-none`}>
         <span className={coDriveColor}>Co-Drive</span>
         <span className={`ml-0.5 bg-gradient-to-r ${labGradient} bg-clip-text text-transparent`}>
