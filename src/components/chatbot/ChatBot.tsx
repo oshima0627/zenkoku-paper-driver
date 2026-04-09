@@ -3,6 +3,12 @@
 import { useChat } from "@ai-sdk/react";
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { remark } from "remark";
+import remarkHtml from "remark-html";
+
+function renderMarkdown(content: string): string {
+  return remark().use(remarkHtml, { sanitize: false }).processSync(content).toString();
+}
 
 const QUICK_QUESTIONS = [
   "料金を教えてください",
@@ -100,15 +106,23 @@ export default function ChatBot() {
               )}
 
               {/* Chat messages */}
-              {messages.map((msg) => (
-                <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                  <div className={`rounded-2xl p-3.5 text-sm max-w-[85%] ${msg.role === "user" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-bg-gray)] text-[var(--color-primary)]"}`}>
-                    <p className="whitespace-pre-wrap leading-relaxed">
-                      {msg.parts?.filter((part) => part.type === "text").map((part) => part.text).join("") || ""}
-                    </p>
+              {messages.map((msg) => {
+                const text = msg.parts?.filter((part) => part.type === "text").map((part) => part.text).join("") || "";
+                return (
+                  <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                    <div className={`rounded-2xl p-3.5 text-sm max-w-[85%] ${msg.role === "user" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-bg-gray)] text-[var(--color-primary)]"}`}>
+                      {msg.role === "assistant" ? (
+                        <div
+                          className="prose prose-sm max-w-none leading-relaxed [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_li]:my-0.5 [&_strong]:font-semibold [&_p]:my-1"
+                          dangerouslySetInnerHTML={{ __html: renderMarkdown(text) }}
+                        />
+                      ) : (
+                        <p className="whitespace-pre-wrap leading-relaxed">{text}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               {/* Loading indicator */}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
