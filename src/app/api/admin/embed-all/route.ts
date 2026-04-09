@@ -88,7 +88,7 @@ HP制作・運用サービス:
 - 保守運用
 料金: 個別お見積り
 
-業務委託パートナー: Nexeed Lab（https://www.nexeed-web.com/）と連携`,
+業務委託パートナー: Nexeed Lab（https://www.nexeed-lab.com/）と連携`,
   },
   {
     id: "faq",

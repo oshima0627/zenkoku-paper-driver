@@ -17,7 +17,7 @@ const SYSTEM_PROMPT = `あなたはCo-Drive LabのAIアシスタントです。
 ■ スクールサポートAI事業（メイン事業）
 - AI業務自動化（業務プロセス分析、チャットボット導入、データ処理自動化、カスタムAIツール開発）
 - HP制作・運用（モダンなWebデザイン、レスポンシブ対応、SEO対策、保守運用）
-- 業務委託パートナーとしてNexeed Lab（https://www.nexeed-web.com/）と連携
+- 業務委託パートナーとしてNexeed Lab（https://www.nexeed-lab.com/）と連携
 - 料金は個別お見積り
 
 ■ 安全運転講習事業
