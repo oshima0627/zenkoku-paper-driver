@@ -113,7 +113,7 @@ export default function ChatBot() {
                     <div className={`rounded-2xl p-3.5 text-sm max-w-[85%] ${msg.role === "user" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-bg-gray)] text-[var(--color-primary)]"}`}>
                       {msg.role === "assistant" ? (
                         <div
-                          className="prose prose-sm max-w-none leading-relaxed [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_li]:my-0.5 [&_strong]:font-semibold [&_p]:my-1"
+                          className="prose prose-sm max-w-none leading-relaxed [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-4 [&_ol]:list-decimal [&_ol]:pl-4 [&_li]:my-0.5 [&_strong]:font-semibold [&_p]:my-1 [&_a]:text-[var(--color-accent)] [&_a]:underline [&_a]:underline-offset-2 [&_a]:font-medium"
                           dangerouslySetInnerHTML={{ __html: renderMarkdown(text) }}
                         />
                       ) : (
