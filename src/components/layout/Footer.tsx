@@ -14,6 +14,7 @@ const footerLinks = [
     items: [
       { label: "私たちについて", href: "/#about" },
       { label: "会社概要", href: "/#company" },
+      { label: "新着情報", href: "/news" },
       { label: "ブログ", href: "/blog" },
     ],
   },

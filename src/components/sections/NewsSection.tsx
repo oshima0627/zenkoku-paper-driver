@@ -32,7 +32,7 @@ export default async function NewsSection() {
             <p className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent)] uppercase mb-3">News</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)] tracking-tight">新着情報</h2>
           </div>
-          <Link href="/blog" className="hidden md:flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:gap-3 transition-all duration-300">
+          <Link href="/news" className="hidden md:flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:gap-3 transition-all duration-300">
             すべて見る
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -58,7 +58,7 @@ export default async function NewsSection() {
         </div>
 
         <div className="mt-6 text-center md:hidden">
-          <Link href="/blog" className="text-sm font-medium text-[var(--color-accent)] hover:underline">
+          <Link href="/news" className="text-sm font-medium text-[var(--color-accent)] hover:underline">
             すべて見る
           </Link>
         </div>

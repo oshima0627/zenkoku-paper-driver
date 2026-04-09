@@ -13,6 +13,8 @@ const businessButtons = [
 const navItems = [
   { label: "私たちについて", href: "/#about" },
   { label: "会社概要", href: "/#company" },
+  { label: "ニュース", href: "/news" },
+  { label: "ブログ", href: "/blog" },
 ];
 
 export default function Header() {
