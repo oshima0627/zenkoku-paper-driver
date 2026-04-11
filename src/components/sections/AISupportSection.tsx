@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AutomationDemoSection from "./AutomationDemoSection";
 
 const services = [
   {
@@ -96,6 +97,9 @@ export default function AISupportSection() {
           </div>
         </div>
       </section>
+
+      {/* Automation Demo */}
+      <AutomationDemoSection />
 
       {/* Flow */}
       <section id="ai-flow" className="py-28 md:py-36">
