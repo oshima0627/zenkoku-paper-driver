@@ -2,7 +2,11 @@
 
 import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
-import TiptapEditor from "@/components/admin/TiptapEditor";
+import dynamic from "next/dynamic";
+const TiptapEditor = dynamic(() => import("@/components/admin/TiptapEditor"), {
+  loading: () => <div className="text-center py-16 text-gray-400">エディター読み込み中...</div>,
+  ssr: false,
+});
 
 export default function EditNewsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);

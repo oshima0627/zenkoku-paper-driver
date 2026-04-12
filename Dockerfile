@@ -12,6 +12,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npx prisma generate
+ENV NODE_OPTIONS="--max-old-space-size=512"
 RUN npm run build
 
 # Production
@@ -32,4 +33,4 @@ USER nextjs
 EXPOSE 5678
 ENV PORT=5678
 ENV HOSTNAME="0.0.0.0"
-CMD ["node", "server.js"]
+CMD ["node", "--max-old-space-size=256", "server.js"]
